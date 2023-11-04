@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int _health;
+    [SerializeField] private List<Weapon> _weapons;
+    
+
+    private Weapon _curentWeapon;
+    private int _currentHealth;
+    private Animator _animator;
+
+    public Weapon CurrentWeapon => _curentWeapon;
+
+    private void Start()
     {
-        
+        _animator = GetComponentInChildren<Animator>();
+        _curentWeapon = _weapons[0];
+        _currentHealth = _health;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
