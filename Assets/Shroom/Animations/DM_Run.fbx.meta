@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: af7cd7a3ce0465d4d92c8046b5428672
+guid: 89229aa4e68e23749a4b4da389328ca5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,9 +33,9 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Gun_Walk_Shoot
-      takeName: Gun_Walk_Shoot
-      internalID: 141736429536978715
+      name: DM_Run
+      takeName: DM_Run
+      internalID: -3590297409298745925
       firstFrame: 0
       lastFrame: 22
       wrapMode: 0
@@ -357,6 +357,11 @@ ModelImporter:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
+    - name: SK_Bag
+      parentName: SK_DeadMoroz(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: SM_DeadMrz
       parentName: SK_DeadMoroz(Clone)
       position: {x: -0, y: 0, z: 0}
@@ -482,16 +487,11 @@ ModelImporter:
       position: {x: -0.00000005401671, y: 0.049366713, z: 0.00000012293458}
       rotation: {x: -0.0601871, y: -0.0005389132, z: 0.0579068, w: 0.9965059}
       scale: {x: 0.99999994, y: 1, z: 1}
-    - name: bag_bone
+    - name: Def_bag
       parentName: spine1
-      position: {x: -0.00464625, y: -0.20377977, z: -0.4417396}
-      rotation: {x: 0.07530191, y: 0.00000011887338, z: -0.000000009010251, w: 0.9971608}
-      scale: {x: 1, y: 1, z: 1}
-    - name: SM_Bag
-      parentName: bag_bone
-      position: {x: 0.0046461457, y: -0.19969034, z: 0.49809167}
-      rotation: {x: -0.0753019, y: 1.1233737e-12, z: -1.4843108e-11, w: 0.9971608}
-      scale: {x: 1, y: 1, z: 1}
+      position: {x: -0.00463159, y: -0.23278964, z: -0.54313904}
+      rotation: {x: 0.15530428, y: -0.02243261, z: -0.007303962, w: 0.98758495}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1}
     - name: thigh.L
       parentName: hip
       position: {x: -0.1367163, y: -0.014500167, z: -0.05178643}

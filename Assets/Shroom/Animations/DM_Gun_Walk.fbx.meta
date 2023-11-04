@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0272df318bffbe44bb8f20607dbb61c2
+guid: 0ea43b20f5160be4a8bf6f33de220069
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -19,9 +19,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Idle' has import animation warnings that might
-      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
-      retargeting quality.\n\t'spine1' has translation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -35,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: DM_Idle
-      takeName: Idle
-      internalID: -3100369314251171874
+      name: DM_Gun_Walk
+      takeName: DM_Gun_Walk
+      internalID: -4078231858549470765
       firstFrame: 0
-      lastFrame: 38
+      lastFrame: 22
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -359,6 +357,11 @@ ModelImporter:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
+    - name: SK_Bag
+      parentName: SK_DeadMoroz(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: SM_DeadMrz
       parentName: SK_DeadMoroz(Clone)
       position: {x: -0, y: 0, z: 0}
@@ -484,16 +487,11 @@ ModelImporter:
       position: {x: -0.00000005401671, y: 0.049366713, z: 0.00000012293458}
       rotation: {x: -0.0601871, y: -0.0005389132, z: 0.0579068, w: 0.9965059}
       scale: {x: 0.99999994, y: 1, z: 1}
-    - name: bag_bone
+    - name: Def_bag
       parentName: spine1
-      position: {x: -0.00464625, y: -0.20377977, z: -0.4417396}
-      rotation: {x: 0.07530191, y: 0.00000011887338, z: -0.000000009010251, w: 0.9971608}
-      scale: {x: 1, y: 1, z: 1}
-    - name: SM_Bag
-      parentName: bag_bone
-      position: {x: 0.0046461457, y: -0.19969034, z: 0.49809167}
-      rotation: {x: -0.0753019, y: 1.1233737e-12, z: -1.4843108e-11, w: 0.9971608}
-      scale: {x: 1, y: 1, z: 1}
+      position: {x: -0.00463159, y: -0.23278964, z: -0.54313904}
+      rotation: {x: 0.15530428, y: -0.02243261, z: -0.007303962, w: 0.98758495}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1}
     - name: thigh.L
       parentName: hip
       position: {x: -0.1367163, y: -0.014500167, z: -0.05178643}
