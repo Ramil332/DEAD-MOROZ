@@ -10,6 +10,13 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
+ KirillC#
+    m_State: {fileID: 2723501951156389224}
+    m_Position: {x: 320, y: 130, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -1049929840495885253}
+    m_Position: {x: 310, y: 30, z: 0}
+
     m_State: {fileID: 6012629170092420764}
     m_Position: {x: 220, y: 210, z: 0}
   - serializedVersion: 1
@@ -30,6 +37,7 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 1735391060951789758}
     m_Position: {x: 310, y: 70, z: 0}
+main
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
