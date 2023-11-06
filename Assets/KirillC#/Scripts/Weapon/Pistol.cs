@@ -5,9 +5,11 @@ using UnityEngine.InputSystem;
 
 public class Pistol : Weapon
 {
+
     public override void Shoot()
     {
         Debug.Log("ShootBash Bash");
         Instantiate(Bullet, ShootPoint.position, ShootPoint.rotation);
+        AnimatorPlayer.SetTrigger("Fire");
     }
 }

@@ -20,9 +20,10 @@ public class PlayerInputSystem : MonoBehaviour
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.Player.Enable();
         _playerInputActions.Player.Fire.performed += NowFire;
+        _playerInputActions.Player.MelleAttack.performed += MelleAttack;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
                _playerMovement.Move_performend(_playerInputActions.Player.Move.ReadValue<Vector2>());
 
@@ -32,8 +33,15 @@ public class PlayerInputSystem : MonoBehaviour
     {
         if (context.performed)
         {
+            if(_playerController.CurrentWeapon != null)
             _playerController.CurrentWeapon.Shoot();
         }
     }
-   
+    public void MelleAttack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _playerController.MelleAttack();
+        }
+    }
 }
