@@ -10,16 +10,27 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 _mousePositionY;
     private Rigidbody _playerRb;
-
+    private Animator _animator;
 
     private void Awake()
     {
+        _animator = GetComponentInChildren<Animator>();
         _playerRb = GetComponent<Rigidbody>();
     }
 
     public void Move_performend(Vector2 moveVector)
     {
-        _playerRb.AddForce(new Vector3(moveVector.x, 0, moveVector.y) * _speed, ForceMode.Force);
+        Vector3 velocity = new Vector3(moveVector.x * _speed,
+                                      _playerRb.velocity.y,
+                                      moveVector.y * _speed);
+
+        _playerRb.velocity = velocity;
+        //_playerRb.AddForce(new Vector3(moveVector.x, 0, moveVector.y) * _speed, ForceMode.VelocityChange);
+
+        if (moveVector.x != 0 || moveVector.y != 0)
+        _animator.SetBool("Movement", true);
+        else
+            _animator.SetBool("Movement", false);
     }
 
     private void Update()
