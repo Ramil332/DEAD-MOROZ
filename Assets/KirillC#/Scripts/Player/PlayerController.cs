@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,11 @@ public class PlayerController : MonoBehaviour
 
     public Weapon CurrentWeapon => _curentWeapon;
 
+    internal void ApplyDamage(int damage)
+    {
+        throw new NotImplementedException();
+    }
+
     private void Start()
     {
         _animator = GetComponentInChildren<Animator>();
@@ -21,5 +27,14 @@ public class PlayerController : MonoBehaviour
         _currentHealth = _health;
     }
 
+    public void SetCurrentWeapon(Weapon currentWeapon)
+    {
+        _curentWeapon = currentWeapon;
+    }
 
+    public void MelleAttack()
+    {
+        Debug.Log("MelleAttack");
+        _animator.SetTrigger("MelleAttack");
+    }
 }
