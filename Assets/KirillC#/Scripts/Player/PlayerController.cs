@@ -15,10 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public Weapon CurrentWeapon => _curentWeapon;
 
-    internal void ApplyDamage(int damage)
-    {
-        throw new NotImplementedException();
-    }
+    
 
     private void Start()
     {
@@ -36,5 +33,10 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("MelleAttack");
         _animator.SetTrigger("MelleAttack");
+    }
+
+    public void ApplayDamage(int damage)
+    {
+        _health -= damage;
     }
 }

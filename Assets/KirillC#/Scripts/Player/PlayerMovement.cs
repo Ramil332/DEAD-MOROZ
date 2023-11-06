@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
+    [SerializeField] private float _rotationSpeed = 5f;
     [SerializeField] private float _sensitivity = 1f;
 
     private Vector2 _mousePositionY;
@@ -33,10 +34,18 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetBool("Movement", false);
     }
 
+    public void Rotation_performend(Vector2 rotationVector)
+    {
+        transform.localRotation = Quaternion.Euler(0, rotationVector.y * _rotationSpeed, 0);
+    }
+    public void PlayerRotation(Vector2 rotation)
+    {
+        transform.localRotation = Quaternion.Euler(0, rotation.y, 0);
+    }
     private void Update()
     {
         _mousePositionY.y += Input.GetAxis("Mouse X") * _sensitivity;
 
-        transform.localRotation = Quaternion.Euler(0, _mousePositionY.y, 0);
+      //  transform.localRotation = Quaternion.Euler(0, _mousePositionY.y, 0);
     }
 }

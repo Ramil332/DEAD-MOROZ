@@ -20,13 +20,13 @@ public class PlayerInputSystem : MonoBehaviour
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.Player.Enable();
         _playerInputActions.Player.Fire.performed += NowFire;
-        _playerInputActions.Player.MelleAttack.performed += MelleAttack;
+        _playerInputActions.Player.MeleeAttack.performed += MelleAttack;
     }
 
     private void Update()
     {
                _playerMovement.Move_performend(_playerInputActions.Player.Move.ReadValue<Vector2>());
-
+                _playerMovement.Rotation_performend(_playerInputActions.Player.MouseLook.ReadValue<Vector2>());
     }
 
     public void NowFire(InputAction.CallbackContext context)
@@ -44,4 +44,5 @@ public class PlayerInputSystem : MonoBehaviour
             _playerController.MelleAttack();
         }
     }
+   
 }

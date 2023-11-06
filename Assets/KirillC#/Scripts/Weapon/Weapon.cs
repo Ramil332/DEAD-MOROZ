@@ -13,6 +13,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected Animator AnimatorPlayer;
 
 
+
     public abstract void Shoot();
    
 
