@@ -38,5 +38,10 @@ public class PlayerController : MonoBehaviour
     public void ApplayDamage(int damage)
     {
         _health -= damage;
+        if (_health <= 0)
+        {
+            Debug.Log("Die");
+            Destroy(gameObject);
+        }
     }
 }

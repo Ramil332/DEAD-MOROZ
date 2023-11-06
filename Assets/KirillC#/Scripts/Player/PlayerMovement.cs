@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
                                       _playerRb.velocity.y,
                                       moveVector.y * _speed);
 
-        _playerRb.velocity = velocity;
+        transform.Translate(velocity, Space.Self);
         //_playerRb.AddForce(new Vector3(moveVector.x, 0, moveVector.y) * _speed, ForceMode.VelocityChange);
 
         if (moveVector.x != 0 || moveVector.y != 0)
@@ -36,11 +37,22 @@ public class PlayerMovement : MonoBehaviour
 
     public void Rotation_performend(Vector2 rotationVector)
     {
-        transform.localRotation = Quaternion.Euler(0, rotationVector.y * _rotationSpeed, 0);
+        
+         transform.localRotation = Quaternion.Euler(0, Mathf.Atan2(rotationVector.x, rotationVector.y) * Mathf.Rad2Deg * _rotationSpeed, 0);
+        
+        /*float targetAngle = Mathf.Atan2(-rotationVector.x, -rotationVector.y);
+        Quaternion nowAngle = Quaternion.Euler(0f, targetAngle, 0f);
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, nowAngle, Time.deltaTime * _rotationSpeed);*/
+
     }
     public void PlayerRotation(Vector2 rotation)
     {
-        transform.localRotation = Quaternion.Euler(0, rotation.y, 0);
+        float targetAngle = Mathf.Atan2(-rotation.x, -rotation.y);
+        Quaternion nowAngle = Quaternion.Euler(0f, targetAngle, 0f);
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, nowAngle, Time.deltaTime * _rotationSpeed);
+
     }
     private void Update()
     {

@@ -21,9 +21,11 @@ public class Enemy : MonoBehaviour
     internal void ApplayDamage(int damage)
     {
         _health -= damage;
-        if (_health <= 0)
+
+        if (_health <= 0 && _died != true)
         {
             _died = true;
+            
             Debug.Log("Die");
             _animator.SetTrigger("Died");
             Destroy(gameObject, 5f);
