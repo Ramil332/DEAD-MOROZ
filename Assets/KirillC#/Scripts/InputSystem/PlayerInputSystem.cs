@@ -21,6 +21,7 @@ public class PlayerInputSystem : MonoBehaviour
         _playerInputActions.Player.Enable();
         _playerInputActions.Player.Fire.performed += NowFire;
         _playerInputActions.Player.MeleeAttack.performed += MelleAttack;
+        _playerInputActions.Player.SpawnBomb.performed += BombCreating;
     }
 
     private void Update()
@@ -44,5 +45,12 @@ public class PlayerInputSystem : MonoBehaviour
             _playerController.MelleAttack();
         }
     }
-   
+    public void BombCreating(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _playerController.SpawnBomb();
+        }
+    }
+
 }
