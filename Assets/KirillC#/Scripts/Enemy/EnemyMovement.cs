@@ -10,7 +10,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _attackDistance = 1f;
 
-   // private CharacterAnimation _enemyAnim;
+    private Animator _enemyAnim;
     private Rigidbody _myBody;
    [SerializeField] private Transform _playerTarget;
     private float _chasePlayerAfterAttack = 1f;
@@ -20,7 +20,6 @@ public class EnemyMovement : MonoBehaviour
     private bool _followPlayer = false;
     private bool _attackPlayer = false;
 
-    [SerializeField] private bool _robot = false;
     [SerializeField] private float _fireDistance = 1f;
     private bool _firePlayer = false;
     private Vector3 _playerPos;
@@ -29,7 +28,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Awake()
     {
-       // _enemyAnim = GetComponentInChildren<CharacterAnimation>();
+        _enemyAnim = GetComponent<Animator>();
         _myBody = GetComponent<Rigidbody>();
 
         _playerTarget = GameObject.FindWithTag("Player").transform;
@@ -40,24 +39,26 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         
-        // _followPlayer = true;
+         _followPlayer = true;
         _currentAttackTime = _defaultAttackTime;
     }
 
     private void Update()
     {
-        
+
+        if (GetComponent<Enemy>().Died != true)
+        {
+
             transform.LookAt(_playerPos);
 
-        _playerPos = _playerTarget.position;
-        _playerPos.y = transform.position.y;
+            _playerPos = _playerTarget.position;
+            _playerPos.y = transform.position.y;
 
-        Attack();
+            Attack();
 
-        FollowTarget();
-
-        if (_robot == true)
-        Fire();
+            FollowTarget();
+        }
+       // Fire();
     }
 
     private void FixedUpdate()
@@ -75,18 +76,18 @@ public class EnemyMovement : MonoBehaviour
         {
 
             
-            //_myBody.velocity = transform.forward * _speed;
+            _myBody.velocity = transform.forward * _speed;
             _agent.destination = _playerTarget.position;                                        
 
 
             if(_myBody.velocity.sqrMagnitude != 0)
             {
-                //_enemyAnim.Walk(true);
+                _enemyAnim.SetBool("Movement", true);
             }
         } else if(Vector3.Distance(transform.position, _playerTarget.position) <= _attackDistance)
         {
             _myBody.velocity = Vector3.zero;
-            //_enemyAnim.Walk(false);
+            _enemyAnim.SetBool("Movement", false);
 
             _followPlayer = false;
             _attackPlayer = true;
@@ -94,43 +95,20 @@ public class EnemyMovement : MonoBehaviour
         }
 
 
-       /* if (_robot == true)
-        {
-            if (Vector3.Distance(transform.position, _playerTarget.position) > _fireDistance)
-            {
-                
-                //_myBody.velocity = transform.forward * _speed;
-
-
-                if (_myBody.velocity.sqrMagnitude != 0)
-                {
-                    _enemyAnim.Walk(true);
-                }
-            }
-            else if (Vector3.Distance(transform.position, _playerTarget.position) <= _fireDistance)
-            {
-                _myBody.velocity = Vector3.zero;
-                _enemyAnim.Walk(false);
-
-                _followPlayer = false;
-                _firePlayer = true;
-            }
-        }*/
+       
     }
 
     private void Attack()
     {
-       /* if (!_attackPlayer || GetComponent<HealthSystem>()._isDead == true)
-            return;*/
+        if (!_attackPlayer /*|| GetComponent<HealthSystem>()._isDead == true*/)
+            return;
 
         _currentAttackTime += Time.deltaTime;
 
         if(_currentAttackTime > _defaultAttackTime)
         {
-          //  _enemyAnim.EnemyAttack(UnityEngine.Random.Range(0,3));
+            _enemyAnim.SetTrigger("Attack");
             _currentAttackTime = 0f;
-            _currentAttackTime = 0f;
-            
         }
 
         if(Vector3.Distance(transform.position, _playerTarget.position) > _attackDistance + _chasePlayerAfterAttack)
@@ -142,14 +120,14 @@ public class EnemyMovement : MonoBehaviour
 
     private void Fire()
     {
-       /* if (!_firePlayer || GetComponent<HealthSystem>()._isDead == true)
-            return;*/
+        if (!_firePlayer /*|| GetComponent<HealthSystem>()._isDead == true*/)
+            return;
 
         _currentAttackTime += Time.deltaTime;
 
         if (_currentAttackTime > _defaultAttackTime)
         {
-           // _enemyAnim.Fire(true);
+            _enemyAnim.SetTrigger("Fire");
             _currentAttackTime = 0f;
             
         }

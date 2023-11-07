@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3741864105297435352}
   - component: {fileID: 1520685723646247930}
   - component: {fileID: -3024621056375816419}
+  - component: {fileID: 4241818508655379902}
   m_Layer: 0
   m_Name: Pistel_Bullet
   m_TagString: Untagged
@@ -118,5 +119,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a6d30f288120743b4f8695a2ea8eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
   _speed: 20
+--- !u!114 &4241818508655379902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740030700765027834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6299c9091c2a9084bb456a29d8d9b0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 10
