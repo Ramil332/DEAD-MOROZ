@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_DeadMrz
-    second: {fileID: 2100000, guid: 2b97deef3aafcc649bbe15b928b4dd2c, type: 2}
+    second: {fileID: 2100000, guid: e81f0e142e9f5d54dadc964b7036d0ae, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
