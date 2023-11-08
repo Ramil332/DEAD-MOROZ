@@ -26,6 +26,9 @@ public class EnemyMovement : MonoBehaviour
 
     private NavMeshAgent _agent;
 
+    private float _deley = 2f;
+    private float _currentDeley = 0f;
+
     private void Awake()
     {
         _enemyAnim = GetComponent<Animator>();
@@ -45,7 +48,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-
+        _currentDeley += Time.deltaTime;
         if (GetComponent<Enemy>().Died != true)
         {
 
@@ -68,74 +71,82 @@ public class EnemyMovement : MonoBehaviour
 
     private void FollowTarget()
     {
-
-        if (!_followPlayer)
-            return;
-
-        if(Vector3.Distance(transform.position, _playerTarget.position) > _attackDistance)
+        if (_deley <= _currentDeley)
         {
+            if (!_followPlayer)
+                return;
 
-            
-            _myBody.velocity = transform.forward * _speed;
-            _agent.destination = _playerTarget.position;                                        
-
-
-            if(_myBody.velocity.sqrMagnitude != 0)
+            if (Vector3.Distance(transform.position, _playerTarget.position) > _attackDistance)
             {
-                _enemyAnim.SetBool("Movement", true);
-            }
-        } else if(Vector3.Distance(transform.position, _playerTarget.position) <= _attackDistance)
-        {
-            _myBody.velocity = Vector3.zero;
-            _enemyAnim.SetBool("Movement", false);
 
-            _followPlayer = false;
-            _attackPlayer = true;
+
+                _myBody.velocity = transform.forward * _speed;
+                _agent.destination = _playerTarget.position;
+
+
+                if (_myBody.velocity.sqrMagnitude != 0)
+                {
+                    //_enemyAnim.SetBool("Movement", true);
+                }
+            }
+            else if (Vector3.Distance(transform.position, _playerTarget.position) <= _attackDistance)
+            {
+                _myBody.velocity = Vector3.zero;
+                // _enemyAnim.SetBool("Movement", false);
+
+                _followPlayer = false;
+                _attackPlayer = true;
+
+            }
 
         }
-
-
        
     }
 
     private void Attack()
     {
-        if (!_attackPlayer /*|| GetComponent<HealthSystem>()._isDead == true*/)
-            return;
-
-        _currentAttackTime += Time.deltaTime;
-
-        if(_currentAttackTime > _defaultAttackTime)
+        if (_deley <= _currentDeley)
         {
-            _enemyAnim.SetTrigger("Attack");
-            _currentAttackTime = 0f;
-        }
+            if (!_attackPlayer /*|| GetComponent<HealthSystem>()._isDead == true*/)
+                return;
 
-        if(Vector3.Distance(transform.position, _playerTarget.position) > _attackDistance + _chasePlayerAfterAttack)
-        {
-            _attackPlayer = false;
-            _followPlayer = true;
+            _currentAttackTime += Time.deltaTime;
+
+            if (_currentAttackTime > _defaultAttackTime)
+            {
+                _enemyAnim.SetTrigger("Attack");
+                _currentAttackTime = 0f;
+            }
+
+            if (Vector3.Distance(transform.position, _playerTarget.position) > _attackDistance + _chasePlayerAfterAttack)
+            {
+                _attackPlayer = false;
+                _followPlayer = true;
+            }
         }
     }
 
     private void Fire()
     {
-        if (!_firePlayer /*|| GetComponent<HealthSystem>()._isDead == true*/)
-            return;
-
-        _currentAttackTime += Time.deltaTime;
-
-        if (_currentAttackTime > _defaultAttackTime)
+        if (_deley <= _currentDeley)
         {
-            _enemyAnim.SetTrigger("Fire");
-            _currentAttackTime = 0f;
-            
-        }
+            if (!_firePlayer /*|| GetComponent<HealthSystem>()._isDead == true*/)
+                return;
 
-        if (Vector3.Distance(transform.position, _playerTarget.position) < _attackDistance + _chasePlayerAfterAttack)
-        {
-            _firePlayer = false;
-            _followPlayer = true;
+            _currentAttackTime += Time.deltaTime;
+
+            if (_currentAttackTime > _defaultAttackTime)
+            {
+                _enemyAnim.SetTrigger("Fire");
+                _currentAttackTime = 0f;
+
+            }
+
+            if (Vector3.Distance(transform.position, _playerTarget.position) < _attackDistance + _chasePlayerAfterAttack)
+            {
+                _firePlayer = false;
+                _followPlayer = true;
+            }
         }
     }
     public void StartMap()
