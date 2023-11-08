@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 
 public class Explosion : MonoBehaviour
 {
-    [SerializeField] private GameObject _bomb;
+   
     [SerializeField] private float _power = 10f;
     [SerializeField] private float _radius = 5f;
     [SerializeField] private float _upForce = 1f;
@@ -14,17 +14,16 @@ public class Explosion : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(_bomb == enabled)
-        {
-            Invoke("Detonate", 5f);
-            Destroy(gameObject, 5f);
-        }
+       
+            Invoke("Detonate", 3f);
+            Destroy(gameObject, 3f);
+        
     }
 
     private void Detonate()
     {
 
-        Vector3 explositionPosition = _bomb.transform.position;
+        Vector3 explositionPosition = transform.position;   
         Collider[] colliders = Physics.OverlapSphere(explositionPosition, _radius);
         foreach (Collider collider in colliders)
         {

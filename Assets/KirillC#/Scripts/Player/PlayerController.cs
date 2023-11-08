@@ -13,10 +13,10 @@ public class PlayerController : MonoBehaviour
     private Weapon _curentWeapon;
     private int _currentHealth;
     private Animator _animator;
-
+    private bool _isDied = false;
     public Weapon CurrentWeapon => _curentWeapon;
 
-    
+    public bool IsDied => _isDied;
 
     private void Start()
     {
@@ -44,10 +44,11 @@ public class PlayerController : MonoBehaviour
     public void ApplayDamage(int damage)
     {
         _health -= damage;
-        if (_health <= 0)
+        if (_health <= 0 && _isDied != true)
         {
             Debug.Log("Die");
-            Destroy(gameObject);
+            _animator.SetTrigger("Die");
+            _isDied = true;
         }
     }
 }
