@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private List<Weapon> _weapons;
     [SerializeField] private GameObject _bombPref;
     [SerializeField] private float _bombForce = 20f;
+    [SerializeField] private Transform _bombPosition;
 
     private Weapon _curentWeapon;
     private int _currentHealth;
@@ -37,8 +38,8 @@ public class PlayerController : MonoBehaviour
     }
     public void SpawnBomb()
     {
-       GameObject bomb = Instantiate(_bombPref, transform.position, Quaternion.identity);
-       // bomb.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * _bombForce, ForceMode.Impulse);
+       GameObject bomb = Instantiate(_bombPref, _bombPosition.position, Quaternion.identity);
+       bomb.GetComponent<Explosion>().MoveBomb(transform.forward);
     }
 
     public void ApplayDamage(int damage)
