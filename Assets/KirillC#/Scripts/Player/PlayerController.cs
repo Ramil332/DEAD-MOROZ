@@ -7,18 +7,16 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private List<Weapon> _weapons;
-    
+    [SerializeField] private GameObject _bombPref;
+    [SerializeField] private float _bombForce = 20f;
 
     private Weapon _curentWeapon;
     private int _currentHealth;
     private Animator _animator;
-
+    private bool _isDied = false;
     public Weapon CurrentWeapon => _curentWeapon;
 
-    internal void ApplyDamage(int damage)
-    {
-        throw new NotImplementedException();
-    }
+    public bool IsDied => _isDied;
 
     private void Start()
     {
@@ -36,5 +34,21 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("MelleAttack");
         _animator.SetTrigger("MelleAttack");
+    }
+    public void SpawnBomb()
+    {
+       GameObject bomb = Instantiate(_bombPref, transform.position, Quaternion.identity);
+       // bomb.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * _bombForce, ForceMode.Impulse);
+    }
+
+    public void ApplayDamage(int damage)
+    {
+        _health -= damage;
+        if (_health <= 0 && _isDied != true)
+        {
+            Debug.Log("Die");
+            _animator.SetTrigger("Die");
+            _isDied = true;
+        }
     }
 }

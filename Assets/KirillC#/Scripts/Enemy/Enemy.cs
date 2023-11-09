@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,32 +8,30 @@ public class Enemy : MonoBehaviour
 {
 
     [SerializeField] private int _health;
-    [SerializeField] private int _reward;
-    private PlayerController _target;
+    private Animator _animator;
 
-    public event UnityAction<Enemy> Dying;
+    private bool _died = false;
 
-    public int Reward => _reward;
-    public PlayerController Target => _target;
-
-    public void Init(PlayerController target)
+    public bool Died => _died;
+    private void Awake()
     {
-        _target = target;
+        _animator = GetComponent<Animator>();
     }
 
-    public void TakeDamage(int damage)
+    internal void ApplayDamage(int damage)
     {
         _health -= damage;
 
-        if (_health <= 0)
+        if (_health <= 0 && _died != true)
         {
-            Dying?.Invoke(this);
-            Destroy(gameObject);
+            _died = true;
+            
+            Debug.Log("Die");
+            _animator.SetTrigger("Died");
+            Destroy(gameObject, 5f);
         }
+
     }
 
-   /* public Player GetPlayer()
-    {
-        return _target;
-    }*/ 
+   
 }
