@@ -20,9 +20,18 @@ public class Explosion : MonoBehaviour
         
     }
 
+   /* private void OnEnable()
+    {
+        this.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * 1f, ForceMode.Impulse);
+    }*/
+
+    public void MoveBomb(Vector3 direction) 
+    {
+        GetComponent<Rigidbody>().AddRelativeForce(direction * 10f, ForceMode.Impulse);
+    }
     private void Detonate()
     {
-
+        
         Vector3 explositionPosition = transform.position;   
         Collider[] colliders = Physics.OverlapSphere(explositionPosition, _radius);
         foreach (Collider collider in colliders)

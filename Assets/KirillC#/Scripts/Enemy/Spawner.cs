@@ -14,6 +14,8 @@ public class Spawner : MonoBehaviour
     private List<GameObject> _currentEnemys = new List<GameObject>();
     private float _currentTimeSpawner;
 
+    public List<GameObject> CurrentEnemys => _currentEnemys;
+    public float MaxEnemy => _maxEnemy;
     private void Update()
     {
         SpawnNextEnemy();
