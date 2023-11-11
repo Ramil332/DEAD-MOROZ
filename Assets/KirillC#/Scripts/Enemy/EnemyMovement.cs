@@ -26,7 +26,7 @@ public class EnemyMovement : MonoBehaviour
 
     private NavMeshAgent _agent;
 
-    private float _deley = 2f;
+    private float _deley = 0.5f;
     private float _currentDeley = 0f;
 
     private void Awake()
