@@ -22,9 +22,17 @@ public class DamageSystem : MonoBehaviour
         Vector3 explositionPosition = transform.position;
 
         Debug.Log(other.gameObject.name);
-        if (other.TryGetComponent(out Enemy health_system))
-            if (_enemy != health_system)
-                health_system.ApplayDamage(_damage);
+        //if (other.TryGetComponent(out Enemy health_system))
+        //    if (_enemy != health_system)
+        // health_system.ApplayDamage(_damage);
+        if (other.CompareTag("Enemy"))
+        {
+            IDamagable damagable = other.GetComponent<IDamagable>();
+            if (damagable != null)
+            {
+                damagable.Damage(_damage);
+            }
+        }
 
         if (other.gameObject.GetComponent<Enemy>() || other.gameObject.GetComponent<DestroerObject>())
         {

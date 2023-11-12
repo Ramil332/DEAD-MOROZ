@@ -80,6 +80,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FollowMouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""9bd2ecbc-81e8-4237-a2f0-c7e8dc5cd233"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -192,6 +201,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""SpawnBomb"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68073325-c90b-4076-8b49-8e1478f1e71e"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FollowMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -212,6 +232,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_MeleeAttack = m_Player.FindAction("MeleeAttack", throwIfNotFound: true);
         m_Player_MouseLook = m_Player.FindAction("MouseLook", throwIfNotFound: true);
         m_Player_SpawnBomb = m_Player.FindAction("SpawnBomb", throwIfNotFound: true);
+        m_Player_FollowMouse = m_Player.FindAction("FollowMouse", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -279,6 +300,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MeleeAttack;
     private readonly InputAction m_Player_MouseLook;
     private readonly InputAction m_Player_SpawnBomb;
+    private readonly InputAction m_Player_FollowMouse;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -289,6 +311,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @MeleeAttack => m_Wrapper.m_Player_MeleeAttack;
         public InputAction @MouseLook => m_Wrapper.m_Player_MouseLook;
         public InputAction @SpawnBomb => m_Wrapper.m_Player_SpawnBomb;
+        public InputAction @FollowMouse => m_Wrapper.m_Player_FollowMouse;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -316,6 +339,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SpawnBomb.started += instance.OnSpawnBomb;
             @SpawnBomb.performed += instance.OnSpawnBomb;
             @SpawnBomb.canceled += instance.OnSpawnBomb;
+            @FollowMouse.started += instance.OnFollowMouse;
+            @FollowMouse.performed += instance.OnFollowMouse;
+            @FollowMouse.canceled += instance.OnFollowMouse;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -338,6 +364,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SpawnBomb.started -= instance.OnSpawnBomb;
             @SpawnBomb.performed -= instance.OnSpawnBomb;
             @SpawnBomb.canceled -= instance.OnSpawnBomb;
+            @FollowMouse.started -= instance.OnFollowMouse;
+            @FollowMouse.performed -= instance.OnFollowMouse;
+            @FollowMouse.canceled -= instance.OnFollowMouse;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -372,5 +401,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnMeleeAttack(InputAction.CallbackContext context);
         void OnMouseLook(InputAction.CallbackContext context);
         void OnSpawnBomb(InputAction.CallbackContext context);
+        void OnFollowMouse(InputAction.CallbackContext context);
     }
 }

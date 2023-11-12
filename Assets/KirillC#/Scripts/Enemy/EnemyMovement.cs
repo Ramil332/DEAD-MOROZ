@@ -9,14 +9,17 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _attackDistance = 1f;
+    [SerializeField] private float _rotSpeed = .15f;
 
     private Animator _enemyAnim;
-    private Rigidbody _myBody;
+  //  private Rigidbody _myBody;
+
    [SerializeField] private Transform _playerTarget;
     private float _chasePlayerAfterAttack = 1f;
 
     private float _currentAttackTime;
     [SerializeField] private float _defaultAttackTime = 2f;
+
     private bool _followPlayer = false;
     private bool _attackPlayer = false;
 
@@ -31,8 +34,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void Awake()
     {
+        _agent = GetComponent<NavMeshAgent>();
+
         _enemyAnim = GetComponent<Animator>();
-        _myBody = GetComponent<Rigidbody>();
+      //  _myBody = GetComponent<Rigidbody>();
 
         _playerTarget = GameObject.FindWithTag("Player").transform;
 
@@ -41,32 +46,30 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        
-         _followPlayer = true;
+        _agent.destination = _playerTarget.position;
+
+
+        _followPlayer = true;
         _currentAttackTime = _defaultAttackTime;
     }
 
     private void Update()
     {
         _currentDeley += Time.deltaTime;
-        if (GetComponent<Enemy>().Died != true)
-        {
+        //if (GetComponent<EnemyHealth>().Died != true)
+        //{
 
-            transform.LookAt(_playerPos);
+            //transform.LookAt(_playerPos);
 
-            _playerPos = _playerTarget.position;
-            _playerPos.y = transform.position.y;
+            //_playerPos = _playerTarget.position;
+            //_playerPos.y = transform.position.y;
 
-            Attack();
+        Attack();
 
-            FollowTarget();
-        }
-       // Fire();
-    }
+        FollowTarget();
 
-    private void FixedUpdate()
-    {
-        
+        //}
+        // Fire();
     }
 
     private void FollowTarget()
@@ -78,20 +81,35 @@ public class EnemyMovement : MonoBehaviour
 
             if (Vector3.Distance(transform.position, _playerTarget.position) > _attackDistance)
             {
+                //Vector3 lookPos;
+                //Quaternion targetRot;
 
-
-                _myBody.velocity = transform.forward * _speed;
                 _agent.destination = _playerTarget.position;
 
+                //_playerPos = _agent.desiredVelocity;
 
-                if (_myBody.velocity.sqrMagnitude != 0)
-                {
-                    //_enemyAnim.SetBool("Movement", true);
-                }
+                //_agent.updatePosition = false;
+                //_agent.updateRotation = false;
+
+                //lookPos = _playerTarget.position - transform.position;
+                //lookPos.y = 0;
+                //targetRot = Quaternion.LookRotation(lookPos);
+                //transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * _rotSpeed);
+
+
+
+                //  _myBody.velocity = transform.forward * _speed;
+          //      _agent.destination = _playerTarget.position;
+
+
+                //if (_myBody.velocity.sqrMagnitude != 0)
+                //{
+                //    //_enemyAnim.SetBool("Movement", true);
+                //}
             }
             else if (Vector3.Distance(transform.position, _playerTarget.position) <= _attackDistance)
             {
-                _myBody.velocity = Vector3.zero;
+                //  _myBody.velocity = Vector3.zero;
                 // _enemyAnim.SetBool("Movement", false);
 
                 _followPlayer = false;
