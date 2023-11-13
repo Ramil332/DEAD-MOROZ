@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 {
     private HealthSystem _healthSystem;
 
-    [SerializeField] private float _maxHealth;
+    [SerializeField] [Range(0, 100)] private float _maxHealth;
 
     private bool _died = false;
 

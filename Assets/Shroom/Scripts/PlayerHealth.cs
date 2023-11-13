@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 {
     private HealthSystem _healthSystem;
 
-    [SerializeField] private float _maxHealth;
+    [SerializeField] [Range(0, 100)] private float _maxHealth;
 
     private bool _isDied = false;
     public bool IsDied => _isDied;
@@ -28,6 +28,14 @@ public class PlayerHealth : MonoBehaviour, IDamagable
         _healthSystem.Damage(damage);
         // healthBar.SetHealthBarPercentage(healthSystem.GetHealth() / healthMax);
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            Damage(1000);
+        }
     }
 
     private void HealthSystem_OnDead(object sender, EventArgs e)

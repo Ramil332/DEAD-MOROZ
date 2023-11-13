@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/KirillC#/Scenes/scene_Main.unity
-    guid: b7bd861d3032cb9458ef2438d579621f
+    path: Assets/Shroom/Scene/BigScene_test.unity
+    guid: e3cdf110716688c40a8e2f1f0af40220
   m_configObjects: {}

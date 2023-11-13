@@ -5,10 +5,10 @@ using UnityEngine;
 public class DamageSystem : MonoBehaviour
 {
 
-    [SerializeField] private int _damage;
-    [SerializeField] private float _power = 20f;
-    [SerializeField] private float _radius = 1f;
-    [SerializeField] private float _upForce = 1f;
+    [SerializeField] [Range(0, 100)] private int _damage;
+    [SerializeField] [Range(0, 200)] private float _power = 20f;
+    [SerializeField] [Range(0, 100)] private float _radius = 1f;
+    [SerializeField] [Range(0, 100)] private float _upForce = 1f;
     private Enemy _enemy;
 
     private void Awake()
@@ -17,11 +17,10 @@ public class DamageSystem : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         Vector3 explositionPosition = transform.position;
 
-        Debug.Log(other.gameObject.name);
         //if (other.TryGetComponent(out Enemy health_system))
         //    if (_enemy != health_system)
         // health_system.ApplayDamage(_damage);
