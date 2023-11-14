@@ -157,10 +157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b1dfa9abee71f428898414d609978b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bomb: {fileID: 3383651183883212067}
-  _power: 10
+  _power: 122
   _radius: 5
-  _upForce: 1
+  _upForce: 123
+  _damage: 100
 --- !u!135 &1360900116756969460
 SphereCollider:
   m_ObjectHideFlags: 0

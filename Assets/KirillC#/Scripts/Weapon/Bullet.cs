@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float _speed;
-    
+    [SerializeField] [Range(0, 100)] private float _speed;
+
 
     private void Update()
     {
@@ -15,6 +15,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-            Destroy(gameObject);
+        Destroy(gameObject);
     }
 }
