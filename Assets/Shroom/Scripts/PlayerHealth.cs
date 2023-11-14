@@ -9,8 +9,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
     [SerializeField] [Range(0, 100)] private float _maxHealth;
 
-    private bool _isDied = false;
-    public bool IsDied => _isDied;
+    public static Action OnDied;
 
     private void Awake()
     {
@@ -54,6 +53,6 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
     private void Die()
     {
-        _isDied = true;
+        OnDied?.Invoke();
     }
 }

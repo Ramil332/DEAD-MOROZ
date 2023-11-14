@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Shroom/Scene/MainMenu_1.unity
+    guid: 9fb3a627dd7b29844bbf461db97fb90d
+  - enabled: 1
     path: Assets/Shroom/Scene/BigScene_test.unity
     guid: e3cdf110716688c40a8e2f1f0af40220
   m_configObjects: {}

@@ -72,4 +72,9 @@ public class InputManager : MonoBehaviour
     {
         return _inputPlayer.Player.SpawnBomb.triggered;
     }
+
+    public bool Pause()
+    {
+        return _inputPlayer.Player.Pause.triggered;
+    }
 }
