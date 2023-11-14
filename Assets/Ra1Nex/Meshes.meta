@@ -1,7 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 <<<<<< Ramil_branch
 guid: 426d0583cd0e91148bb46e83946a5be1
 
+=======
+guid: da5cd32da4052ff41929a02612a3ec9d
+>>>>>>> Stashed changes
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

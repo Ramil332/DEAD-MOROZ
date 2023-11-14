@@ -1,7 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 <<<<<< Ramil_branch
 guid: cd89d4f393db76244b07bdcfb1b51eeb
 
+=======
+guid: 7dede176000cd1d42a3a9151939a4a73
+>>>>>>> Stashed changes
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []

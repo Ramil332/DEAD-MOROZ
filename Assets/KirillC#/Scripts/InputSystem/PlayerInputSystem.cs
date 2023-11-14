@@ -26,8 +26,8 @@ public class PlayerInputSystem : MonoBehaviour
 
     private void Update()
     {
-               _playerMovement.Move_performend(_playerInputActions.Player.Move.ReadValue<Vector2>());
-                _playerMovement.Rotation_performend(_playerInputActions.Player.MouseLook.ReadValue<Vector2>());
+               //_playerMovement.Move_performend(_playerInputActions.Player.Move.ReadValue<Vector2>());
+               // _playerMovement.Rotation_performend(_playerInputActions.Player.MouseLook.ReadValue<Vector2>());
     }
 
     public void NowFire(InputAction.CallbackContext context)

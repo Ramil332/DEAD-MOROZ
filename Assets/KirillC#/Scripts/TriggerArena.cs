@@ -11,17 +11,17 @@ public class TriggerArena : MonoBehaviour
 
     private GameObject _enemy;
 
-    private void Update()
-    {
-        _enemy = GameObject.FindWithTag("Enemy");
-        if(_enemy == null && _spawner.GetComponent<Spawner>().CurrentEnemys.Count == _spawner.GetComponent<Spawner>().MaxEnemy)
-        {
-            foreach (var _stone in _stones)
-            {
-                _stone.SetActive(false);
-            }
-        }
-    }
+    //private void Update()
+    //{
+    //    _enemy = GameObject.FindWithTag("Enemy");
+    //    if(_enemy == null && _spawner.GetComponent<Spawner>().CurrentEnemys.Count == _spawner.GetComponent<Spawner>().MaxEnemy)
+    //    {
+    //        foreach (var _stone in _stones)
+    //        {
+    //            _stone.SetActive(false);
+    //        }
+    //    }
+    //}
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<PlayerController>())

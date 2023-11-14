@@ -9,14 +9,22 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _attackDistance = 1f;
+    [SerializeField] private float _rotSpeed = .15f;
+
+    [SerializeField] [Range(0, 10)] private float _attackRate;
+
+    private float _attackTime;
+    private bool _isAttacking;
 
     private Animator _enemyAnim;
-    private Rigidbody _myBody;
-   [SerializeField] private Transform _playerTarget;
+    //  private Rigidbody _myBody;
+
+    private Transform _playerTarget;
     private float _chasePlayerAfterAttack = 1f;
 
     private float _currentAttackTime;
     [SerializeField] private float _defaultAttackTime = 2f;
+
     private bool _followPlayer = false;
     private bool _attackPlayer = false;
 
@@ -31,8 +39,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void Awake()
     {
+        _agent = GetComponent<NavMeshAgent>();
+
         _enemyAnim = GetComponent<Animator>();
-        _myBody = GetComponent<Rigidbody>();
+        //  _myBody = GetComponent<Rigidbody>();
 
         _playerTarget = GameObject.FindWithTag("Player").transform;
 
@@ -41,89 +51,132 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        
-         _followPlayer = true;
+        _agent.SetDestination(_playerTarget.position);
+
+
+        _followPlayer = true;
         _currentAttackTime = _defaultAttackTime;
     }
 
     private void Update()
     {
         _currentDeley += Time.deltaTime;
-        if (GetComponent<Enemy>().Died != true)
-        {
+        //if (GetComponent<EnemyHealth>().Died != true)
+        //{
 
-            transform.LookAt(_playerPos);
+        //transform.LookAt(_playerPos);
 
-            _playerPos = _playerTarget.position;
-            _playerPos.y = transform.position.y;
+        //_playerPos = _playerTarget.position;
+        //_playerPos.y = transform.position.y;
 
-            Attack();
 
-            FollowTarget();
-        }
-       // Fire();
+        FollowTarget();
+
+        //}
+        // Fire();
+        UpdateAttacking(Time.time);
+
     }
-
-    private void FixedUpdate()
+    private void UpdateAttacking(float deltaTime)
     {
-        
+        float fireInterval = 1.0f / _attackRate;
+
+        if (deltaTime > _attackTime)
+        {
+            _isAttacking = true;
+            _attackTime = deltaTime + fireInterval;
+        }
+        else
+        {
+            _isAttacking = false;
+        }
     }
 
     private void FollowTarget()
     {
-        if (_deley <= _currentDeley)
+        //if (_deley <= _currentDeley)
+        //{
+        //    if (!_followPlayer)
+        //        return;
+        //}
+
+        if (Vector3.Distance(transform.position, _playerTarget.position) > _attackDistance)
         {
-            if (!_followPlayer)
-                return;
+            //_agent.isStopped = false;
 
-            if (Vector3.Distance(transform.position, _playerTarget.position) > _attackDistance)
+            _agent.SetDestination(_playerTarget.position);
+
+            //Vector3 lookPos;
+            //Quaternion targetRot;
+
+            //_agent.destination = _playerTarget.position;
+
+            //_playerPos = _agent.desiredVelocity;
+
+            //_agent.updatePosition = false;
+            //_agent.updateRotation = false;
+
+            //lookPos = _playerTarget.position - transform.position;
+            //lookPos.y = 0;
+            //targetRot = Quaternion.LookRotation(lookPos);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * _rotSpeed);
+
+
+
+            //  _myBody.velocity = transform.forward * _speed;
+            //      _agent.destination = _playerTarget.position;
+
+
+            //if (_myBody.velocity.sqrMagnitude != 0)
+            //{
+            //    //_enemyAnim.SetBool("Movement", true);
+            //}
+        }
+        else 
+        {
+            //  _myBody.velocity = Vector3.zero;
+            // _enemyAnim.SetBool("Movement", false);
+            // _agent.isStopped = true;
+            //  _agent.velocity = Vector3.zero;
+
+            if (!_isAttacking)
             {
-
-
-                _myBody.velocity = transform.forward * _speed;
-                _agent.destination = _playerTarget.position;
-
-
-                if (_myBody.velocity.sqrMagnitude != 0)
-                {
-                    //_enemyAnim.SetBool("Movement", true);
-                }
+                // anim to idle
             }
-            else if (Vector3.Distance(transform.position, _playerTarget.position) <= _attackDistance)
-            {
-                _myBody.velocity = Vector3.zero;
-                // _enemyAnim.SetBool("Movement", false);
-
-                _followPlayer = false;
-                _attackPlayer = true;
-
-            }
+            _followPlayer = false;
+            _attackPlayer = true;
+            Attack();
 
         }
-       
     }
 
     private void Attack()
     {
-        if (_deley <= _currentDeley)
+        if (_isAttacking)
         {
-            if (!_attackPlayer /*|| GetComponent<HealthSystem>()._isDead == true*/)
-                return;
+            _enemyAnim.SetTrigger("Attack");
 
-            _currentAttackTime += Time.deltaTime;
-
-            if (_currentAttackTime > _defaultAttackTime)
-            {
-                _enemyAnim.SetTrigger("Attack");
-                _currentAttackTime = 0f;
-            }
-
-            if (Vector3.Distance(transform.position, _playerTarget.position) > _attackDistance + _chasePlayerAfterAttack)
-            {
-                _attackPlayer = false;
-                _followPlayer = true;
-            }
         }
+
+        //if (_deley <= _currentDeley)
+        //{
+        //    if (!_attackPlayer /*|| GetComponent<HealthSystem>()._isDead == true*/)
+        //        return;
+
+        //    _currentAttackTime += Time.deltaTime;
+
+        //    if (_currentAttackTime > _defaultAttackTime)
+        //    {
+        //        _enemyAnim.SetTrigger("Attack");
+        //        _currentAttackTime = 0f;
+        //    }
+
+        //    if (Vector3.Distance(transform.position, _playerTarget.position) > _attackDistance)
+        //    {
+        //        _attackPlayer = false;
+        //        _followPlayer = true;
+        //    }
+        //}
     }
 
     private void Fire()
