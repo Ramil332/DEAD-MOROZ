@@ -1,15 +1,9 @@
 fileFormatVersion: 2
-guid: faf84df6d78f9714bb5ed3df25bb64d5
+guid: 68d8293a057127a44bd1c79b16b1c620
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Snowman_2_texture
-    second: {fileID: 7670802877476623874, guid: 207ba0700039f694f97ced97aceccf8f,
-      type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
