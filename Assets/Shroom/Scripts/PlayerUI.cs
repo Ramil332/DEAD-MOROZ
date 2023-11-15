@@ -6,6 +6,8 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject _deathPanel;
     [SerializeField] private GameObject _pausePanel;
     [SerializeField] private GameObject _optionsPanel;
+    [SerializeField] private GameObject _healthsPanel;
+    [SerializeField] private GameObject _crystalPanel;
     //[SerializeField] private GameObject _soundPanel;
     //[SerializeField] private GameObject _nextLvlPanel;
     [SerializeField] private GameObject _restartButton;
@@ -22,6 +24,8 @@ public class PlayerUI : MonoBehaviour
 
         _deathPanel.SetActive(false);
         _optionsPanel.SetActive(false);
+        _healthsPanel.SetActive(true);
+        _crystalPanel.SetActive(true);
         //_nextLvlPanel.SetActive(false);
         //_soundPanel.SetActive(false);
         _pausePanel.SetActive(false);
@@ -38,6 +42,9 @@ public class PlayerUI : MonoBehaviour
     {
         _pausePanel.SetActive(false);
         _optionsPanel.SetActive(false);
+        _healthsPanel.SetActive(true);
+        _crystalPanel.SetActive(true);
+
         //_soundPanel.SetActive(false);
         Cursor.visible = false;
 
@@ -68,6 +75,9 @@ public class PlayerUI : MonoBehaviour
         //{
         //}
         _pausePanel.SetActive(true);
+        _healthsPanel.SetActive(false);
+        _crystalPanel.SetActive(false);
+
         Cursor.visible = true;
 
         EventSystem.current.SetSelectedGameObject(null);
@@ -83,6 +93,9 @@ public class PlayerUI : MonoBehaviour
         PlayerHealth.OnDied -= PlayerDied;
 
         _deathPanel.SetActive(true);
+        _healthsPanel.SetActive(false);
+        _crystalPanel.SetActive(false);
+
         Cursor.visible = true;
 
         EventSystem.current.SetSelectedGameObject(null);
