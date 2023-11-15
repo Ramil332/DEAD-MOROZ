@@ -38,13 +38,13 @@ public class Spawner : MonoBehaviour
     //    }
     //}
 
-    public void Spawn(GameObject[] pfEnemy, float delayNextSpawner, int maxEnemy)
+    public void Spawn(GameObject[] pfEnemy, float delayNextSpawner, int maxEnemy, GameObject vfxVortex)
     {
-        StartCoroutine(EnemySpawn(pfEnemy, delayNextSpawner, maxEnemy));
+        StartCoroutine(EnemySpawn(pfEnemy, delayNextSpawner, maxEnemy, vfxVortex));
 
     }
 
-    private IEnumerator EnemySpawn(GameObject[] pfEnemy, float delayNextSpawner, int maxEnemy)
+    private IEnumerator EnemySpawn(GameObject[] pfEnemy, float delayNextSpawner, int maxEnemy, GameObject vfxVortex)
     {
         while (_currentEnemys.Count < maxEnemy)
         {
@@ -56,6 +56,8 @@ public class Spawner : MonoBehaviour
                 int enemyIndex = UnityEngine.Random.Range(0, pfEnemy.Length);
                 int spawnPointIndex = UnityEngine.Random.Range(0, _spawnPoints.Length);
                 GameObject enemy = Instantiate(pfEnemy[enemyIndex], _spawnPoints[spawnPointIndex].position, Quaternion.identity);
+                GameObject Vortex = Instantiate(vfxVortex, _spawnPoints[spawnPointIndex].position, vfxVortex.transform.rotation);
+               // Destroy(Vortex, 2f);
                 _currentEnemys.Add(enemy);
                 _currentTimeSpawner = 0;
             }

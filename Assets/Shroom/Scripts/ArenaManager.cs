@@ -7,6 +7,7 @@ public class ArenaManager : MonoBehaviour
     [Header("Первая арена")]
     [SerializeField] private GameObject _spawnerOne;
     [SerializeField] private GameObject _arenaGateOne;
+    [SerializeField] private GameObject _vfxVortex;
     [SerializeField] private GameObject[] _enemyPrefabsOne;
     [SerializeField] private float _delayNextSpawnerOne = 2f;
     [SerializeField] private int _maxEnemyOne = 5;
@@ -61,7 +62,7 @@ public class ArenaManager : MonoBehaviour
         _arenaGateThree.SetActive(true);
         Spawner.OnSpawnEnds += FirstArenaClose;
 
-        _spawnerOne.GetComponent<Spawner>().Spawn(_enemyPrefabsOne, _delayNextSpawnerOne, _maxEnemyOne);
+        _spawnerOne.GetComponent<Spawner>().Spawn(_enemyPrefabsOne, _delayNextSpawnerOne, _maxEnemyOne, _vfxVortex);
     }
 
     private void FirstArenaClose()
