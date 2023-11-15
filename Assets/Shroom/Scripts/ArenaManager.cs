@@ -15,6 +15,8 @@ public class ArenaManager : MonoBehaviour
     [Header("Вторая арена")]
     [SerializeField] private GameObject _spawnerTwo;
     [SerializeField] private GameObject _arenaGateTwo;
+    [SerializeField] private GameObject _gateLift;
+
 
     [Header("Третья арена")]
     [SerializeField] private GameObject _spawnerThree;
@@ -59,7 +61,7 @@ public class ArenaManager : MonoBehaviour
     {
         _arenaGateOne.SetActive(true);
         _arenaGateTwo.SetActive(true);
-        _arenaGateThree.SetActive(true);
+        _gateLift.SetActive(true);
         Spawner.OnSpawnEnds += FirstArenaClose;
 
         _spawnerOne.GetComponent<Spawner>().Spawn(_enemyPrefabsOne, _delayNextSpawnerOne, _maxEnemyOne, _vfxVortex);
@@ -68,13 +70,24 @@ public class ArenaManager : MonoBehaviour
     private void FirstArenaClose()
     {
         _arenaGateTwo.SetActive(false);
+        _arenaGateOne.SetActive(false);
         Spawner.OnSpawnEnds -= FirstArenaClose;
     }
 
 
     private void SecondArena()
     {
+        _arenaGateTwo.SetActive(true);
+        _arenaGateThree.SetActive(true);
+        Spawner.OnSpawnEnds += SecondArenaClose;
 
+        _spawnerTwo.GetComponent<Spawner>().Spawn(_enemyPrefabsOne, _delayNextSpawnerOne, _maxEnemyOne, _vfxVortex);
+    }
+    private void SecondArenaClose()
+    {
+        _arenaGateTwo.SetActive(false);
+        _arenaGateThree.SetActive(false);
+        Spawner.OnSpawnEnds -= SecondArenaClose;
     }
     private void ThirdArena()
     {
