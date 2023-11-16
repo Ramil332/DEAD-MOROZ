@@ -39,10 +39,11 @@ public class PlayerController : MonoBehaviour
     }
     public void SpawnBomb()
     {
-       GameObject bomb = Instantiate(_bombPref, _bombPosition.position, Quaternion.identity);
-       bomb.GetComponent<Explosion>().MoveBomb(transform.forward);
+        _animator.SetTrigger("TrowGranade");
+       
     }
 
+    
     //public void ApplayDamage(int damage)
     //{
     //    _health -= damage;

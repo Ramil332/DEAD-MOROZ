@@ -50,7 +50,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc95c475c90932489a55f286b2d9a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 5
 --- !u!195 &3925742909056107386
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -87,7 +86,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 2
   _attackDistance: 1.5
-  _playerTarget: {fileID: 0}
+  _rotSpeed: 0.15
+  _attackRate: 0
   _defaultAttackTime: 2
   _fireDistance: 1
 --- !u!54 &-2510069391782152673
