@@ -61,13 +61,14 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         _currentDeley += Time.deltaTime;
+        
         //if (GetComponent<EnemyHealth>().Died != true)
         //{
 
-        //transform.LookAt(_playerPos);
+        transform.LookAt(_playerPos);
 
-        //_playerPos = _playerTarget.position;
-        //_playerPos.y = transform.position.y;
+        _playerPos = _playerTarget.position;
+        _playerPos.y = transform.position.y;
 
 
         FollowTarget();

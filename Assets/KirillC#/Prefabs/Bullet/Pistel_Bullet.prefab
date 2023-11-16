@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
-  _power: 120
+  _power: 89
   _radius: 1
   _upForce: 1
 --- !u!54 &1723989409028007082
