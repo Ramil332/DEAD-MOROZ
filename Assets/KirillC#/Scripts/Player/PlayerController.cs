@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
    // private bool _isDied = false;
     public Weapon CurrentWeapon => _curentWeapon;
 
+    private WeaponVar _weaponVar;
+
+    public WeaponVar WeaponNow => _weaponVar;
    // public bool IsDied => _isDied;
 
     private void Start()
@@ -30,6 +33,13 @@ public class PlayerController : MonoBehaviour
     public void SetCurrentWeapon(Weapon currentWeapon)
     {
         _curentWeapon = currentWeapon;
+    }
+
+    public void SetActiveWeapon(WeaponVar weaponVar)
+    {
+        _weaponVar = weaponVar;
+        _animator.SetLayerWeight(1, 1);
+
     }
 
     public void MelleAttack()

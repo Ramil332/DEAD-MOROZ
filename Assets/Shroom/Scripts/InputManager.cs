@@ -55,7 +55,7 @@ public class InputManager : MonoBehaviour
 
     public bool Shoot()
     {
-        return _inputPlayer.Player.Fire.triggered;
+        return _inputPlayer.Player.Fire.IsPressed();
     }
 
     public Vector2 GetMousePosition()

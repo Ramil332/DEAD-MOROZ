@@ -48,6 +48,8 @@ public class ControlPlayer : MonoBehaviour
         {
             if (_playerController.CurrentWeapon != null)
                 _playerController.CurrentWeapon.Shoot();
+
+            if (_playerController.WeaponNow != null) _playerController.WeaponNow.Shoot();
         }
 
         if (_inputManager.MeleeAttack())

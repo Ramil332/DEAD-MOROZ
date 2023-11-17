@@ -8,6 +8,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject _optionsPanel;
     [SerializeField] private GameObject _healthsPanel;
     [SerializeField] private GameObject _crystalPanel;
+    [SerializeField] private GameObject _weaponPanel;
     //[SerializeField] private GameObject _soundPanel;
     //[SerializeField] private GameObject _nextLvlPanel;
     [SerializeField] private GameObject _restartButton;
@@ -26,6 +27,7 @@ public class PlayerUI : MonoBehaviour
         _optionsPanel.SetActive(false);
         _healthsPanel.SetActive(true);
         _crystalPanel.SetActive(true);
+        _weaponPanel.SetActive(true);
         //_nextLvlPanel.SetActive(false);
         //_soundPanel.SetActive(false);
         _pausePanel.SetActive(false);
@@ -44,6 +46,7 @@ public class PlayerUI : MonoBehaviour
         _optionsPanel.SetActive(false);
         _healthsPanel.SetActive(true);
         _crystalPanel.SetActive(true);
+        _weaponPanel.SetActive(true);
 
         //_soundPanel.SetActive(false);
         Cursor.visible = false;
@@ -77,6 +80,7 @@ public class PlayerUI : MonoBehaviour
         _pausePanel.SetActive(true);
         _healthsPanel.SetActive(false);
         _crystalPanel.SetActive(false);
+        _weaponPanel.SetActive(false);
 
         Cursor.visible = true;
 
@@ -95,6 +99,7 @@ public class PlayerUI : MonoBehaviour
         _deathPanel.SetActive(true);
         _healthsPanel.SetActive(false);
         _crystalPanel.SetActive(false);
+        _weaponPanel.SetActive(false);
 
         Cursor.visible = true;
 
