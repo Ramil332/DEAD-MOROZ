@@ -18,7 +18,7 @@ public class PlatformController : MonoBehaviour
     }
     private void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, _nextPosition, _speedPlatform * Time.time);
+        transform.position = Vector3.Lerp(transform.position, _nextPosition, _speedPlatform * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
