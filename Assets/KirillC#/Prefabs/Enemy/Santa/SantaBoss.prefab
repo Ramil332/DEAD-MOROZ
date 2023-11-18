@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 6135992664906882696}
   - component: {fileID: 6792455586401362927}
   - component: {fileID: 4809144391227563161}
+  - component: {fileID: 2575811274891415978}
   m_Layer: 0
   m_Name: Pika (9)
   m_TagString: Untagged
@@ -308,12 +309,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2575811274891415978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791718446088980394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &859149140082059377
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,6 +560,7 @@ GameObject:
   - component: {fileID: 6039071016721119022}
   - component: {fileID: 869734710821577726}
   - component: {fileID: 3171708061458564228}
+  - component: {fileID: 3029034726055859906}
   m_Layer: 0
   m_Name: Pika (14)
   m_TagString: Untagged
@@ -633,12 +648,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3029034726055859906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630960958249840599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &1774085064866700550
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +679,7 @@ GameObject:
   - component: {fileID: 6865606489247277818}
   - component: {fileID: 8131726556959054668}
   - component: {fileID: 2722093311435101057}
+  - component: {fileID: 9042454692293316094}
   m_Layer: 0
   m_Name: Pika (17)
   m_TagString: Untagged
@@ -738,12 +767,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9042454692293316094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774085064866700550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &1872556753369791182
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,6 +798,7 @@ GameObject:
   - component: {fileID: 621818410655523932}
   - component: {fileID: 8443194573656013737}
   - component: {fileID: 1567667089598904137}
+  - component: {fileID: 2105663947243310886}
   m_Layer: 0
   m_Name: Pika (13)
   m_TagString: Untagged
@@ -843,12 +886,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2105663947243310886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872556753369791182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &1933600724374264782
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,6 +1140,7 @@ GameObject:
   - component: {fileID: 3300450281673145785}
   - component: {fileID: 3952543488765507137}
   - component: {fileID: 5682078696086977263}
+  - component: {fileID: 8978462513570357941}
   m_Layer: 0
   m_Name: Pika (2)
   m_TagString: Untagged
@@ -1171,12 +1228,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8978462513570357941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2351078844542022855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &2372283672198442215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,6 +1353,7 @@ GameObject:
   - component: {fileID: 950421645169282329}
   - component: {fileID: 7185291944665990717}
   - component: {fileID: 6370460888205996797}
+  - component: {fileID: 4658508201732394339}
   m_Layer: 0
   m_Name: Pika (1)
   m_TagString: Untagged
@@ -1370,12 +1441,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4658508201732394339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2488064334739898725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &2996236170807282215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,6 +1472,7 @@ GameObject:
   - component: {fileID: 6907206508740025943}
   - component: {fileID: 1820698718173552165}
   - component: {fileID: 8538135980904247374}
+  - component: {fileID: 1973639608347474056}
   m_Layer: 0
   m_Name: Pika
   m_TagString: Untagged
@@ -1475,12 +1560,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1973639608347474056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2996236170807282215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &3201957233908843354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,6 +1655,7 @@ GameObject:
   - component: {fileID: 2280040778618301805}
   - component: {fileID: 363481146970759186}
   - component: {fileID: 6525475766145856027}
+  - component: {fileID: 3490861701346205490}
   m_Layer: 0
   m_Name: Pika (16)
   m_TagString: Untagged
@@ -1644,12 +1743,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3490861701346205490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337752376042905699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &3679870062218669530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1693,6 +1805,7 @@ GameObject:
   - component: {fileID: 1493028488265184019}
   - component: {fileID: 7937588636879967823}
   - component: {fileID: 3813771291084135533}
+  - component: {fileID: 647657792835351323}
   m_Layer: 0
   m_Name: Pika (5)
   m_TagString: Untagged
@@ -1780,12 +1893,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &647657792835351323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3704123261712965444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &3740323576443123451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,6 +2019,7 @@ GameObject:
   - component: {fileID: 3917908149450029872}
   - component: {fileID: 1473451589748012329}
   - component: {fileID: 5124913981252576244}
+  - component: {fileID: 2916690161383371190}
   m_Layer: 0
   m_Name: Pika (6)
   m_TagString: Untagged
@@ -1980,12 +2107,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2916690161383371190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4001570376992687514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &4132391631740952704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,6 +2357,7 @@ GameObject:
   - component: {fileID: 3044512833482912823}
   - component: {fileID: 2177469307067582646}
   - component: {fileID: 7295368803314853786}
+  - component: {fileID: 6588998592328771030}
   m_Layer: 0
   m_Name: Pika (8)
   m_TagString: Untagged
@@ -2304,12 +2445,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6588998592328771030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345183869772136346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &5412335561537762643
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,6 +2476,7 @@ GameObject:
   - component: {fileID: 789708868348556968}
   - component: {fileID: 7731514798185135593}
   - component: {fileID: 5130699545107154741}
+  - component: {fileID: 5615445874914553531}
   m_Layer: 0
   m_Name: Pika (10)
   m_TagString: Untagged
@@ -2409,12 +2564,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5615445874914553531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5412335561537762643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &5437424418767906464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2459,6 +2627,7 @@ GameObject:
   - component: {fileID: 6829119266420067516}
   - component: {fileID: 6474918254257982335}
   - component: {fileID: 5708049561213976291}
+  - component: {fileID: 3325657698240420961}
   m_Layer: 0
   m_Name: Pika (11)
   m_TagString: Untagged
@@ -2546,12 +2715,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3325657698240420961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5691835021731718792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &5900256895736771701
 GameObject:
   m_ObjectHideFlags: 0
@@ -2798,6 +2980,7 @@ GameObject:
   - component: {fileID: 9098349164850418609}
   - component: {fileID: 4143329493937312592}
   - component: {fileID: 1227679540554526082}
+  - component: {fileID: 5289641158126430267}
   m_Layer: 0
   m_Name: Pika (12)
   m_TagString: Untagged
@@ -2885,12 +3068,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5289641158126430267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6745010649759828236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &6917652479045866232
 GameObject:
   m_ObjectHideFlags: 0
@@ -3195,6 +3391,7 @@ GameObject:
   - component: {fileID: 5127343852952868446}
   - component: {fileID: 1851231950581629782}
   - component: {fileID: 7204109428370121308}
+  - component: {fileID: 6521525369876679978}
   m_Layer: 0
   m_Name: Pika (4)
   m_TagString: Untagged
@@ -3282,12 +3479,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6521525369876679978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7575108828607442916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &7684032568400549878
 GameObject:
   m_ObjectHideFlags: 0
@@ -3331,6 +3541,7 @@ GameObject:
   - component: {fileID: 8180684086654579288}
   - component: {fileID: 6666667089909366636}
   - component: {fileID: 6744180624967299858}
+  - component: {fileID: 3572217450680506419}
   m_Layer: 0
   m_Name: Pika (15)
   m_TagString: Untagged
@@ -3418,12 +3629,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3572217450680506419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7868152883260559895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &7930240333661056004
 GameObject:
   m_ObjectHideFlags: 0
@@ -3436,6 +3660,7 @@ GameObject:
   - component: {fileID: 1668610351363895595}
   - component: {fileID: 4174540325249756028}
   - component: {fileID: 3761619990279554615}
+  - component: {fileID: 5698375017627266806}
   m_Layer: 0
   m_Name: Pika (7)
   m_TagString: Untagged
@@ -3523,12 +3748,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5698375017627266806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7930240333661056004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1 &7976073432272448864
 GameObject:
   m_ObjectHideFlags: 0
@@ -3896,6 +4134,7 @@ GameObject:
   - component: {fileID: 1966380631816093667}
   - component: {fileID: 1014050842372561088}
   - component: {fileID: 519639786452378243}
+  - component: {fileID: 8941230218856333494}
   m_Layer: 0
   m_Name: Pika (3)
   m_TagString: Untagged
@@ -3983,12 +4222,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8941230218856333494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9088343557610044779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41acff896f7c9bd43b63e35220c54cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
 --- !u!1001 &9206371814503102995
 PrefabInstance:
   m_ObjectHideFlags: 0
