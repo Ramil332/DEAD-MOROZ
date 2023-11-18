@@ -7,9 +7,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float _speed = 5f;
+   // [SerializeField] private float _speed = 5f;
     [SerializeField] private float _rotationSpeed = 5f;
-    [SerializeField] private float _sensitivity = 1f;
+    //[SerializeField] private float _sensitivity = 1f;
 
     private Transform _cameraTransform;
     private Vector2 _mousePositionY;

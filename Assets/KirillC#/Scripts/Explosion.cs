@@ -50,4 +50,13 @@ public class Explosion : MonoBehaviour
                 rb.AddExplosionForce(_power, explositionPosition, _radius, _upForce, ForceMode.Impulse);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            Detonate();
+            Destroy(gameObject);
+        }
+    }
 }

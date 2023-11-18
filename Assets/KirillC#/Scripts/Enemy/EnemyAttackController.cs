@@ -14,7 +14,6 @@ public class PlayerDamageSystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
         //if (other.TryGetComponent(out PlayerController health_system))
         //    if (_playerController != health_system)
         //        health_system.ApplayDamage(_damageAmount);             

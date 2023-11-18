@@ -18,11 +18,15 @@ public class ControlPlayer : MonoBehaviour
     [SerializeField] private float _jumpHeight = 1.0f;
     [SerializeField] private float _gravityValue = -9.81f;
     [SerializeField] private float _rotationSpeed = 0.15f;
+    [SerializeField] private float _granadeThrowRate = 5f;
 
+    private float _granadeThrowTime;
     //private Vector2 _mouseLook;
     private Vector3 _rotationTarget;
 
     private Animator _animator;
+
+    private bool _isReloadGranade;
 
     private void Awake()
     {
@@ -44,6 +48,8 @@ public class ControlPlayer : MonoBehaviour
 
         HandleRotation();
 
+        UpdateThrowing();
+
         if (_inputManager.Shoot())
         {
             if (_playerController.CurrentWeapon != null)
@@ -59,8 +65,24 @@ public class ControlPlayer : MonoBehaviour
 
         if (_inputManager.BombThrow())
         {
-            _playerController.SpawnBomb();
+            if (!_isReloadGranade)
+            {
+                _playerController.SpawnBomb();
+                _isReloadGranade = true;
+            }
+
         }
+    }
+    private void UpdateThrowing()
+    {
+        _granadeThrowTime += Time.deltaTime;
+
+        if (_granadeThrowRate <= _granadeThrowTime)
+        {
+            _isReloadGranade = false;
+            _granadeThrowTime = 0;
+        }
+
     }
 
     private void HandleMovement()
@@ -83,10 +105,10 @@ public class ControlPlayer : MonoBehaviour
         move.y = 0f;
         _ = _controller.Move(_playerSpeed * Time.deltaTime * move);
 
-        if (_inputManager.PlayerJumpedThisFrame() && _groundedPlayer)
-        {
-            _playerVelocity.y += Mathf.Sqrt(_jumpHeight * -3.0f * _gravityValue);
-        }
+        //if (_inputManager.PlayerJumpedThisFrame() && _groundedPlayer)
+        //{
+        //    _playerVelocity.y += Mathf.Sqrt(_jumpHeight * -3.0f * _gravityValue);
+        //}
 
         _playerVelocity.y += _gravityValue * Time.deltaTime;
         _controller.Move(_playerVelocity * Time.deltaTime);

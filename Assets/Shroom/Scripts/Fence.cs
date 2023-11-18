@@ -29,7 +29,7 @@ public class Fence : MonoBehaviour, IDamagable
     }
     private void HealthSystem_OnDamaged(object sender, EventArgs e)
     {
-        Debug.Log(name + "CurrentHealth " + _healthSystem.GetHealth());
+        //Debug.Log(name + "CurrentHealth " + _healthSystem.GetHealth());
     }
 
     private void Die()

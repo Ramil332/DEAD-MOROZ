@@ -44,7 +44,6 @@ public class PlayerController : MonoBehaviour
 
     public void MelleAttack()
     {
-        Debug.Log("MelleAttack");
         _animator.SetTrigger("MelleAttack");
     }
     public void SpawnBomb()
