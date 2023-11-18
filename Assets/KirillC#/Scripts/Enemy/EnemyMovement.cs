@@ -65,10 +65,7 @@ public class EnemyMovement : MonoBehaviour
         //if (GetComponent<EnemyHealth>().Died != true)
         //{
 
-        transform.LookAt(_playerPos);
-
-        _playerPos = _playerTarget.position;
-        _playerPos.y = transform.position.y;
+       
 
 
         FollowTarget();
@@ -100,9 +97,15 @@ public class EnemyMovement : MonoBehaviour
         //    if (!_followPlayer)
         //        return;
         //}
+        
 
         if (Vector3.Distance(transform.position, _playerTarget.position) > _attackDistance)
         {
+
+            transform.LookAt(_playerPos);
+
+            _playerPos = _playerTarget.position;
+            _playerPos.y = transform.position.y;
             //_agent.isStopped = false;
 
             _agent.SetDestination(_playerTarget.position);
@@ -157,7 +160,13 @@ public class EnemyMovement : MonoBehaviour
         {
             _enemyAnim.SetTrigger("Attack");
 
+            transform.LookAt(_playerPos);
+
+            _playerPos = _playerTarget.position;
+            _playerPos.y = transform.position.y;
         }
+
+       
 
         //if (_deley <= _currentDeley)
         //{

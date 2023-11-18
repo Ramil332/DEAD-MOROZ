@@ -15,8 +15,8 @@ public class Explosion : MonoBehaviour
     private void FixedUpdate()
     {
 
-        Invoke("Detonate", 3f);
-        Destroy(gameObject, 3f);
+        Invoke("Detonate", 1.5f);
+        Destroy(gameObject, 1.5f);
 
     }
 
