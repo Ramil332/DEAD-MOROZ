@@ -24,7 +24,7 @@ public class DamageSystem : MonoBehaviour
         //if (other.TryGetComponent(out Enemy health_system))
         //    if (_enemy != health_system)
         // health_system.ApplayDamage(_damage);
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") || other.CompareTag("Crystal"))
         {
             IDamagable damagable = other.GetComponent<IDamagable>();
             if (damagable != null)

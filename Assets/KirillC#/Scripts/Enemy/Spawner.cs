@@ -45,6 +45,7 @@ public class Spawner : MonoBehaviour
         bool isEnemyHere = true;
         while (isEnemyHere)
         {
+            Debug.Log("Ybei vsex");
            GameObject enemy = GameObject.FindWithTag("Enemy");
             if (enemy == null) isEnemyHere = false;
             yield return null;

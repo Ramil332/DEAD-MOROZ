@@ -63,19 +63,6 @@ public class CristalController : MonoBehaviour, IDamagable
             yield return null;
 
         }
-        StartCoroutine(CheckEnemy());
-
-    }
-
-    private IEnumerator CheckEnemy()
-    {
-        bool isEnemyHere = true;
-        while (isEnemyHere)
-        {
-            GameObject enemy = GameObject.FindWithTag("Enemy");
-            if (enemy == null) isEnemyHere = false;
-            yield return null;
-        }
     }
 
 

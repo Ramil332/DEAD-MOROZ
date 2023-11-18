@@ -10,28 +10,38 @@ public class WeaponVar : MonoBehaviour
 
     [SerializeField] private WeaponSO _weaponStats;
     [SerializeField] private Transform _shootPoint;
+    [SerializeField] private Transform _pfbullet; 
+
     //public GameObject WeaponPanel;
 
-    private Animator _animatorPlayer;
-
-    private void OnEnable()
-    {
-        _animatorPlayer = GameObject.Find("Player").GetComponentInChildren<Animator>();
-    }
-
-    private bool _isAttacking;
+    public Animator _animatorPlayer;
+    private bool _isReloading, _isShooting;
     private float _attackTime;
 
 
+    private void Awake()
+    {
+       _animatorPlayer = GameObject.Find("Player").GetComponentInChildren<Animator>();
+    }
+
     public void Shoot()
     {
-        if (_weaponStats.FireRate <= _attackTime)
-        {
-            Instantiate(_weaponStats.Bullet, _shootPoint.position, _shootPoint.rotation);
-            _animatorPlayer.SetTrigger("Fire");
-            _attackTime = 0;
+        //if (_weaponStats.FireRate <= _attackTime)
+        //{
+        //    Instantiate(_weaponStats.Bullet, _shootPoint.position, _shootPoint.rotation);
+        //    _animatorPlayer.SetTrigger("Fire");
+        //    _attackTime = 0;
 
+        //}
+            TEste();
+        if (!_isReloading)
+        {
+           // _animatorPlayer.SetTrigger("Fire");
+            _isReloading = true;
         }
+        Debug.Log("Shoot");
+
+
         //if (_isAttacking)
         //{
         //    Instantiate(_weaponStats.Bullet, _shootPoint.position, _shootPoint.rotation);
@@ -40,30 +50,35 @@ public class WeaponVar : MonoBehaviour
         //}
     }
 
-    //private void UpdateShooting(float deltaTime)
-    //{
-    //    float fireInterval = 1.0f / _weaponStats.FireRate;
+    void TEste()
+    {
+        Instantiate(_pfbullet, _shootPoint.position, _shootPoint.rotation);
+        Debug.Log("Adgg;");
+    }
+    private void UpdateShooting()
+    {
+        _attackTime += Time.deltaTime;
+
+        if (_weaponStats.FireRate <= _attackTime)
+        {
+
+            _isReloading = false;
+
+            _attackTime = 0;
+        }
+
+    }
 
 
-    //    if (deltaTime > _attackTime)
-    //    {
-
-    //        _isAttacking = true;
-
-    //        _attackTime = deltaTime + fireInterval;
-    //    }
-    //    else
-    //    {
-    //        _isAttacking = false;
-    //    }
-    //}
 
     private void Update()
     {
-        //UpdateShooting(Time.time);
+        UpdateShooting();
 
-        _attackTime += Time.deltaTime;
+        if (_isShooting)
+        {
 
-      
+        }
+
     }
 }

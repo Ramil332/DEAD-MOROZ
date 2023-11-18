@@ -55,6 +55,8 @@ public class ArenaManager : MonoBehaviour
 
     [Header("Главные ворота")]
     [SerializeField] private GameObject _mainGate;
+    [SerializeField] private Transform _santaPointSpawn;
+    [SerializeField] private Transform _pfSanta;
 
     private void OnEnable()
     {
@@ -87,12 +89,12 @@ public class ArenaManager : MonoBehaviour
 
     private void CrystalCount()
     {
-        if (_crystalCount <= 0)
+        if (_crystalCount < 1)
         {
             Debug.Log("NowMoreCrystals");
             _mainGate.SetActive(false);
             _backGate.SetActive(false);
-
+            Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
         }
         else
         {
@@ -147,53 +149,72 @@ public class ArenaManager : MonoBehaviour
 
     private void FifthArenaOpen()
     {
-        //  Spawner.OnSpawnEnds += FifthArenaClose;
-        CristalController.OnCrystalDestroyed += FifthArenaClose;
+          Spawner.OnSpawnEnds += FifthArenaClose;
+        //CristalController.OnCrystalDestroyed += FifthArenaClose;
 
-        _spawnerFive.GetComponent<CristalController>().Spawn(_enemyPrefabsFive, _delayNextSpawnerFive, _maxEnemyFive, _vfxVortex);
+       _spawnerFive.GetComponent<Spawner>().Spawn(_enemyPrefabsFive, _delayNextSpawnerFive, _maxEnemyFive, _vfxVortex);
 
     }
 
     private void FirstArenaClose()
     {
-        _arenaGateOne.SetActive(false);
         // Spawner.OnSpawnEnds -= FirstArenaClose;
         CristalController.OnCrystalDestroyed -= FirstArenaClose;
+        StartCoroutine(CheckEnemy(_arenaGateOne));
         CrystalCount();
     }
     private void SecondArenaClose()
     {
 
-        _arenaGateTwo.SetActive(false);
         // Spawner.OnSpawnEnds -= SecondArenaClose;
         CristalController.OnCrystalDestroyed -= SecondArenaClose;
+        StartCoroutine(CheckEnemy(_arenaGateTwo));
         CrystalCount();
     }
     private void ThirdArenaClose()
     {
-        _arenaGateThree.SetActive(false);
+
         // Spawner.OnSpawnEnds -= ThirdArenaClose;
         CristalController.OnCrystalDestroyed -= ThirdArenaClose;
+        StartCoroutine(CheckEnemy(_arenaGateThree));
         CrystalCount();
     }
     private void FourthArenaClose()
     {
-        _arenaGateFour.SetActive(false);
         //  Spawner.OnSpawnEnds -= FourthArenaClose;
         CristalController.OnCrystalDestroyed -= FourthArenaClose;
+        StartCoroutine(CheckEnemy(_arenaGateFour));
         CrystalCount();
 
     }
     private void FifthArenaClose()
     {
-        _arenaGateFive.SetActive(false);
-        // Spawner.OnSpawnEnds -= FifthArenaClose;
-        CristalController.OnCrystalDestroyed -= FifthArenaClose;
+        Spawner.OnSpawnEnds -= FifthArenaClose;
+        StartCoroutine(CheckEnemy(_arenaGateFive));
+        //CristalController.OnCrystalDestroyed -= FifthArenaClose;
 
         CrystalCount();
 
         //Debug.Log("NowMoreCrystals");
         //_mainGate.SetActive(false);
         //_backGate.SetActive(false);
+    }
+
+    private IEnumerator CheckEnemy(GameObject gates)
+    {
+        yield return new WaitForSeconds(1f);
+        bool isEnemyHere = true;
+        while (isEnemyHere)
+        {
+            GameObject enemy = GameObject.FindWithTag("Enemy");
+            if (enemy == null) isEnemyHere = false;
+            yield return null;
+        }
+        OpenGates(gates);
+    }
+
+    private void OpenGates(GameObject gates)
+    {
+        gates.SetActive(false);
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - ArenaFour
   - ArenaFive
   - Water
+  - Crystal
   layers:
   - Default
   - TransparentFX

@@ -14,7 +14,6 @@ public class Minigan : Weapon
     {
         if (Deley <= _currentTime)
         {
-            Debug.Log("ShootBash Bash");
             Instantiate(Bullet, ShootPoint.position, ShootPoint.rotation);
             AnimatorPlayer.SetTrigger("Fire");
             _currentTime = 0;
