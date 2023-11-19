@@ -32,7 +32,7 @@ public static class SoundManager
         CristalHit,
         MainSound,
         GatesSound,
-        
+
 
     }
 
@@ -58,7 +58,7 @@ public static class SoundManager
             audioSource.pitch = GetPitchAudio(sound);
             audioSource.priority = GetPriorityAudio(sound);
             audioSource.Play();
-            Object.Destroy(soundGameObject, audioSource.clip.length);
+            //Object.Destroy(soundGameObject, audioSource.clip.length);
         }
     }
     public static void PlaySound(Sound sound)
@@ -68,7 +68,7 @@ public static class SoundManager
             GameObject soundGameObject = new GameObject("Sound");
             AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
             audioSource.PlayOneShot(GetAudioClip(sound));
-            Object.Destroy(soundGameObject, audioSource.clip.length);
+            //Object.Destroy(soundGameObject, audioSource.clip.length);
 
         }
     }
@@ -79,11 +79,11 @@ public static class SoundManager
         {
             default: return true;
             case Sound.PlayerMove:
-                    if(_soundTimerDictionary.ContainsKey(sound))
+                if (_soundTimerDictionary.ContainsKey(sound))
                 {
                     float lastTimePlayed = _soundTimerDictionary[sound];
                     float playMoveTimerMax = 1f;
-                    if(lastTimePlayed + playMoveTimerMax < Time.time)
+                    if (lastTimePlayed + playMoveTimerMax < Time.time)
                     {
                         _soundTimerDictionary[sound] = Time.time;
                         return true;
@@ -92,11 +92,50 @@ public static class SoundManager
                     {
                         return false;
                     }
-                } else
+                }
+                else
                 {
                     return false;
                 }
-                //break;
+            case Sound.SantaMove:
+                if (_soundTimerDictionary.ContainsKey(sound))
+                {
+                    float lastTimePlayed = _soundTimerDictionary[sound];
+                    float playMoveTimerMax = 1f;
+                    if (lastTimePlayed + playMoveTimerMax < Time.time)
+                    {
+                        _soundTimerDictionary[sound] = Time.time;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            case Sound.EnemyMove:
+                if (_soundTimerDictionary.ContainsKey(sound))
+                {
+                    float lastTimePlayed = _soundTimerDictionary[sound];
+                    float playMoveTimerMax = 1f;
+                    if (lastTimePlayed + playMoveTimerMax < Time.time)
+                    {
+                        _soundTimerDictionary[sound] = Time.time;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+
         }
     }
 
@@ -104,7 +143,7 @@ public static class SoundManager
     {
         foreach (SoundAssets.SoundAudioClip soundAudioClip in SoundAssets.i.SoundAudioClipArray)
         {
-            if(soundAudioClip.Sound == sound)
+            if (soundAudioClip.Sound == sound)
             {
                 return soundAudioClip.AudioClip;
             }
