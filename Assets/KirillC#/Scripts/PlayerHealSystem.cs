@@ -11,7 +11,13 @@ public class PlayerHealSystem : MonoBehaviour
     private void Awake()
     {
         _playerController = GetComponent<PlayerController>();
+        
+        
 
+    }
+    private void OnEnable()
+    {
+        Destroy(gameObject, 3f);
     }
 
     private void OnTriggerEnter(Collider other)
