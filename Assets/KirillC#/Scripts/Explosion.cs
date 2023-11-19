@@ -10,13 +10,13 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float _radius = 5f;
     [SerializeField] private float _upForce = 1f;
     [SerializeField] private int _damage = 100;
-
+    [SerializeField] private Transform _vfxExplosion;
 
     private void FixedUpdate()
     {
 
-        Invoke("Detonate", 1.5f);
-        Destroy(gameObject, 1.5f);
+        Invoke(nameof(Detonate), 1.5f);
+        DestroyGranade(1.5f);
 
     }
 
@@ -56,7 +56,17 @@ public class Explosion : MonoBehaviour
         if (collision.collider.CompareTag("Enemy"))
         {
             Detonate();
-            Destroy(gameObject);
+            DestroyGranade(0f);
         }
+    }
+
+    private void DestroyGranade(float time)
+    {
+        Destroy(gameObject, time);
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(_vfxExplosion, transform.position, Quaternion.identity);
     }
 }

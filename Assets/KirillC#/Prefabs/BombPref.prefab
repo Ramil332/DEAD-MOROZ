@@ -78,6 +78,8 @@ MonoBehaviour:
   _radius: 5
   _upForce: 123
   _damage: 100
+  _vfxExplosion: {fileID: 2920492487012724006, guid: 5dd63450bf6de4f40a278c707074370c,
+    type: 3}
 --- !u!135 &1360900116756969460
 SphereCollider:
   m_ObjectHideFlags: 0

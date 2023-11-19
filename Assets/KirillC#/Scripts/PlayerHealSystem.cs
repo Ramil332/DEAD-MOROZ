@@ -5,10 +5,11 @@ using UnityEngine;
 public class PlayerHealSystem : MonoBehaviour
 {
     [SerializeField][Range(0, 100)] float _healAmount;
+    [SerializeField][Range(0, 100)] float _deleteTime = 5f;
 
     private void OnEnable()
     {
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, _deleteTime);
     }
 
     private void OnTriggerEnter(Collider other)

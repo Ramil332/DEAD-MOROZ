@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 public class ControlPlayer : MonoBehaviour
@@ -19,6 +20,7 @@ public class ControlPlayer : MonoBehaviour
     [SerializeField] private float _gravityValue = -9.81f;
     [SerializeField] private float _rotationSpeed = 0.15f;
     [SerializeField] private float _granadeThrowRate = 5f;
+    [SerializeField] private Image _granadeImage;
 
     private float _granadeThrowTime;
     //private Vector2 _mouseLook;
@@ -31,6 +33,8 @@ public class ControlPlayer : MonoBehaviour
     private void Awake()
     {
         _playerController = GetComponent<PlayerController>();
+        _granadeThrowTime = _granadeThrowRate;
+        _granadeImage.fillAmount = _granadeThrowTime / _granadeThrowRate;
 
     }
     private void Start()
@@ -68,6 +72,8 @@ public class ControlPlayer : MonoBehaviour
             if (!_isReloadGranade)
             {
                 _playerController.SpawnBomb();
+                _granadeThrowTime = 0;
+
                 _isReloadGranade = true;
             }
 
@@ -80,8 +86,8 @@ public class ControlPlayer : MonoBehaviour
         if (_granadeThrowRate <= _granadeThrowTime)
         {
             _isReloadGranade = false;
-            _granadeThrowTime = 0;
         }
+        _granadeImage.fillAmount = _granadeThrowTime/ _granadeThrowRate;
 
     }
 
