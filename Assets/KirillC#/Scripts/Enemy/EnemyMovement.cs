@@ -92,12 +92,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void FollowTarget()
     {
-        //if (_deley <= _currentDeley)
-        //{
-        //    if (!_followPlayer)
-        //        return;
-        //}
-        
+      
 
         if (Vector3.Distance(transform.position, _playerTarget.position) > _attackDistance)
         {
@@ -110,46 +105,18 @@ public class EnemyMovement : MonoBehaviour
             _enemyAnim.SetBool("Movement", true);
             _agent.SetDestination(_playerTarget.position);
 
-            //Vector3 lookPos;
-            //Quaternion targetRot;
-
-            //_agent.destination = _playerTarget.position;
-
-            //_playerPos = _agent.desiredVelocity;
-
-            //_agent.updatePosition = false;
-            //_agent.updateRotation = false;
-
-            //lookPos = _playerTarget.position - transform.position;
-            //lookPos.y = 0;
-            //targetRot = Quaternion.LookRotation(lookPos);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * _rotSpeed);
-
-
-
-            //  _myBody.velocity = transform.forward * _speed;
-            //      _agent.destination = _playerTarget.position;
-
-
-            //if (_myBody.velocity.sqrMagnitude != 0)
-            //{
-            //    //_enemyAnim.SetBool("Movement", true);
-            //}
         }
         else 
         {
-            //  _myBody.velocity = Vector3.zero;
-            // _enemyAnim.SetBool("Movement", false);
-            // _agent.isStopped = true;
-            //  _agent.velocity = Vector3.zero;
+          
 
             if (!_isAttacking)
             {
-                // anim to idle
+                _enemyAnim.SetBool("Movement", false);
             }
-            _enemyAnim.SetBool("Movement", false);
-            _followPlayer = false;
-            _attackPlayer = true;
+            
+           /* _followPlayer = false;
+            _attackPlayer = true;*/
             Attack();
 
         }
@@ -170,32 +137,13 @@ public class EnemyMovement : MonoBehaviour
 
        
 
-        //if (_deley <= _currentDeley)
-        //{
-        //    if (!_attackPlayer /*|| GetComponent<HealthSystem>()._isDead == true*/)
-        //        return;
-
-        //    _currentAttackTime += Time.deltaTime;
-
-        //    if (_currentAttackTime > _defaultAttackTime)
-        //    {
-        //        _enemyAnim.SetTrigger("Attack");
-        //        _currentAttackTime = 0f;
-        //    }
-
-        //    if (Vector3.Distance(transform.position, _playerTarget.position) > _attackDistance)
-        //    {
-        //        _attackPlayer = false;
-        //        _followPlayer = true;
-        //    }
-        //}
     }
 
     private void Fire()
     {
         if (_deley <= _currentDeley)
         {
-            if (!_firePlayer /*|| GetComponent<HealthSystem>()._isDead == true*/)
+            if (!_firePlayer)
                 return;
 
             _currentAttackTime += Time.deltaTime;
