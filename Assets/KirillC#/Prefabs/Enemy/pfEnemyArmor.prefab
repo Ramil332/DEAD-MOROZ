@@ -191,6 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfb15512b4de644bbce5afef00cbdaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healIceCream: {fileID: 925888153186687431, guid: 9a97348776a1f6842890377a97fe94f0,
+    type: 3}
   _maxHealth: 50
   _explosionForce: 200
   _vxfExplosionDie: {fileID: 2300360663179508797, guid: 5e410ecfe23291b4f852b8ef5060b6f9,
@@ -233,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 2
-  _attackDistance: 1.5
+  _attackDistance: 2
   _rotSpeed: 0.15
   _attackRate: 1
   _defaultAttackTime: 2

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
-public class PlayerHealth : MonoBehaviour, IDamagable
+public class PlayerHealth : MonoBehaviour, IDamagable, IHealing
 {
     private HealthSystem _healthSystem;
 
@@ -63,5 +63,10 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     private void Die()
     {
         OnDied?.Invoke();
+    }
+
+    public void Heal(float heal)
+    {
+        _healthSystem.Heal(heal);
     }
 }

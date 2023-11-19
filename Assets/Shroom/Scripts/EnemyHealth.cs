@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 {
     private HealthSystem _healthSystem;
 
+    [SerializeField] private GameObject _healIceCream;
     [SerializeField] [Range(0, 100)] private float _maxHealth;
     [SerializeField] [Range(0, 10000)] private float _explosionForce = 1000f;
 
@@ -55,6 +56,11 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 
     private void Die()
     {
+        int healSpawn = UnityEngine.Random.Range(0, 10);
+
+        if (healSpawn == 9)
+            Instantiate(_healIceCream, transform.position, Quaternion.identity);
+
         SoundManager.PlaySound(SoundManager.Sound.EnemyDie, transform.position);
         _died = true;
         _healthSystem.OnDead -= HealthSystem_OnDead;
@@ -74,4 +80,6 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 
         Destroy(gameObject);
     }
+
+    
 }
