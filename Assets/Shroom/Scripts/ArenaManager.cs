@@ -55,6 +55,7 @@ public class ArenaManager : MonoBehaviour
 
     [Header("Главные ворота")]
     [SerializeField] private GameObject _mainGate;
+    [SerializeField] private Animator _mainGateAnimator;
     [SerializeField] private Transform _santaPointSpawn;
     [SerializeField] private Transform _pfSanta;
 
@@ -67,6 +68,8 @@ public class ArenaManager : MonoBehaviour
         ArenaType.OnFifthArena += FifthArenaOpen;
         ArenaType.OnSantaArena += SantaArenaOpen;
 
+        _mainGateAnimator.SetBool("isGateOpen", false);
+
         _crystalCount = 4;
         _crystalCountText.SetText(_crystalCount.ToString());
 
@@ -76,7 +79,7 @@ public class ArenaManager : MonoBehaviour
         _arenaGateThree.SetActive(false);
         _arenaGateFour.SetActive(false);
         _arenaGateFive.SetActive(false);
-        _mainGate.SetActive(true);
+       // _mainGate.SetActive(true);
     }
 
     private void OnDisable()
@@ -95,9 +98,10 @@ public class ArenaManager : MonoBehaviour
         if (_crystalCount < 1)
         {
             Debug.Log("NowMoreCrystals");
-           _mainGate.SetActive(false);
+            //_mainGate.SetActive(false);
+            _mainGateAnimator.SetBool("isGateOpen", false);
          //   _backGate.SetActive(false);
-          //  Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
+         //  Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
         }
         else
         {
@@ -201,6 +205,7 @@ public class ArenaManager : MonoBehaviour
         //Debug.Log("NowMoreCrystals");
         //_mainGate.SetActive(false);
         //_backGate.SetActive(false);
+        _mainGateAnimator.SetBool("isGateOpen", true);
     }
 
     private IEnumerator CheckEnemy(GameObject gates)
@@ -224,6 +229,7 @@ public class ArenaManager : MonoBehaviour
     private void SantaArenaOpen()
     {
         Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
-        _mainGate.SetActive(true);
+        // _mainGate.SetActive(true);
+        _mainGateAnimator.SetBool("isGateOpen", false);
     }
 }
