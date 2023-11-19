@@ -12,6 +12,7 @@ TagManager:
   - ArenaFive
   - Water
   - Crystal
+  - LiftEndPoint
   layers:
   - Default
   - TransparentFX
