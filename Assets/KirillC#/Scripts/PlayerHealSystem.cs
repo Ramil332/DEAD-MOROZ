@@ -6,15 +6,6 @@ public class PlayerHealSystem : MonoBehaviour
 {
     [SerializeField][Range(0, 100)] float _healAmount;
 
-    private PlayerController _playerController;
-
-    private void Awake()
-    {
-        _playerController = GetComponent<PlayerController>();
-        
-        
-
-    }
     private void OnEnable()
     {
         Destroy(gameObject, 3f);

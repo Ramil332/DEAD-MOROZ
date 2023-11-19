@@ -45,6 +45,7 @@ public static class SoundManager
             audioSource.clip = GetAudioClip(sound);
             audioSource.maxDistance = 100f;
             audioSource.volume = GetVolumeAudio(sound);
+            audioSource.pitch = GetPitchAudio(sound);
             audioSource.Play();
         }
     }
@@ -114,6 +115,22 @@ public static class SoundManager
 
         Debug.LogError("Sound " + sound + " not found!");
         return 0;
+    }
+
+    private static float GetPitchAudio(Sound sound)
+    {
+        foreach (SoundAssets.SoundAudioClip soundAudioClip in SoundAssets.i.SoundAudioClipArray)
+        {
+            if (soundAudioClip.Sound == sound)
+            {
+                return soundAudioClip.Pitch;
+            }
+
+        }
+
+        Debug.LogError("Sound " + sound + " not found!");
+        return 0;
+
     }
 
 }
