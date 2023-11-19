@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     public void MelleAttack()
     {
         _animator.SetTrigger("MelleAttack");
+        SoundManager.PlaySound(SoundManager.Sound.MelleAttack, transform.position);
     }
     public void SpawnBomb()
     {

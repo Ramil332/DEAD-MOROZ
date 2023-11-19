@@ -124,7 +124,7 @@ public class ControlPlayer : MonoBehaviour
         _playerVelocity.y += _gravityValue * Time.deltaTime;
         _controller.Move(_playerVelocity * Time.deltaTime);
     }
-
+        
     private void HandleRotation()
     {
 
