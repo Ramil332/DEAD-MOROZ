@@ -3277,6 +3277,7 @@ MonoBehaviour:
   _attackRate: 1
   _defaultAttackTime: 2
   _fireDistance: 1
+  _santa: 1
 --- !u!95 &1938985799283158024
 Animator:
   serializedVersion: 5

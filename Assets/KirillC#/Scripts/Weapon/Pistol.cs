@@ -15,6 +15,7 @@ public class Pistol : Weapon
     {
         if (Deley <= _currentTime)
         {
+            SoundManager.PlaySound(SoundManager.Sound.ShootPistol, transform.position);
             Instantiate(Bullet, ShootPoint.position, ShootPoint.rotation);
             AnimatorPlayer.SetTrigger("Fire");
             _currentTime = 0;

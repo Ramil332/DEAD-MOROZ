@@ -7,35 +7,37 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float _speed = 5f;
-    [SerializeField] private float _attackDistance = 1f;
-    [SerializeField] private float _rotSpeed = .15f;
+    [SerializeField] protected float _speed = 5f;
+    [SerializeField] protected float _attackDistance = 1f;
+    [SerializeField] protected float _rotSpeed = .15f;
 
-    [SerializeField] [Range(0, 10)] private float _attackRate;
+    [SerializeField] [Range(0, 10)] protected float _attackRate;
 
-    private float _attackTime;
-    private bool _isAttacking;
+    protected float _attackTime;
+    protected bool _isAttacking;
 
-    private Animator _enemyAnim;
+    protected Animator _enemyAnim;
     //  private Rigidbody _myBody;
 
-    private Transform _playerTarget;
-    private float _chasePlayerAfterAttack = 1f;
+    protected Transform _playerTarget;
+    protected float _chasePlayerAfterAttack = 1f;
 
-    private float _currentAttackTime;
-    [SerializeField] private float _defaultAttackTime = 2f;
+    protected float _currentAttackTime;
+    [SerializeField] protected float _defaultAttackTime = 2f;
 
-    private bool _followPlayer = false;
-    private bool _attackPlayer = false;
+    protected bool _followPlayer = false;
+    protected bool _attackPlayer = false;
 
-    [SerializeField] private float _fireDistance = 1f;
-    private bool _firePlayer = false;
-    private Vector3 _playerPos;
+    [SerializeField] protected float _fireDistance = 1f;
+    protected bool _firePlayer = false;
+    protected Vector3 _playerPos;
 
-    private NavMeshAgent _agent;
+    protected NavMeshAgent _agent;
 
-    private float _deley = 0.5f;
-    private float _currentDeley = 0f;
+    protected float _deley = 0.5f;
+    protected float _currentDeley = 0f;
+
+    [SerializeField]private bool _santa = false;
 
     private void Awake()
     {
@@ -90,10 +92,8 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void FollowTarget()
+    protected void FollowTarget()
     {
-      
-
         if (Vector3.Distance(transform.position, _playerTarget.position) > _attackDistance)
         {
 
@@ -105,28 +105,39 @@ public class EnemyMovement : MonoBehaviour
             _enemyAnim.SetBool("Movement", true);
             _agent.SetDestination(_playerTarget.position);
 
+            if(_santa == true)
+                SoundManager.PlaySound(SoundManager.Sound.SantaMove, transform.position);
+            else
+                SoundManager.PlaySound(SoundManager.Sound.EnemyMove, transform.position);
+
         }
-        else 
+        else
         {
-          
+
 
             if (!_isAttacking)
             {
                 _enemyAnim.SetBool("Movement", false);
             }
-            
-           /* _followPlayer = false;
-            _attackPlayer = true;*/
+
+            /* _followPlayer = false;
+             _attackPlayer = true;*/
             Attack();
 
         }
     }
+    
 
-    private void Attack()
+    protected void Attack()
     {
         if (_isAttacking)
         {
             _enemyAnim.SetTrigger("Attack");
+
+            if (_santa == true)
+                SoundManager.PlaySound(SoundManager.Sound.SantaAttack, transform.position);
+            else
+                SoundManager.PlaySound(SoundManager.Sound.EnemyAttack, transform.position);
 
             transform.LookAt(_playerPos);
 
@@ -139,31 +150,5 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    private void Fire()
-    {
-        if (_deley <= _currentDeley)
-        {
-            if (!_firePlayer)
-                return;
-
-            _currentAttackTime += Time.deltaTime;
-
-            if (_currentAttackTime > _defaultAttackTime)
-            {
-                _enemyAnim.SetTrigger("Fire");
-                _currentAttackTime = 0f;
-
-            }
-
-            if (Vector3.Distance(transform.position, _playerTarget.position) < _attackDistance + _chasePlayerAfterAttack)
-            {
-                _firePlayer = false;
-                _followPlayer = true;
-            }
-        }
-    }
-    public void StartMap()
-    {
-        _followPlayer = true;
-    }
+ 
 }

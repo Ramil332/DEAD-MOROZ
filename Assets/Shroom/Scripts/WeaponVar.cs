@@ -36,7 +36,7 @@ public class WeaponVar : MonoBehaviour
         TEste();
         if (!_isReloading)
         {
-            SoundManager.PlaySound(SoundManager.Sound.Shoot, transform.position);
+            SoundManager.PlaySound(SoundManager.Sound.ShootPistol, transform.position);
             Instantiate(_weaponStats.Bullet, _shootPoint.position, _shootPoint.rotation);
             _animatorPlayer.SetTrigger("Fire");
             _attackTime = 0;

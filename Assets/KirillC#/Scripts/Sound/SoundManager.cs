@@ -13,16 +13,26 @@ public static class SoundManager
         PlayerMove,
         PlayerAttack,
         PlayerDie,
-        Shoot,
+        MelleAttack,
+        ShootPistol,
+        ShootMinigan,
         Exploizion,
         GiveWeapon,
         EnemyAttack,
         EnemyHit,
+        EnemyMove,
         EnemyDie,
         SantaAttack,
+        SantaMove,
         SantaHoHoHo,
         SantaHit,
         SantaDie,
+        Lift,
+        CristalDestroy,
+        CristalHit,
+        MainSound,
+        GatesSound,
+        
 
     }
 
@@ -46,6 +56,7 @@ public static class SoundManager
             audioSource.maxDistance = 100f;
             audioSource.volume = GetVolumeAudio(sound);
             audioSource.pitch = GetPitchAudio(sound);
+            audioSource.priority = GetPriorityAudio(sound);
             audioSource.Play();
         }
     }
@@ -124,6 +135,22 @@ public static class SoundManager
             if (soundAudioClip.Sound == sound)
             {
                 return soundAudioClip.Pitch;
+            }
+
+        }
+
+        Debug.LogError("Sound " + sound + " not found!");
+        return 0;
+
+    }
+
+    private static int GetPriorityAudio(Sound sound)
+    {
+        foreach (SoundAssets.SoundAudioClip soundAudioClip in SoundAssets.i.SoundAudioClipArray)
+        {
+            if (soundAudioClip.Sound == sound)
+            {
+                return soundAudioClip.Priority;
             }
 
         }
