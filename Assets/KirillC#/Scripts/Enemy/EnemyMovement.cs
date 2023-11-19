@@ -107,7 +107,7 @@ public class EnemyMovement : MonoBehaviour
             _playerPos = _playerTarget.position;
             _playerPos.y = transform.position.y;
             //_agent.isStopped = false;
-
+            _enemyAnim.SetBool("Movement", true);
             _agent.SetDestination(_playerTarget.position);
 
             //Vector3 lookPos;
@@ -147,6 +147,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 // anim to idle
             }
+            _enemyAnim.SetBool("Movement", false);
             _followPlayer = false;
             _attackPlayer = true;
             Attack();
