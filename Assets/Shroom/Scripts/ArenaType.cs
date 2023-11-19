@@ -10,6 +10,7 @@ public class ArenaType : MonoBehaviour
     public static Action OnThirdArena;
     public static Action OnFourthArena;
     public static Action OnFifthArena;
+    public static Action OnSantaArena;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -40,6 +41,11 @@ public class ArenaType : MonoBehaviour
         if (other.CompareTag("ArenaFive"))
         {
             OnFifthArena?.Invoke();
+            other.gameObject.SetActive(false);
+        }
+        if (other.CompareTag("SantaArena"))
+        {
+            OnSantaArena?.Invoke();
             other.gameObject.SetActive(false);
         }
     }

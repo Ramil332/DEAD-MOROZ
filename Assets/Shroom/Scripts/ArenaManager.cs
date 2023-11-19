@@ -65,6 +65,7 @@ public class ArenaManager : MonoBehaviour
         ArenaType.OnThirdArena += ThirdArenaOpen;
         ArenaType.OnFourthArena += FourthArenaOpen;
         ArenaType.OnFifthArena += FifthArenaOpen;
+        ArenaType.OnSantaArena += SantaArenaOpen;
 
         _crystalCount = 4;
         _crystalCountText.SetText(_crystalCount.ToString());
@@ -85,6 +86,8 @@ public class ArenaManager : MonoBehaviour
         ArenaType.OnThirdArena -= ThirdArenaOpen;
         ArenaType.OnFourthArena -= FourthArenaOpen;
         ArenaType.OnFifthArena -= FifthArenaOpen;
+        ArenaType.OnSantaArena -= SantaArenaOpen;
+
     }
 
     private void CrystalCount()
@@ -92,9 +95,9 @@ public class ArenaManager : MonoBehaviour
         if (_crystalCount < 1)
         {
             Debug.Log("NowMoreCrystals");
-            _mainGate.SetActive(false);
-            _backGate.SetActive(false);
-            Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
+           _mainGate.SetActive(false);
+         //   _backGate.SetActive(false);
+          //  Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
         }
         else
         {
@@ -216,5 +219,11 @@ public class ArenaManager : MonoBehaviour
     private void OpenGates(GameObject gates)
     {
         gates.SetActive(false);
+    }
+
+    private void SantaArenaOpen()
+    {
+        Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
+        _mainGate.SetActive(true);
     }
 }
