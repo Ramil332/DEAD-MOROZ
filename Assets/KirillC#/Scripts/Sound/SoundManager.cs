@@ -58,6 +58,7 @@ public static class SoundManager
             audioSource.pitch = GetPitchAudio(sound);
             audioSource.priority = GetPriorityAudio(sound);
             audioSource.Play();
+            Object.Destroy(soundGameObject, audioSource.clip.length);
         }
     }
     public static void PlaySound(Sound sound)
@@ -67,9 +68,10 @@ public static class SoundManager
             GameObject soundGameObject = new GameObject("Sound");
             AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
             audioSource.PlayOneShot(GetAudioClip(sound));
+            Object.Destroy(soundGameObject, audioSource.clip.length);
+
         }
     }
-
 
     private static bool CanPlaySound(Sound sound)
     {
