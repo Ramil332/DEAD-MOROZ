@@ -30,6 +30,7 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 
     public void Damage(float damage)
     {
+        SoundManager.PlaySound(SoundManager.Sound.EnemyHit, transform.position);
         //  healthBar.gameObject.SetActive(true);
         //  direction = position;
         _healthSystem.Damage(damage);
@@ -54,6 +55,7 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 
     private void Die()
     {
+        SoundManager.PlaySound(SoundManager.Sound.EnemyDie, transform.position);
         _died = true;
         _healthSystem.OnDead -= HealthSystem_OnDead;
         _healthSystem.OnDamaged -= HealthSystem_OnDamaged;

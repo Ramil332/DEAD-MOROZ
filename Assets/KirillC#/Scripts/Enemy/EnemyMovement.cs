@@ -164,6 +164,7 @@ public class EnemyMovement : MonoBehaviour
 
             _playerPos = _playerTarget.position;
             _playerPos.y = transform.position.y;
+            SoundManager.PlaySound(SoundManager.Sound.EnemyAttack, transform.position);
         }
 
        
