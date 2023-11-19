@@ -11,6 +11,7 @@ public class NewWeaponTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            SoundManager.PlaySound(SoundManager.Sound.GiveWeapon, transform.position);
             Destroy(gameObject);
             _activeWeapon = other.gameObject.GetComponent<ActiveWeapon>();
 

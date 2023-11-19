@@ -31,7 +31,7 @@ public class Explosion : MonoBehaviour
     }
     private void Detonate()
     {
-
+        SoundManager.PlaySound(SoundManager.Sound.Exploizion, transform.position);
         Vector3 explositionPosition = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explositionPosition, _radius);
         foreach (Collider collider in colliders)

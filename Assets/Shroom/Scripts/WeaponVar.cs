@@ -27,6 +27,7 @@ public class WeaponVar : MonoBehaviour
     {
         if (_weaponStats.FireRate <= _attackTime)
         {
+            SoundManager.PlaySound(SoundManager.Sound.Shoot, transform.position);
             Instantiate(_weaponStats.Bullet, _shootPoint.position, _shootPoint.rotation);
             _animatorPlayer.SetTrigger("Fire");
             _attackTime = 0;
