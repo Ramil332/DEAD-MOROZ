@@ -51,12 +51,12 @@ public class SantaHealth : MonoBehaviour, IDamagable
     private void HealthSystem_OnDead(object sender, EventArgs e)
     {
         Die();
-        Debug.Log(name + "Dead");
+       // Debug.Log(name + "Dead");
 
     }
     private void HealthSystem_OnDamaged(object sender, EventArgs e)
     {
-        Debug.Log(name + "CurrentHealth " + _healthSystem.GetHealth());
+       // Debug.Log(name + "CurrentHealth " + _healthSystem.GetHealth());
     }
     //private void HealthSystem_OnHealed(object sender, EventArgs e)
     //{

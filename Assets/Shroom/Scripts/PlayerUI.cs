@@ -123,6 +123,12 @@ public class PlayerUI : MonoBehaviour
     private void WinPanel()
     {
         _winPanel.SetActive(true);
+        _healthsPanel.SetActive(false);
+        _crystalPanel.SetActive(false);
+        _weaponPanel.SetActive(false);
+        _santaHPPanel.SetActive(false);
+
+        Cursor.visible = true;
     }
 
 }
