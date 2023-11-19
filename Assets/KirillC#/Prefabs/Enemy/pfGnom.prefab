@@ -1742,7 +1742,7 @@ MonoBehaviour:
   _explosionForce: 200
   _vxfExplosionDie: {fileID: 2300360663179508797, guid: 5e410ecfe23291b4f852b8ef5060b6f9,
     type: 3}
-  _pfSnowmanParts: {fileID: 3151135807200636649, guid: beb01383091f46b4985bb64a234c46c3,
+  _pfSnowmanParts: {fileID: 3298974095323332075, guid: 296ecbf56e9007c49832b8cf4ca8221f,
     type: 3}
   _spawnVFXPoint: {fileID: 2288949055391711843}
 --- !u!195 &625082417619561934
@@ -1785,6 +1785,7 @@ MonoBehaviour:
   _attackRate: 1
   _defaultAttackTime: 2
   _fireDistance: 1
+  _santa: 0
 --- !u!95 &6552114679962151399
 Animator:
   serializedVersion: 5

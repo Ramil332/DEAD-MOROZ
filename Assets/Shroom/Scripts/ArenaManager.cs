@@ -58,6 +58,7 @@ public class ArenaManager : MonoBehaviour
     [SerializeField] private Animator _mainGateAnimator;
     [SerializeField] private Transform _santaPointSpawn;
     [SerializeField] private Transform _pfSanta;
+    [SerializeField] private GameObject _hpPanel;
 
     private void OnEnable()
     {
@@ -228,6 +229,7 @@ public class ArenaManager : MonoBehaviour
 
     private void SantaArenaOpen()
     {
+        _hpPanel.SetActive(true);
         Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
         // _mainGate.SetActive(true);
         _mainGateAnimator.SetBool("isGateOpen", false);

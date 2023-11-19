@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SantaHealth : MonoBehaviour, IDamagable
 {
@@ -9,7 +10,7 @@ public class SantaHealth : MonoBehaviour, IDamagable
 
     [SerializeField][Range(0, 1000)] private float _maxHealth;
     [SerializeField][Range(0, 10000)] private float _explosionForce = 1000f;
-
+    private Image _hpBar;
     /*[Header("Ёффекты при смерти")]
     [SerializeField] private Transform _vxfExplosionDie;
     [SerializeField] private Transform _pfSnowmanParts;
@@ -26,7 +27,10 @@ public class SantaHealth : MonoBehaviour, IDamagable
         _healthSystem = new(_maxHealth);
         _healthSystem.OnDead += HealthSystem_OnDead;
         _healthSystem.OnDamaged += HealthSystem_OnDamaged;
+        _healthSystem.OnHealthChanged += HealthSystem_OnHealthChanged;
         // _healthSystem.OnHealed += HealthSystem_OnHealed;
+        _hpBar = GameObject.Find("HPBarSanta_Image").GetComponent<Image>();
+        _hpBar.fillAmount = _healthSystem.GetHealthPercent();
 
     }
 
@@ -38,6 +42,10 @@ public class SantaHealth : MonoBehaviour, IDamagable
         _healthSystem.Damage(damage);
         // healthBar.SetHealthBarPercentage(healthSystem.GetHealth() / healthMax);
 
+    }
+    private void HealthSystem_OnHealthChanged(object sender, EventArgs e)
+    {
+        _hpBar.fillAmount = _healthSystem.GetHealthPercent();
     }
 
     private void HealthSystem_OnDead(object sender, EventArgs e)
@@ -65,6 +73,9 @@ public class SantaHealth : MonoBehaviour, IDamagable
         _santaAnimator.SetTrigger("Die");
         this.GetComponent<EnemyMovement>().enabled = false;
         this.GetComponent<SantaBossController>().enabled = false;
+
+        PlayerUI playerUI = GameObject.Find("Player").GetComponent<PlayerUI>();
+        playerUI.WinGame();
         /*Instantiate(_vxfExplosionDie, _spawnVFXPoint.position, Quaternion.identity);
         Transform SnowmanParts = Instantiate(_pfSnowmanParts, _spawnVFXPoint.position, transform.rotation);
 
@@ -75,7 +86,6 @@ public class SantaHealth : MonoBehaviour, IDamagable
                 childRigidbody.AddExplosionForce(_explosionForce, transform.position, 5f);
             }
         }*/
-
 
     }
 }

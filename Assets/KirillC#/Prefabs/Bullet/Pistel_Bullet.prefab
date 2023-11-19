@@ -280,9 +280,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
-  _power: 89
+  _power: 0
   _radius: 1
-  _upForce: 1
+  _upForce: 0
 --- !u!54 &1723989409028007082
 Rigidbody:
   m_ObjectHideFlags: 0

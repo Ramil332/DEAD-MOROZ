@@ -12788,15 +12788,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.6666667
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -12805,17 +12796,8 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.76666665
+        time: 0.8333333
         value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1.6666666
-        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -12826,7 +12808,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (1)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -12844,7 +12826,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8666667
+        time: 0.8333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -12856,7 +12838,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (1)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (5)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -12874,7 +12856,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8666667
+        time: 0.8333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -12886,7 +12868,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -12904,7 +12886,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8666667
+        time: 0.93333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -12916,7 +12898,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (5)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (4)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -12934,7 +12916,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1
+        time: 0.93333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -12946,7 +12928,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (2)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (3)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -12964,7 +12946,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1
+        time: 0.93333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -12976,7 +12958,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (4)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (2)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -12994,7 +12976,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1
+        time: 1.0333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -13006,7 +12988,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (3)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (9)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -13024,7 +13006,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.1
+        time: 1.0333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -13036,7 +13018,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (6)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (8)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -13054,7 +13036,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.1
+        time: 1.0333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -13066,7 +13048,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (8)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (7)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -13084,7 +13066,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.1
+        time: 1.0333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -13096,7 +13078,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (7)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (6)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -13114,7 +13096,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.2
+        time: 1.1333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -13126,7 +13108,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (9)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (12)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -13144,7 +13126,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.2
+        time: 1.1333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -13156,7 +13138,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (10)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (11)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -13174,7 +13156,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.2
+        time: 1.1333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -13186,7 +13168,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (11)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (10)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -13204,7 +13186,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.3
+        time: 1.2333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -13216,7 +13198,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (14)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (16)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -13234,7 +13216,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.3
+        time: 1.2333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -13246,7 +13228,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (13)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (14)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -13264,7 +13246,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.3
+        time: 1.2333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -13276,97 +13258,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (12)
-    classID: 1
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1.4333333
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (17)
-    classID: 1
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1.4333333
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (16)
-    classID: 1
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1.4333333
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (15)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (13)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -13424,7 +13316,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3297517543
+      path: 2616242166
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -13433,7 +13325,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 447231601
+      path: 4288441074
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -13442,7 +13334,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1614020559
+      path: 771334669
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -13451,7 +13343,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2126836597
+      path: 3867630515
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -13460,7 +13352,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 830825906
+      path: 2848378228
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -13469,7 +13361,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1742717492
+      path: 2967338037
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -13478,7 +13370,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 681465075
+      path: 1395205630
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -13487,7 +13379,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1441374390
+      path: 1244796095
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -13496,7 +13388,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3412757816
+      path: 3450472560
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -13505,7 +13397,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1290965495
+      path: 3568384305
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -13514,7 +13406,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3530669177
+      path: 1841503229
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -13523,7 +13415,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 749221733
+      path: 1190021182
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -13532,7 +13424,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 900924964
+      path: 1609922943
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -13541,7 +13433,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1220866657
+      path: 162520825
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -13550,7 +13442,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 126182566
+      path: 999931003
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -13559,34 +13451,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 513693159
-      attribute: 2086281974
-      script: {fileID: 0}
-      typeID: 1
-      customType: 0
-      isPPtrCurve: 0
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 1676255650
-      attribute: 2086281974
-      script: {fileID: 0}
-      typeID: 1
-      customType: 0
-      isPPtrCurve: 0
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 2062717155
-      attribute: 2086281974
-      script: {fileID: 0}
-      typeID: 1
-      customType: 0
-      isPPtrCurve: 0
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 1373618976
+      path: 1960323772
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -27512,15 +27377,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.6666667
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -27529,17 +27385,8 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.76666665
+        time: 0.8333333
         value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1.6666666
-        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -27550,7 +27397,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (1)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -27568,7 +27415,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8666667
+        time: 0.8333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -27580,7 +27427,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (1)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (5)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -27598,7 +27445,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8666667
+        time: 0.8333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -27610,7 +27457,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -27628,7 +27475,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8666667
+        time: 0.93333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -27640,7 +27487,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (5)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (4)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -27658,7 +27505,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1
+        time: 0.93333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -27670,7 +27517,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (2)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (3)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -27688,7 +27535,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1
+        time: 0.93333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -27700,7 +27547,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (4)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (2)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -27718,7 +27565,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1
+        time: 1.0333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -27730,7 +27577,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (3)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (9)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -27748,7 +27595,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.1
+        time: 1.0333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -27760,7 +27607,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (6)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (8)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -27778,7 +27625,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.1
+        time: 1.0333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -27790,7 +27637,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (8)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (7)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -27808,7 +27655,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.1
+        time: 1.0333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -27820,7 +27667,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (7)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (6)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -27838,7 +27685,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.2
+        time: 1.1333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -27850,7 +27697,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (9)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (12)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -27868,7 +27715,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.2
+        time: 1.1333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -27880,7 +27727,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (10)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (11)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -27898,7 +27745,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.2
+        time: 1.1333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -27910,7 +27757,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (11)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (10)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -27928,7 +27775,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.3
+        time: 1.2333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -27940,7 +27787,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (14)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (16)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -27958,7 +27805,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.3
+        time: 1.2333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -27970,7 +27817,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (13)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (14)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -27988,7 +27835,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.3
+        time: 1.2333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -28000,97 +27847,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (12)
-    classID: 1
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1.4333333
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (17)
-    classID: 1
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1.4333333
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (16)
-    classID: 1
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1.4333333
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_IsActive
-    path: Armature/root/foot_controller.R/knee_target.R/Piki/Pika (15)
+    path: Armature/root/foot_controller.R/knee_target.R/Piki (1)/Pika (13)
     classID: 1
     script: {fileID: 0}
     flags: 0

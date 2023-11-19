@@ -58,7 +58,7 @@ public static class SoundManager
             audioSource.pitch = GetPitchAudio(sound);
             audioSource.priority = GetPriorityAudio(sound);
             audioSource.Play();
-            //Object.Destroy(soundGameObject, audioSource.clip.length);
+            Object.Destroy(soundGameObject, GetDestroyTimeAudio(sound));
         }
     }
     public static void PlaySound(Sound sound)
@@ -201,4 +201,19 @@ public static class SoundManager
 
     }
 
+    private static float GetDestroyTimeAudio(Sound sound)
+    {
+        foreach (SoundAssets.SoundAudioClip soundAudioClip in SoundAssets.i.SoundAudioClipArray)
+        {
+            if (soundAudioClip.Sound == sound)
+            {
+                return soundAudioClip.DestroyTimer;
+            }
+
+        }
+
+        Debug.LogError("Sound " + sound + " not found!");
+        return 0;
+
+    }
 }
