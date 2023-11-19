@@ -33,7 +33,7 @@ public class WeaponVar : MonoBehaviour
         //    _attackTime = 0;
 
         //}
-            TEste();
+        TEste();
         if (!_isReloading)
         {
             SoundManager.PlaySound(SoundManager.Sound.Shoot, transform.position);
@@ -42,14 +42,14 @@ public class WeaponVar : MonoBehaviour
             _attackTime = 0;
 
 
-        //if (_isAttacking)
-        //{
-        //    Instantiate(_weaponStats.Bullet, _shootPoint.position, _shootPoint.rotation);
-        //    _weaponStats.AnimatorPlayer.SetTrigger("Fire");
+            //if (_isAttacking)
+            //{
+            //    Instantiate(_weaponStats.Bullet, _shootPoint.position, _shootPoint.rotation);
+            //    _weaponStats.AnimatorPlayer.SetTrigger("Fire");
 
-        //}
+            //}
+        }
     }
-
     void TEste()
     {
         Instantiate(_pfbullet, _shootPoint.position, _shootPoint.rotation);

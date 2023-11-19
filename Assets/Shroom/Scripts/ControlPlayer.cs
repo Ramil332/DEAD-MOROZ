@@ -87,7 +87,7 @@ public class ControlPlayer : MonoBehaviour
 
     private void HandleMovement()
     {
-        
+
         _groundedPlayer = _controller.isGrounded;
         if (_groundedPlayer && _playerVelocity.y < 0)
         {
@@ -96,7 +96,11 @@ public class ControlPlayer : MonoBehaviour
 
         Vector3 movement = _inputManager.GetPlayerMovement();
 
-        if (movement.x != 0 || movement.y != 0) { _animator.SetBool("Movement", true); SoundManager.PlaySound(SoundManager.Sound.PlayerMove, transform.position); }
+        if (movement.x != 0 || movement.y != 0)
+        {
+            _animator.SetBool("Movement", true);
+            //SoundManager.PlaySound(SoundManager.Sound.PlayerMove, transform.position);
+        }
 
         else _animator.SetBool("Movement", false);
 
