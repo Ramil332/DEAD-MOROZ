@@ -6,11 +6,7 @@ public class PlayerDamageSystem : MonoBehaviour
 
     private PlayerController _playerController;
 
-    private void Awake()
-    {
-        _playerController = GetComponent<PlayerController>();
-
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {

@@ -80,6 +80,8 @@ MonoBehaviour:
   WeaponTypeC: 2
   _weaponStats: {fileID: 11400000, guid: 256fbe6d20711ee44962511c3f722529, type: 2}
   _shootPoint: {fileID: 2897744639038628387}
+  _pfbullet: {fileID: 0}
+  _animatorPlayer: {fileID: 0}
 --- !u!1001 &6840366247784921588
 PrefabInstance:
   m_ObjectHideFlags: 0

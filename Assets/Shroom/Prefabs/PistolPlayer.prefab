@@ -379,3 +379,5 @@ MonoBehaviour:
   WeaponTypeC: 0
   _weaponStats: {fileID: 11400000, guid: 7bf8cc54a2a7af849848abb916a960fc, type: 2}
   _shootPoint: {fileID: 8962528217718356617}
+  _pfbullet: {fileID: 0}
+  _animatorPlayer: {fileID: 0}
