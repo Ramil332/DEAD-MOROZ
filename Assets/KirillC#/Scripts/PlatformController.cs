@@ -21,6 +21,8 @@ public class PlatformController : MonoBehaviour
         if (_isGoingUp)
         {
             MoveUp();
+            
+
         }
 
         if (_isGoingDown)
@@ -33,7 +35,6 @@ public class PlatformController : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, _upperPosition.position) < 0.01f)
         {
-            Debug.Log("awgfe3tg");
             transform.position = Vector3.Lerp(transform.position, _upperPosition.position, 0 * Time.deltaTime);
 
         }
@@ -52,6 +53,7 @@ public class PlatformController : MonoBehaviour
             _isGoingUp = true;
             _isGoingDown = false;
             _nextPosition = _upperPosition.position;
+            SoundManager.PlaySound(SoundManager.Sound.Lift);
         }
         if (other.CompareTag("LiftEndPoint"))
         {

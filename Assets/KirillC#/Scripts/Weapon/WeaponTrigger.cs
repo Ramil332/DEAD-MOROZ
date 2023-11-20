@@ -24,13 +24,11 @@ public class WeaponTrigger : MonoBehaviour
             {
                 if(other.gameObject.GetComponent<PlayerController>().CurrentWeapon.gameObject.GetComponent<Pistol>())
                 {
-                    Debug.Log("Pistol Trigger");
                     _pistolTrigger.SetActive(true);
                     _pistolTrigger.transform.position = _weaponTriggerSpawn.position;
                 }
                 if (other.gameObject.GetComponent<PlayerController>().CurrentWeapon.gameObject.GetComponent<Minigan>())
                 {
-                    Debug.Log("Minigasn Trigger");
                     _miniganTrigger.SetActive(true);
                     _miniganTrigger.transform.position = _weaponTriggerSpawn.position;
                 }

@@ -678,7 +678,7 @@ Transform:
   - {fileID: 7951542476312366992}
   - {fileID: 5383689414859999030}
   - {fileID: 8684781138089744703}
-  - {fileID: 1207281799867046079}
+  - {fileID: 95147267638035102}
   m_Father: {fileID: 8169615031056524473}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2334947495097956608
@@ -1264,6 +1264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfb15512b4de644bbce5afef00cbdaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healIceCream: {fileID: 925888153186687431, guid: 9a97348776a1f6842890377a97fe94f0,
+    type: 3}
   _maxHealth: 20
   _explosionForce: 200
   _vxfExplosionDie: {fileID: 2300360663179508797, guid: 5e410ecfe23291b4f852b8ef5060b6f9,
@@ -1311,6 +1313,7 @@ MonoBehaviour:
   _attackRate: 1
   _defaultAttackTime: 2
   _fireDistance: 1
+  _santa: 0
 --- !u!95 &8888728064655206731
 Animator:
   serializedVersion: 5
@@ -4087,7 +4090,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37aa3f0586471bd498d8a7ff305b3394, type: 3}
---- !u!4 &1207281799867046079 stripped
+--- !u!4 &95147267638035102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 37aa3f0586471bd498d8a7ff305b3394,
     type: 3}

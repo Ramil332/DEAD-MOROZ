@@ -36,7 +36,7 @@ public class SantaHealth : MonoBehaviour, IDamagable
 
     public void Damage(float damage)
     {
-        SoundManager.PlaySound(SoundManager.Sound.SantaHit, transform.position);
+        SoundManager.PlaySound(SoundManager.Sound.SantaHit);
         //  healthBar.gameObject.SetActive(true);
         //  direction = position;
         _healthSystem.Damage(damage);
@@ -69,7 +69,7 @@ public class SantaHealth : MonoBehaviour, IDamagable
         _healthSystem.OnDead -= HealthSystem_OnDead;
         _healthSystem.OnDamaged -= HealthSystem_OnDamaged;
 
-        SoundManager.PlaySound(SoundManager.Sound.SantaDie, transform.position);
+      //  SoundManager.PlaySound(SoundManager.Sound.SantaDie, transform.position);
         _santaAnimator.SetTrigger("Die");
         this.GetComponent<EnemyMovement>().enabled = false;
         this.GetComponent<SantaBossController>().enabled = false;

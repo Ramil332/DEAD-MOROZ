@@ -98,11 +98,12 @@ public class ArenaManager : MonoBehaviour
     {
         if (_crystalCount < 1)
         {
-            Debug.Log("NowMoreCrystals");
             //_mainGate.SetActive(false);
             _mainGateAnimator.SetBool("isGateOpen", false);
-         //   _backGate.SetActive(false);
-         //  Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
+            SoundManager.PlaySound(SoundManager.Sound.GatesSound);
+
+            //   _backGate.SetActive(false);
+            //  Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
         }
         else
         {
@@ -207,6 +208,8 @@ public class ArenaManager : MonoBehaviour
         //_mainGate.SetActive(false);
         //_backGate.SetActive(false);
         _mainGateAnimator.SetBool("isGateOpen", true);
+        SoundManager.PlaySound(SoundManager.Sound.GatesSound);
+
     }
 
     private IEnumerator CheckEnemy(GameObject gates)
@@ -233,5 +236,7 @@ public class ArenaManager : MonoBehaviour
         Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
         // _mainGate.SetActive(true);
         _mainGateAnimator.SetBool("isGateOpen", false);
+        SoundManager.PlaySound(SoundManager.Sound.GatesSound);
+
     }
 }

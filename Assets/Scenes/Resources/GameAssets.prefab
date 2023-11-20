@@ -1,0 +1,194 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8538985398008096565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7109596400497338431}
+  - component: {fileID: 4551904755487131622}
+  m_Layer: 0
+  m_Name: GameAssets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7109596400497338431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8538985398008096565}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4551904755487131622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8538985398008096565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd16175746b4de47819828e428f672b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundAudioClipArray:
+  - Sound: 0
+    AudioClip: {fileID: 8300000, guid: e23cbf0005b22c445b90e543c69d883d, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 1
+    AudioClip: {fileID: 8300000, guid: 8260d0f586c1da34c99afbfafa090ed8, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 46
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 3
+    AudioClip: {fileID: 8300000, guid: 601440f0abf9d694ea97a738be6d364f, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 22
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 21
+    AudioClip: {fileID: 8300000, guid: 3ce5773c3cfcbea47ac799ba6a8bca70, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 20
+    AudioClip: {fileID: 8300000, guid: 732a8e34344b06c4d8f3797d0a34c347, type: 3}
+    Volume: 0.607
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 230
+    Loop: 1
+  - Sound: 4
+    AudioClip: {fileID: 8300000, guid: afdee09fe25d6884b985c467d204b503, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 5
+    AudioClip: {fileID: 8300000, guid: 854b27c82fbb24d49a41c5a0230fab92, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 0.1
+    Loop: 0
+  - Sound: 6
+    AudioClip: {fileID: 8300000, guid: a63311ed8aa885a48a092d08843778a0, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 7
+    AudioClip: {fileID: 0}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 8
+    AudioClip: {fileID: 8300000, guid: 1d3c870f35ef27f41aef185ef141506a, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 9
+    AudioClip: {fileID: 8300000, guid: f95c53bdd0e80ec46944efdedce54b09, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 10
+    AudioClip: {fileID: 8300000, guid: e23cbf0005b22c445b90e543c69d883d, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 11
+    AudioClip: {fileID: 0}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 12
+    AudioClip: {fileID: 8300000, guid: 1d3c870f35ef27f41aef185ef141506a, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 14
+    AudioClip: {fileID: 8300000, guid: 32f19ab7af69e574db85453296b0ba77, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 15
+    AudioClip: {fileID: 8300000, guid: 1d3c870f35ef27f41aef185ef141506a, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 17
+    AudioClip: {fileID: 8300000, guid: e9aef0c01ca84154b934e8b27722a51e, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 18
+    AudioClip: {fileID: 8300000, guid: c3aa7eec6bdd2db4cbc0dfbff5f7dd73, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 19
+    AudioClip: {fileID: 8300000, guid: b2d5cd7e0778dbf4aabfed626fb889af, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 13
+    AudioClip: {fileID: 8300000, guid: beaf7d3c6f93bee4fbe9dff026182306, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 22
+    AudioClip: {fileID: 8300000, guid: 8260d0f586c1da34c99afbfafa090ed8, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0

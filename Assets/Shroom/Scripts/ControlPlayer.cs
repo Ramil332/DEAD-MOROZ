@@ -32,6 +32,7 @@ public class ControlPlayer : MonoBehaviour
 
     private void Awake()
     {
+        SoundManager.Initialize();
         _playerController = GetComponent<PlayerController>();
         _granadeThrowTime = _granadeThrowRate;
         _granadeImage.fillAmount = _granadeThrowTime / _granadeThrowRate;
@@ -39,6 +40,8 @@ public class ControlPlayer : MonoBehaviour
     }
     private void Start()
     {
+        SoundManager.PlaySound(SoundManager.Sound.MainSound);
+
         _animator = GetComponentInChildren<Animator>();
 
         _controller = GetComponent<CharacterController>();
@@ -105,7 +108,7 @@ public class ControlPlayer : MonoBehaviour
         if (movement.x != 0 || movement.y != 0)
         {
             _animator.SetBool("Movement", true);
-            //SoundManager.PlaySound(SoundManager.Sound.PlayerMove, transform.position);
+            SoundManager.PlaySound(SoundManager.Sound.PlayerMove);
         }
 
         else _animator.SetBool("Movement", false);
