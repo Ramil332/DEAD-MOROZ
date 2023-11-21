@@ -32,5 +32,6 @@ public class SoundAssets : MonoBehaviour
         [Range(0, 1)] public float Volume;
         [Range(-3, 3)] public float Pitch;
         [Range(0, 256)] public int Priority;
+        public float DestroyTimer = 1f; 
     }
 }

@@ -5026,6 +5026,10 @@ MonoBehaviour:
   _spawnPoint: {fileID: 8246004611098202146}
   _vfxVortex: {fileID: 6980764250226445572, guid: 3d208f16fe4605c4a8f0661051a1f6c7,
     type: 3}
+  _vfxCrystalHit: {fileID: 5270691365256623264, guid: 8ff5fb8c5a2c6c3478d34f878d53bc2c,
+    type: 3}
+  _vfxCrystalDestroy: {fileID: 5307121141649809458, guid: 431d6123970223047b337ec2bdcb3ea4,
+    type: 3}
   _maxHealth: 50
   _spawnPoints: []
 --- !u!65 &9026374569139157406

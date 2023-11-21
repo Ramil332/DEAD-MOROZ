@@ -106,9 +106,9 @@ public class EnemyMovement : MonoBehaviour
             _agent.SetDestination(_playerTarget.position);
 
             if(_santa == true)
-                SoundManager.PlaySound(SoundManager.Sound.SantaMove, transform.position);
+                SoundManager.PlaySound(SoundManager.Sound.SantaMove);
             else
-                SoundManager.PlaySound(SoundManager.Sound.EnemyMove, transform.position);
+                SoundManager.PlaySound(SoundManager.Sound.EnemyMove);
 
         }
         else
@@ -135,15 +135,15 @@ public class EnemyMovement : MonoBehaviour
             _enemyAnim.SetTrigger("Attack");
 
             if (_santa == true)
-                SoundManager.PlaySound(SoundManager.Sound.SantaAttack, transform.position);
+                SoundManager.PlaySound(SoundManager.Sound.SantaAttack);
             else
-                SoundManager.PlaySound(SoundManager.Sound.EnemyAttack, transform.position);
+                SoundManager.PlaySound(SoundManager.Sound.EnemyAttack);
 
             transform.LookAt(_playerPos);
 
             _playerPos = _playerTarget.position;
             _playerPos.y = transform.position.y;
-            SoundManager.PlaySound(SoundManager.Sound.EnemyAttack, transform.position);
+            SoundManager.PlaySound(SoundManager.Sound.EnemyAttack);
         }
 
        

@@ -11,6 +11,9 @@ public class CristalController : MonoBehaviour, IDamagable
     [SerializeField] private Transform _spawnPoint;
 
     [SerializeField] private GameObject _vfxVortex;
+    [SerializeField] private Transform _vfxCrystalHit;
+    [SerializeField] private Transform _vfxCrystalDestroy;
+
 
     private HealthSystem _healthSystem;
 
@@ -68,7 +71,8 @@ public class CristalController : MonoBehaviour, IDamagable
 
     private void HealthSystem_OnHealthChanged(object sender, EventArgs e)
     {
-        //
+        SoundManager.PlaySound(SoundManager.Sound.CristalHit);
+        Instantiate(_vfxCrystalHit, transform.position, Quaternion.identity);
     }
 
     private void HealthSystem_OnDead(object sender, EventArgs e)
@@ -96,6 +100,8 @@ public class CristalController : MonoBehaviour, IDamagable
             GameObject Vortex = Instantiate(_vfxVortex, _spawnPoint.position, _vfxVortex.transform.rotation);
 
         }
+        SoundManager.PlaySound(SoundManager.Sound.CristalDestroy);
+        Instantiate(_vfxCrystalDestroy, transform.position, Quaternion.identity);
 
         Destroy(gameObject);
     }

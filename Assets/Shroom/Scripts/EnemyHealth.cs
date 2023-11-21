@@ -31,7 +31,6 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 
     public void Damage(float damage)
     {
-        SoundManager.PlaySound(SoundManager.Sound.EnemyHit, transform.position);
         //  healthBar.gameObject.SetActive(true);
         //  direction = position;
         _healthSystem.Damage(damage);
@@ -47,7 +46,9 @@ public class EnemyHealth : MonoBehaviour, IDamagable
     }
     private void HealthSystem_OnDamaged(object sender, EventArgs e)
     {
-       // Debug.Log(name + "CurrentHealth " + _healthSystem.GetHealth());
+        // Debug.Log(name + "CurrentHealth " + _healthSystem.GetHealth());
+        SoundManager.PlaySound(SoundManager.Sound.EnemyHit);
+
     }
     //private void HealthSystem_OnHealed(object sender, EventArgs e)
     //{
@@ -61,7 +62,7 @@ public class EnemyHealth : MonoBehaviour, IDamagable
         if (healSpawn == 9)
             Instantiate(_healIceCream, transform.position, Quaternion.identity);
 
-        SoundManager.PlaySound(SoundManager.Sound.EnemyDie, transform.position);
+      //  SoundManager.PlaySound(SoundManager.Sound.EnemyDie);
         _died = true;
         _healthSystem.OnDead -= HealthSystem_OnDead;
         _healthSystem.OnDamaged -= HealthSystem_OnDamaged;

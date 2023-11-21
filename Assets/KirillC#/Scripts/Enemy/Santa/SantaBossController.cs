@@ -30,7 +30,7 @@ public class SantaBossController : Enemy
 
     public void SantaSpawnMobs()
     {
-        SoundManager.PlaySound(SoundManager.Sound.SantaHoHoHo, transform.position);
+        SoundManager.PlaySound(SoundManager.Sound.SantaHoHoHo);
         int indexMob = Random.Range(0, _mobPrefabs.Length);
         int indexPoint = Random.Range(0, _spawnPoints.Length);
         Instantiate(_mobPrefabs[indexMob], _spawnPoints[indexPoint].position, Quaternion.identity);

@@ -19,7 +19,6 @@ public class PlayerHealSystem : MonoBehaviour
             IHealing heal = other.GetComponent<IHealing>();
             if (heal != null)
             {
-                Debug.Log("Heal Player");
                 heal.Heal(_healAmount);
                 Destroy(gameObject);
             }

@@ -55,8 +55,10 @@ public class ArenaManager : MonoBehaviour
 
     [Header("Главные ворота")]
     [SerializeField] private GameObject _mainGate;
+    [SerializeField] private Animator _mainGateAnimator;
     [SerializeField] private Transform _santaPointSpawn;
     [SerializeField] private Transform _pfSanta;
+    [SerializeField] private GameObject _hpPanel;
 
     private void OnEnable()
     {
@@ -67,6 +69,8 @@ public class ArenaManager : MonoBehaviour
         ArenaType.OnFifthArena += FifthArenaOpen;
         ArenaType.OnSantaArena += SantaArenaOpen;
 
+        _mainGateAnimator.SetBool("isGateOpen", false);
+
         _crystalCount = 4;
         _crystalCountText.SetText(_crystalCount.ToString());
 
@@ -76,7 +80,7 @@ public class ArenaManager : MonoBehaviour
         _arenaGateThree.SetActive(false);
         _arenaGateFour.SetActive(false);
         _arenaGateFive.SetActive(false);
-        _mainGate.SetActive(true);
+       // _mainGate.SetActive(true);
     }
 
     private void OnDisable()
@@ -94,10 +98,12 @@ public class ArenaManager : MonoBehaviour
     {
         if (_crystalCount < 1)
         {
-            Debug.Log("NowMoreCrystals");
-           _mainGate.SetActive(false);
-         //   _backGate.SetActive(false);
-          //  Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
+            //_mainGate.SetActive(false);
+            _mainGateAnimator.SetBool("isGateOpen", false);
+            SoundManager.PlaySound(SoundManager.Sound.GatesSound);
+
+            //   _backGate.SetActive(false);
+            //  Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
         }
         else
         {
@@ -201,6 +207,9 @@ public class ArenaManager : MonoBehaviour
         //Debug.Log("NowMoreCrystals");
         //_mainGate.SetActive(false);
         //_backGate.SetActive(false);
+        _mainGateAnimator.SetBool("isGateOpen", true);
+        SoundManager.PlaySound(SoundManager.Sound.GatesSound);
+
     }
 
     private IEnumerator CheckEnemy(GameObject gates)
@@ -223,7 +232,11 @@ public class ArenaManager : MonoBehaviour
 
     private void SantaArenaOpen()
     {
+        _hpPanel.SetActive(true);
         Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
-        _mainGate.SetActive(true);
+        // _mainGate.SetActive(true);
+        _mainGateAnimator.SetBool("isGateOpen", false);
+        SoundManager.PlaySound(SoundManager.Sound.GatesSound);
+
     }
 }

@@ -54,6 +54,8 @@ public class PlayerHealth : MonoBehaviour, IDamagable, IHealing
     private void HealthSystem_OnDamaged(object sender, EventArgs e)
     {
         //Debug.Log(name + "CurrentHealth " + _healthSystem.GetHealth());
+        SoundManager.PlaySound(SoundManager.Sound.PlayerDamaged);
+
     }
     private void HealthSystem_OnHealed(object sender, EventArgs e)
     {
