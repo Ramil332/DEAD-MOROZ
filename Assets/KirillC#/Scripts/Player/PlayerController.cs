@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _bombPref;
     [SerializeField] private float _bombForce = 20f;
     [SerializeField] private Transform _bombPosition;
-
     private Weapon _curentWeapon;
  //   private int _currentHealth;
     private Animator _animator;
@@ -24,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+
         _animator = GetComponentInChildren<Animator>();
         if(_weapons.Count >0)
         _curentWeapon = _weapons[0];

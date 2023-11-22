@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 //using UnityEngine.Rendering;
 //using static SoundAssets;
-
+using UnityEngine.Audio;
 public static class SoundManager
 {
     public enum Sound
@@ -32,6 +32,7 @@ public static class SoundManager
         MainSound,
         GatesSound,
         PlayerDamaged,
+        IceCream,
 
     }
 

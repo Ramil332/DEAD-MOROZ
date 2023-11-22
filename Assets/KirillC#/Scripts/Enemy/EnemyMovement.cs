@@ -12,6 +12,9 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] protected float _rotSpeed = .15f;
 
     [SerializeField] [Range(0, 10)] protected float _attackRate;
+    //[SerializeField] private VisualEffect _pfIcePick;
+    [SerializeField] private Transform _positionIcePick;
+    [SerializeField] private Transform _pfIcePick;
 
     protected float _attackTime;
     protected bool _isAttacking;
@@ -65,9 +68,7 @@ public class EnemyMovement : MonoBehaviour
         _currentDeley += Time.deltaTime;
         
         //if (GetComponent<EnemyHealth>().Died != true)
-        //{
-
-       
+        //{       
 
 
         FollowTarget();
@@ -135,7 +136,11 @@ public class EnemyMovement : MonoBehaviour
             _enemyAnim.SetTrigger("Attack");
 
             if (_santa == true)
+            {
+                // StartCoroutine(IcePick());
+                Instantiate(_pfIcePick, _positionIcePick.position, _positionIcePick.rotation);
                 SoundManager.PlaySound(SoundManager.Sound.SantaAttack);
+            }
             else
                 SoundManager.PlaySound(SoundManager.Sound.EnemyAttack);
 
@@ -146,9 +151,13 @@ public class EnemyMovement : MonoBehaviour
             SoundManager.PlaySound(SoundManager.Sound.EnemyAttack);
         }
 
-       
-
     }
 
+  //private IEnumerator IcePick()
+  //  {
+  //      _positionIcePick.SetActive(true);
+  //      yield return new WaitForSeconds(3f);
+  //      _positionIcePick.SetActive(false);
+  //  }
  
 }

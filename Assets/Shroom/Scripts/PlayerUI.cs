@@ -8,9 +8,9 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject _pausePanel;
     [SerializeField] private GameObject _optionsPanel;
     [SerializeField] private GameObject _healthsPanel;
-    [SerializeField] private GameObject _crystalPanel;
+    [SerializeField] private GameObject _crystalAndSantaPanel;
     [SerializeField] private GameObject _weaponPanel;
-    [SerializeField] private GameObject _santaHPPanel;
+    [SerializeField] private GameObject _santaPanel;
     //[SerializeField] private GameObject _soundPanel;
     //[SerializeField] private GameObject _nextLvlPanel;
     [SerializeField] private GameObject _restartButton;
@@ -29,9 +29,9 @@ public class PlayerUI : MonoBehaviour
         _winPanel.SetActive(false);
         _optionsPanel.SetActive(false);
         _healthsPanel.SetActive(true);
-        _crystalPanel.SetActive(true);
+        _crystalAndSantaPanel.SetActive(true);
         _weaponPanel.SetActive(true);
-        _santaHPPanel.SetActive(false);
+        _santaPanel.SetActive(true);
         //_nextLvlPanel.SetActive(false);
         //_soundPanel.SetActive(false);
         _pausePanel.SetActive(false);
@@ -46,18 +46,24 @@ public class PlayerUI : MonoBehaviour
     }
     public void BackInGame()
     {
+        Time.timeScale = 1f;
+
+        _inputManager.InputEnable();
+
         _pausePanel.SetActive(false);
         _optionsPanel.SetActive(false);
         _healthsPanel.SetActive(true);
-        _crystalPanel.SetActive(true);
+
+        _crystalAndSantaPanel.SetActive(true);
+       
+
         _weaponPanel.SetActive(true);
-        if(_santaHPPanel.activeSelf) _santaHPPanel.SetActive(true);
-        else _santaHPPanel.SetActive(false);
+
+         _santaPanel.SetActive(true);
 
         //_soundPanel.SetActive(false);
         Cursor.visible = false;
 
-        Time.timeScale = 1f;
         _isPause = false;
 
     }
@@ -66,7 +72,11 @@ public class PlayerUI : MonoBehaviour
     {
         if (_inputManager.Pause())
         {
-            if(!_isDied) PauseGame();
+            if (!_isDied)
+            {
+                PauseGame();
+                _inputManager.InputDisable();
+            }
 
         }
 
@@ -74,7 +84,7 @@ public class PlayerUI : MonoBehaviour
 
     private void PauseGame()
     {
-       // _isPause = !_isPause;
+        // _isPause = !_isPause;
 
         //if (_isPause)
         //{
@@ -83,12 +93,18 @@ public class PlayerUI : MonoBehaviour
         //else
         //{
         //}
-        _pausePanel.SetActive(true);
-        _healthsPanel.SetActive(false);
-        _crystalPanel.SetActive(false);
-        _weaponPanel.SetActive(false);
-        _santaHPPanel.SetActive(false);
+        if (_isDied)
+        {
+            _deathPanel.SetActive(true);
 
+        }
+        else
+        _pausePanel.SetActive(true);
+
+        _healthsPanel.SetActive(false);
+        _crystalAndSantaPanel.SetActive(false);
+        _weaponPanel.SetActive(false);
+        _santaPanel.SetActive(false);
         Cursor.visible = true;
 
         EventSystem.current.SetSelectedGameObject(null);
@@ -103,16 +119,17 @@ public class PlayerUI : MonoBehaviour
         _isDied = true;
         PlayerHealth.OnDied -= PlayerDied;
 
-        _deathPanel.SetActive(true);
-        _healthsPanel.SetActive(false);
-        _crystalPanel.SetActive(false);
-        _weaponPanel.SetActive(false);
-        _santaHPPanel.SetActive(false);
+        PauseGame();
+        //_deathPanel.SetActive(true);
+        //_healthsPanel.SetActive(false);
+        //_crystalAndSantaPanel.SetActive(false);
+        //_weaponPanel.SetActive(false);
+        //_santaPanel.SetActive(false);
+        //Cursor.visible = true;
 
-        Cursor.visible = true;
 
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(_deathRestartButton);
+        //EventSystem.current.SetSelectedGameObject(null);
+        //EventSystem.current.SetSelectedGameObject(_deathRestartButton);
     }
 
     public void WinGame()
@@ -124,11 +141,17 @@ public class PlayerUI : MonoBehaviour
     {
         _winPanel.SetActive(true);
         _healthsPanel.SetActive(false);
-        _crystalPanel.SetActive(false);
+        _crystalAndSantaPanel.SetActive(false);
         _weaponPanel.SetActive(false);
-        _santaHPPanel.SetActive(false);
-
+        _santaPanel.SetActive(false);
         Cursor.visible = true;
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(_restartButton);
+
+        Time.timeScale = 0f;
+        _inputManager.InputDisable();
+
     }
 
 }

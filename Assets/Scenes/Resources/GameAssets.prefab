@@ -88,11 +88,11 @@ MonoBehaviour:
     DestroyTimer: 1
     Loop: 0
   - Sound: 5
-    AudioClip: {fileID: 8300000, guid: 854b27c82fbb24d49a41c5a0230fab92, type: 3}
+    AudioClip: {fileID: 8300000, guid: a6c5d19a374cb3f4fa2ef2971847e1e6, type: 3}
     Volume: 1
     Pitch: 0
     Priority: 0
-    DestroyTimer: 0.1
+    DestroyTimer: 0.05
     Loop: 0
   - Sound: 6
     AudioClip: {fileID: 8300000, guid: a63311ed8aa885a48a092d08843778a0, type: 3}
@@ -187,6 +187,13 @@ MonoBehaviour:
     Loop: 0
   - Sound: 22
     AudioClip: {fileID: 8300000, guid: 8260d0f586c1da34c99afbfafa090ed8, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 23
+    AudioClip: {fileID: 8300000, guid: d2f2a76dca893514080298c29c35bcf4, type: 3}
     Volume: 1
     Pitch: 0
     Priority: 0

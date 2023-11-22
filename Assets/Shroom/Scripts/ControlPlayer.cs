@@ -40,7 +40,7 @@ public class ControlPlayer : MonoBehaviour
     }
     private void Start()
     {
-        SoundManager.PlaySound(SoundManager.Sound.MainSound);
+       //SoundManager.PlaySound(SoundManager.Sound.MainSound);
 
         _animator = GetComponentInChildren<Animator>();
 
@@ -51,33 +51,37 @@ public class ControlPlayer : MonoBehaviour
 
     private void Update()
     {
-        HandleMovement();
-
-        HandleRotation();
-
-        UpdateThrowing();
-
-        if (_inputManager.Shoot())
+        if (_inputManager.IsActive)
         {
-            if (_playerController.CurrentWeapon != null)
-                _playerController.CurrentWeapon.Shoot();
+            HandleMovement();
 
-            if (_playerController.WeaponNow != null) _playerController.WeaponNow.Shoot();
-        }
+            HandleRotation();
 
-        if (_inputManager.MeleeAttack())
-        {
-            _playerController.MelleAttack();
-        }
+            UpdateThrowing();
 
-        if (_inputManager.BombThrow())
-        {
-            if (!_isReloadGranade)
+            if (_inputManager.Shoot())
             {
-                _playerController.SpawnBomb();
-                _granadeThrowTime = 0;
+                if (_playerController.CurrentWeapon != null)
+                    _playerController.CurrentWeapon.Shoot();
 
-                _isReloadGranade = true;
+                if (_playerController.WeaponNow != null) _playerController.WeaponNow.Shoot();
+            }
+
+            if (_inputManager.MeleeAttack())
+            {
+                _playerController.MelleAttack();
+            }
+
+            if (_inputManager.BombThrow())
+            {
+                if (!_isReloadGranade)
+                {
+                    _playerController.SpawnBomb();
+                    _granadeThrowTime = 0;
+
+                    _isReloadGranade = true;
+                }
+
             }
 
         }
@@ -105,6 +109,12 @@ public class ControlPlayer : MonoBehaviour
 
         Vector3 movement = _inputManager.GetPlayerMovement();
 
+        Vector3 move = new(movement.x, 0f, movement.y);
+
+        move = _cameraTransform.forward * move.z + _cameraTransform.right * move.x;
+        move.y = 0f;
+        _ = _controller.Move(_playerSpeed * Time.deltaTime * move);
+
         if (movement.x != 0 || movement.y != 0)
         {
             _animator.SetBool("Movement", true);
@@ -113,11 +123,6 @@ public class ControlPlayer : MonoBehaviour
 
         else _animator.SetBool("Movement", false);
 
-        Vector3 move = new(movement.x, 0f, movement.y);
-
-        move = _cameraTransform.forward * move.z + _cameraTransform.right * move.x;
-        move.y = 0f;
-        _ = _controller.Move(_playerSpeed * Time.deltaTime * move);
 
         //if (_inputManager.PlayerJumpedThisFrame() && _groundedPlayer)
         //{

@@ -6,6 +6,7 @@ public class InputManager : MonoBehaviour
     private  PlayerInputActions _inputPlayer;
     private static InputManager _inputInstance;
 
+    private bool _isActive = true;
     public static InputManager InputInstance
     {
         get
@@ -38,6 +39,20 @@ public class InputManager : MonoBehaviour
         _inputPlayer.Disable();
     }
 
+    public bool IsActive => _isActive;
+    public void InputDisable()
+    {
+        //_inputPlayer.Disable();
+        _isActive = false;
+
+
+    }
+    public void InputEnable()
+    {
+      //  _inputPlayer.Enable();
+        _isActive = true;
+
+    }
     public Vector2 GetPlayerMovement()
     {
         return _inputPlayer.Player.Move.ReadValue<Vector2>();

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameAssets : MonoBehaviour
 {
@@ -14,7 +15,6 @@ public class GameAssets : MonoBehaviour
         }
     }
 
-    //public Transform pfGoldPopup;
 
     public SoundAudioClip[] SoundAudioClipArray;
 

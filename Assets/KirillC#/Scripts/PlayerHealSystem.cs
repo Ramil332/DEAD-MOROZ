@@ -9,6 +9,7 @@ public class PlayerHealSystem : MonoBehaviour
 
     private void OnEnable()
     {
+
         Destroy(gameObject, _deleteTime);
     }
 
@@ -19,6 +20,8 @@ public class PlayerHealSystem : MonoBehaviour
             IHealing heal = other.GetComponent<IHealing>();
             if (heal != null)
             {
+                SoundManager.PlaySound(SoundManager.Sound.IceCream);
+
                 heal.Heal(_healAmount);
                 Destroy(gameObject);
             }

@@ -39,7 +39,7 @@ public class ArenaManager : MonoBehaviour
 
     [Header("Пятая арена")]
     [SerializeField] private GameObject _spawnerFive;
-    [SerializeField] private GameObject _arenaGateFive;
+    [SerializeField] private GameObject[] _arenaGateFive;
     [SerializeField] private GameObject[] _enemyPrefabsFive;
     [SerializeField] private float _delayNextSpawnerFive = 2f;
     [SerializeField] private int _maxEnemyFive = 5;
@@ -54,11 +54,13 @@ public class ArenaManager : MonoBehaviour
 
 
     [Header("Главные ворота")]
-    [SerializeField] private GameObject _mainGate;
+    [SerializeField] private GameObject[] _mainGate;
     [SerializeField] private Animator _mainGateAnimator;
     [SerializeField] private Transform _santaPointSpawn;
     [SerializeField] private Transform _pfSanta;
     [SerializeField] private GameObject _hpPanel;
+    [SerializeField] private GameObject _killSantaPanel;
+    [SerializeField] private GameObject _crystallPanel;
 
     private void OnEnable()
     {
@@ -79,8 +81,10 @@ public class ArenaManager : MonoBehaviour
         _arenaGateTwo.SetActive(false);
         _arenaGateThree.SetActive(false);
         _arenaGateFour.SetActive(false);
-        _arenaGateFive.SetActive(false);
-       // _mainGate.SetActive(true);
+        _arenaGateFive[0].SetActive(false);
+        _arenaGateFive[1].SetActive(false);
+        _mainGate[0].SetActive(true);
+        _mainGate[1].SetActive(true);
     }
 
     private void OnDisable()
@@ -98,9 +102,11 @@ public class ArenaManager : MonoBehaviour
     {
         if (_crystalCount < 1)
         {
-            //_mainGate.SetActive(false);
+            _mainGate[0].SetActive(false);
+            _mainGate[1].SetActive(false);
             _mainGateAnimator.SetBool("isGateOpen", false);
             SoundManager.PlaySound(SoundManager.Sound.GatesSound);
+            _crystallPanel.SetActive(false);
 
             //   _backGate.SetActive(false);
             //  Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
@@ -119,7 +125,8 @@ public class ArenaManager : MonoBehaviour
         _arenaGateTwo.SetActive(true);
         _arenaGateThree.SetActive(true);
         _arenaGateFour.SetActive(true);
-        _arenaGateFive.SetActive(true);
+        _arenaGateFive[0].SetActive(true);
+        _arenaGateFive[1].SetActive(true);
 
         CristalController.OnCrystalDestroyed += FirstArenaClose;
 
@@ -158,8 +165,8 @@ public class ArenaManager : MonoBehaviour
 
     private void FifthArenaOpen()
     {
-          Spawner.OnSpawnEnds += FifthArenaClose;
-        //CristalController.OnCrystalDestroyed += FifthArenaClose;
+          //Spawner.OnSpawnEnds += FifthArenaClose;
+        CristalController.OnCrystalDestroyed += FifthArenaClose;
 
        _spawnerFive.GetComponent<Spawner>().Spawn(_enemyPrefabsFive, _delayNextSpawnerFive, _maxEnemyFive, _vfxVortex);
 
@@ -198,9 +205,10 @@ public class ArenaManager : MonoBehaviour
     }
     private void FifthArenaClose()
     {
-        Spawner.OnSpawnEnds -= FifthArenaClose;
-        StartCoroutine(CheckEnemy(_arenaGateFive));
-        //CristalController.OnCrystalDestroyed -= FifthArenaClose;
+        //Spawner.OnSpawnEnds -= FifthArenaClose;
+        CristalController.OnCrystalDestroyed -= FifthArenaClose;
+        StartCoroutine(CheckEnemy(_arenaGateFive[0]));
+        StartCoroutine(CheckEnemy(_arenaGateFive[1]));
 
         CrystalCount();
 
@@ -209,6 +217,7 @@ public class ArenaManager : MonoBehaviour
         //_backGate.SetActive(false);
         _mainGateAnimator.SetBool("isGateOpen", true);
         SoundManager.PlaySound(SoundManager.Sound.GatesSound);
+        _killSantaPanel.SetActive(true);
 
     }
 
@@ -234,7 +243,8 @@ public class ArenaManager : MonoBehaviour
     {
         _hpPanel.SetActive(true);
         Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
-        // _mainGate.SetActive(true);
+        _mainGate[0].SetActive(true);
+        _mainGate[1].SetActive(true);
         _mainGateAnimator.SetBool("isGateOpen", false);
         SoundManager.PlaySound(SoundManager.Sound.GatesSound);
 
