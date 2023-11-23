@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WeaponVar : MonoBehaviour
 {
@@ -9,76 +10,91 @@ public class WeaponVar : MonoBehaviour
     public WeaponVar.WeaponType WeaponTypeC;
 
     [SerializeField] private WeaponSO _weaponStats;
-    [SerializeField] private Transform _shootPoint;
-    [SerializeField] private Transform _pfbullet; 
-
-    //public GameObject WeaponPanel;
-
-    public Animator _animatorPlayer;
-    private bool _isReloading, _isShooting;
+    [SerializeField] private Transform _pfbullet;
+    public UnityEvent ShootEvent;
+    private bool _isShooting, _isReloading;
     private float _attackTime;
+    private int _bulletsInMagazine;
 
-
-    private void Awake()
+    private void OnEnable()
     {
-       _animatorPlayer = GameObject.Find("Player").GetComponentInChildren<Animator>();
+        _bulletsInMagazine = _weaponStats.ClipSize;
     }
-
-    public void Shoot()
+    public int BulletsInMagazine => _bulletsInMagazine;
+    public void Shoot(Transform shootPoint)
     {
-        //if (_weaponStats.FireRate <= _attackTime)
-        //{
-        //    Instantiate(_weaponStats.Bullet, _shootPoint.position, _shootPoint.rotation);
-        //    _animatorPlayer.SetTrigger("Fire");
-        //    _attackTime = 0;
 
-        //}
-        TEste();
-        if (!_isReloading)
+        if (_isShooting && !_isReloading)
         {
-            SoundManager.PlaySound(SoundManager.Sound.ShootPistol, transform.position);
-            Instantiate(_weaponStats.Bullet, _shootPoint.position, _shootPoint.rotation);
-            _animatorPlayer.SetTrigger("Fire");
-            _attackTime = 0;
+            if (_bulletsInMagazine > 0)
+            {
+                switch (WeaponTypeC)
+                {
+                    case WeaponType.pistol:
+                        SoundManager.PlaySound(SoundManager.Sound.ShootPistol);
+
+                        break;
+
+                    case WeaponType.minigun:
+                        SoundManager.PlaySound(SoundManager.Sound.ShootMinigan);
+
+                        break;
+
+                    default:
+                        Debug.Log("NOTHING");
+                        break;
 
 
-            //if (_isAttacking)
-            //{
-            //    Instantiate(_weaponStats.Bullet, _shootPoint.position, _shootPoint.rotation);
-            //    _weaponStats.AnimatorPlayer.SetTrigger("Fire");
+                }
 
-            //}
+                Instantiate(_weaponStats.Bullet, shootPoint.position, shootPoint.rotation);
+                _bulletsInMagazine--;
+                ShootEvent?.Invoke();
+            }
+            else
+            {
+                StartCoroutine(Reload());
+            }
+
+
         }
     }
-    void TEste()
+    private IEnumerator Reload()
     {
-        Instantiate(_pfbullet, _shootPoint.position, _shootPoint.rotation);
-        Debug.Log("Adgg;");
+        Debug.Log(_bulletsInMagazine);
+        _isReloading = true;
+        yield return new WaitForSeconds(_weaponStats.ReloadTime);
+        _bulletsInMagazine = _weaponStats.ClipSize;
+        _isReloading = false;
+        Debug.Log(_bulletsInMagazine);
+
     }
-    private void UpdateShooting()
+
+    private void UpdateShooting(float deltaTime)
     {
-        _attackTime += Time.deltaTime;
 
-        if (_weaponStats.FireRate <= _attackTime)
+        float fireInterval = 1.0f / _weaponStats.FireRate;
+
+        if (deltaTime > _attackTime)
         {
-
-            _isReloading = false;
-
-            _attackTime = 0;
+            _isShooting = true;
+            _attackTime = deltaTime + fireInterval;
+        }
+        else
+        {
+            _isShooting = false;
         }
 
     }
 
-
+    public void DestroyCurrentWepon()
+    {
+        Destroy(gameObject);
+    }
 
     private void Update()
     {
-        UpdateShooting();
-
-        if (_isShooting)
-        {
-
-        }
+        UpdateShooting(Time.time);
 
     }
 }

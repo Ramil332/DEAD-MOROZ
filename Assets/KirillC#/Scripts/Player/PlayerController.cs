@@ -35,9 +35,9 @@ public class PlayerController : MonoBehaviour
         _curentWeapon = currentWeapon;
     }
 
-    public void SetActiveWeapon(WeaponVar weaponVar)
+    public void SetActiveWeapon(Transform weaponVar)
     {
-        _weaponVar = weaponVar;
+        _weaponVar = weaponVar.GetComponent<WeaponVar>();
         _animator.SetLayerWeight(1, 1);
 
     }

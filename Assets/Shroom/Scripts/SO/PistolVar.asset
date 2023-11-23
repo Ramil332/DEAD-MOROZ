@@ -15,4 +15,6 @@ MonoBehaviour:
   <WeaponName>k__BackingField: Pistol
   <Bullet>k__BackingField: {fileID: -3024621056375816419, guid: 13ebec9f9a41e3d49a3514b2d3c15035,
     type: 3}
+  <ClipSize>k__BackingField: 8
   <FireRate>k__BackingField: 1
+  <ReloadTime>k__BackingField: 1

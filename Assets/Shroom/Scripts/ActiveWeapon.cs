@@ -4,27 +4,46 @@ using UnityEngine;
 
 public class ActiveWeapon : MonoBehaviour
 {
-    public void SetWeapon(WeaponVar newWeapon)
+    [SerializeField] private Transform _holster;
+    public void SetWeapon(Transform newWeapon)
     {
         PlayerController playerController = GetComponent<PlayerController>();
-
-        foreach (WeaponVar exWeapon in Resources.FindObjectsOfTypeAll(typeof(WeaponVar)) as WeaponVar[])
+        if (_holster != null)
         {
-            if (newWeapon.WeaponTypeC == exWeapon.WeaponTypeC)
+            WeaponVar weaponCurrent = _holster.GetComponentInChildren<WeaponVar>();
+            if (weaponCurrent != null)
             {
-                playerController.SetActiveWeapon(exWeapon);
+                weaponCurrent.DestroyCurrentWepon();
+                Transform WeaponTransform = Instantiate(newWeapon, _holster.position, _holster.rotation);
+                WeaponTransform.transform.parent = _holster.transform;
+                playerController.SetActiveWeapon(WeaponTransform);
 
-                exWeapon.gameObject.SetActive(true);
-               // exWeapon.WeaponPanel.SetActive(true);
             }
-
-            if (newWeapon.WeaponTypeC != exWeapon.WeaponTypeC)
+            else
             {
 
-                exWeapon.gameObject.SetActive(false);
-               // exWeapon.WeaponPanel.SetActive(false);
-
+                Transform WeaponTransform = Instantiate(newWeapon, _holster.position, _holster.rotation);
+                WeaponTransform.transform.parent = _holster.transform;
+                playerController.SetActiveWeapon(WeaponTransform);
             }
         }
+        //foreach (WeaponVar exWeapon in Resources.FindObjectsOfTypeAll(typeof(WeaponVar)) as WeaponVar[])
+        //{
+        //    if (newWeapon.WeaponTypeC == exWeapon.WeaponTypeC)
+        //    {
+        //        playerController.SetActiveWeapon(exWeapon);
+
+        //        exWeapon.gameObject.SetActive(true);
+        //       // exWeapon.WeaponPanel.SetActive(true);
+        //    }
+
+        //    if (newWeapon.WeaponTypeC != exWeapon.WeaponTypeC)
+        //    {
+
+        //        exWeapon.gameObject.SetActive(false);
+        //       // exWeapon.WeaponPanel.SetActive(false);
+
+        //    }
+        //}
     }
 }

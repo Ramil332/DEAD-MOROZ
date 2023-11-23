@@ -13,7 +13,7 @@ public class ControlPlayer : MonoBehaviour
     private Transform _cameraTransform;
     private PlayerController _playerController;
 
-    [SerializeField] private Transform _gun;
+    [SerializeField] private Transform _shootPoint;
 
     [SerializeField] private float _playerSpeed = 2.0f;
     [SerializeField] private float _jumpHeight = 1.0f;
@@ -62,9 +62,18 @@ public class ControlPlayer : MonoBehaviour
             if (_inputManager.Shoot())
             {
                 if (_playerController.CurrentWeapon != null)
+                {
                     _playerController.CurrentWeapon.Shoot();
 
-                if (_playerController.WeaponNow != null) _playerController.WeaponNow.Shoot();
+                    _animator.SetTrigger("Fire");
+                }
+
+                if (_playerController.WeaponNow != null)
+                {
+                    _playerController.WeaponNow.Shoot(_shootPoint);
+
+                }
+
             }
 
             if (_inputManager.MeleeAttack())
@@ -85,6 +94,12 @@ public class ControlPlayer : MonoBehaviour
             }
 
         }
+    }
+
+    public void SetShootTrigger()
+    {
+        _animator.SetTrigger("Fire");
+
     }
     private void UpdateThrowing()
     {
