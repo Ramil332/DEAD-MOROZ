@@ -4,46 +4,90 @@ using UnityEngine;
 
 public class ActiveWeapon : MonoBehaviour
 {
-    [SerializeField] private Transform _holster;
-    public void SetWeapon(Transform newWeapon)
+    [SerializeField] private Transform[] _holster;
+    private int _activeWeaponSlot;
+    public void SetWeapon(Transform newWeapon, int bullets)
     {
         PlayerController playerController = GetComponent<PlayerController>();
-        if (_holster != null)
+
+        if (playerController.WeaponNow != null)
         {
-            WeaponVar weaponCurrent = _holster.GetComponentInChildren<WeaponVar>();
-            if (weaponCurrent != null)
+            playerController.WeaponNow.DestroyCurrentWepon();
+
+            for (int i = 0; i <= _holster.Length - 1; i++)
             {
-                weaponCurrent.DestroyCurrentWepon();
-                Transform WeaponTransform = Instantiate(newWeapon, _holster.position, _holster.rotation);
-                WeaponTransform.transform.parent = _holster.transform;
-                playerController.SetActiveWeapon(WeaponTransform);
+                _activeWeaponSlot = i;
+
+                WeaponVar currentWeapon = _holster[i].GetComponentInChildren<WeaponVar>(true);
+
+                if (currentWeapon != null)
+                {
+                    if ((int)newWeapon.GetComponent<WeaponVar>().WeaponTypeC == (int)currentWeapon.WeaponTypeC)
+                    {
+                        if (!currentWeapon.gameObject.activeSelf)
+                        {
+
+                            currentWeapon.gameObject.SetActive(true);
+                            playerController.SetActiveWeapon(currentWeapon.gameObject.transform);
+
+                            currentWeapon.AddBullets(bullets);
+
+                        }
+                        else
+                        {
+                            currentWeapon.AddBullets(bullets);
+                            Debug.Log("f23gg");
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("No match");
+                    }
+
+                }
+                else
+                {
+                    if ((int)newWeapon.GetComponent<WeaponVar>().WeaponTypeC == _activeWeaponSlot)
+                    {
+                        Transform WeaponTransform = Instantiate(newWeapon, _holster[i].position, _holster[i].rotation);
+                        WeaponTransform.transform.parent = _holster[i].transform;
+                        playerController.SetActiveWeapon(WeaponTransform);
+
+                    }
+                }
+
 
             }
-            else
-            {
 
-                Transform WeaponTransform = Instantiate(newWeapon, _holster.position, _holster.rotation);
-                WeaponTransform.transform.parent = _holster.transform;
-                playerController.SetActiveWeapon(WeaponTransform);
-            }
         }
-        //foreach (WeaponVar exWeapon in Resources.FindObjectsOfTypeAll(typeof(WeaponVar)) as WeaponVar[])
-        //{
-        //    if (newWeapon.WeaponTypeC == exWeapon.WeaponTypeC)
-        //    {
-        //        playerController.SetActiveWeapon(exWeapon);
+        else
+        {
+            int k = (int)newWeapon.GetComponent<WeaponVar>().WeaponTypeC;
+            Transform WeaponTransform = Instantiate(newWeapon, _holster[k].position, _holster[k].rotation);
+            WeaponTransform.transform.parent = _holster[k].transform;
+            playerController.SetActiveWeapon(WeaponTransform);
+            return;
+        }
 
-        //        exWeapon.gameObject.SetActive(true);
-        //       // exWeapon.WeaponPanel.SetActive(true);
-        //    }
+    }
 
-        //    if (newWeapon.WeaponTypeC != exWeapon.WeaponTypeC)
-        //    {
+    public void ChangeWeapon(int weaponType)
+    {
+        PlayerController playerController = GetComponent<PlayerController>();
 
-        //        exWeapon.gameObject.SetActive(false);
-        //       // exWeapon.WeaponPanel.SetActive(false);
+        WeaponVar currentWeapon = _holster[weaponType].GetComponentInChildren<WeaponVar>(true);
 
-        //    }
-        //}
+        if (currentWeapon != null)
+        {
+            playerController.WeaponNow.DestroyCurrentWepon();
+
+            currentWeapon.gameObject.SetActive(true);
+            playerController.SetActiveWeapon(currentWeapon.gameObject.transform);
+        }
     }
 }
+
+
+
+
+

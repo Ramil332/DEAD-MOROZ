@@ -2,12 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class PlayerController : MonoBehaviour
 {
    // [SerializeField] private int _health;
     [SerializeField] private List<Weapon> _weapons;
     [SerializeField] private GameObject _bombPref;
+    [SerializeField] private GameObject _shotGunPanel;
+    [SerializeField] private GameObject _miniGunPanel;
+    [SerializeField] private TMP_Text _miniGunBulletsText;
+    [SerializeField] private TMP_Text _shotGunBulletsText;
     [SerializeField] private float _bombForce = 20f;
     [SerializeField] private Transform _bombPosition;
     private Weapon _curentWeapon;
@@ -23,7 +27,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-
+        _miniGunPanel.SetActive(false);
+        _shotGunPanel.SetActive(false);
         _animator = GetComponentInChildren<Animator>();
         if(_weapons.Count >0)
         _curentWeapon = _weapons[0];
@@ -39,7 +44,26 @@ public class PlayerController : MonoBehaviour
     {
         _weaponVar = weaponVar.GetComponent<WeaponVar>();
         _animator.SetLayerWeight(1, 1);
+        //switch (_weaponVar.WeaponTypeC)
+        //{
+        //    case WeaponVar.WeaponType.minigun:
 
+        //        _miniGunPanel.SetActive(true);
+        //        _shotGunPanel.SetActive(false);
+
+        //        _miniGunBulletsText.SetText(_weaponVar.BulletsInMagazine.ToString());
+        //        break;
+
+        //    case WeaponVar.WeaponType.shotgun:
+
+        //        _shotGunPanel.SetActive(true);
+        //        _miniGunPanel.SetActive(false);
+
+        //        _shotGunBulletsText.SetText(_weaponVar.BulletsInMagazine.ToString());
+        //        break;
+
+
+        //}
     }
 
     public void MelleAttack()
@@ -52,16 +76,29 @@ public class PlayerController : MonoBehaviour
         _animator.SetTrigger("TrowGranade");
        
     }
+    private void Update()
+    {
+        if (_weaponVar != null)
+        {
+            switch (_weaponVar.WeaponTypeC)
+            {
+                case WeaponVar.WeaponType.minigun:
 
-    
-    //public void ApplayDamage(int damage)
-    //{
-    //    _health -= damage;
-    //    if (_health <= 0 && _isDied != true)
-    //    {
-    //        Debug.Log("Die");
-    //        _animator.SetTrigger("Die");
-    //        _isDied = true;
-    //    }
-    //}
+                    _miniGunPanel.SetActive(true);
+                    _shotGunPanel.SetActive(false);
+
+                    _miniGunBulletsText.SetText(_weaponVar.BulletsInMagazine.ToString());
+                    break;
+
+                case WeaponVar.WeaponType.shotgun:
+
+                    _shotGunPanel.SetActive(true);
+                    _miniGunPanel.SetActive(false);
+
+                    _shotGunBulletsText.SetText(_weaponVar.BulletsInMagazine.ToString());
+                    break;
+            }
+
+        }
+    }
 }

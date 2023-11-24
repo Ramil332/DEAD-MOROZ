@@ -18,3 +18,5 @@ MonoBehaviour:
   <ClipSize>k__BackingField: 50
   <FireRate>k__BackingField: 4.22
   <ReloadTime>k__BackingField: 1
+  <MuzzleEffect>k__BackingField: {fileID: 1173742057909735429, guid: 3f6bf5c66061b324c9760e47cd8263f4,
+    type: 3}

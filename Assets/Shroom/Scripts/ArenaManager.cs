@@ -209,6 +209,7 @@ public class ArenaManager : MonoBehaviour
         CristalController.OnCrystalDestroyed -= FifthArenaClose;
         StartCoroutine(CheckEnemy(_arenaGateFive[0]));
         StartCoroutine(CheckEnemy(_arenaGateFive[1]));
+        _arenaGateOne.SetActive(true);
 
         CrystalCount();
 

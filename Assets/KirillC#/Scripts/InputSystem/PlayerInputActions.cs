@@ -98,6 +98,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WeaponChange"",
+                    ""type"": ""Button"",
+                    ""id"": ""6ba1dd33-79c5-49b0-a50f-23088ba5b622"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -232,6 +241,39 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83829b19-72f8-4259-9c72-22a16094edca"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=0)"",
+                    ""groups"": """",
+                    ""action"": ""WeaponChange"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2db31aea-7e14-40c3-9fd0-f6b78893c7be"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale"",
+                    ""groups"": """",
+                    ""action"": ""WeaponChange"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3500fc6-6966-42df-b478-94eefab8cf8b"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=2)"",
+                    ""groups"": """",
+                    ""action"": ""WeaponChange"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -254,6 +296,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_SpawnBomb = m_Player.FindAction("SpawnBomb", throwIfNotFound: true);
         m_Player_FollowMouse = m_Player.FindAction("FollowMouse", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_WeaponChange = m_Player.FindAction("WeaponChange", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -323,6 +366,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SpawnBomb;
     private readonly InputAction m_Player_FollowMouse;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_WeaponChange;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -335,6 +379,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @SpawnBomb => m_Wrapper.m_Player_SpawnBomb;
         public InputAction @FollowMouse => m_Wrapper.m_Player_FollowMouse;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @WeaponChange => m_Wrapper.m_Player_WeaponChange;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -368,6 +413,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @WeaponChange.started += instance.OnWeaponChange;
+            @WeaponChange.performed += instance.OnWeaponChange;
+            @WeaponChange.canceled += instance.OnWeaponChange;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -396,6 +444,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @WeaponChange.started -= instance.OnWeaponChange;
+            @WeaponChange.performed -= instance.OnWeaponChange;
+            @WeaponChange.canceled -= instance.OnWeaponChange;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -432,5 +483,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnSpawnBomb(InputAction.CallbackContext context);
         void OnFollowMouse(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnWeaponChange(InputAction.CallbackContext context);
     }
 }

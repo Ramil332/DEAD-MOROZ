@@ -10,5 +10,7 @@ public class WeaponSO : ScriptableObject
     [field: SerializeField] public int ClipSize { get; private set; }
     [field: SerializeField] public float FireRate { get; private set; } = 1f;
     [field: SerializeField] public float ReloadTime { get; private set; } = 1f;
+    [field: SerializeField] public Transform MuzzleEffect { get; private set; }
+
 
 }

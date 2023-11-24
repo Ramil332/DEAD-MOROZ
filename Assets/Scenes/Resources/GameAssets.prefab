@@ -81,7 +81,7 @@ MonoBehaviour:
     DestroyTimer: 230
     Loop: 1
   - Sound: 4
-    AudioClip: {fileID: 8300000, guid: afdee09fe25d6884b985c467d204b503, type: 3}
+    AudioClip: {fileID: 8300000, guid: 3c7f91662c377c34c8764f1b410368cf, type: 3}
     Volume: 1
     Pitch: 0
     Priority: 0

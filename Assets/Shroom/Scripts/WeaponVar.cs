@@ -10,17 +10,28 @@ public class WeaponVar : MonoBehaviour
     public WeaponVar.WeaponType WeaponTypeC;
 
     [SerializeField] private WeaponSO _weaponStats;
-    [SerializeField] private Transform _pfbullet;
+   // [SerializeField] private Transform _pfbullet;
     public UnityEvent ShootEvent;
     private bool _isShooting, _isReloading;
     private float _attackTime;
     private int _bulletsInMagazine;
 
-    private void OnEnable()
+
+    private void Awake()
     {
         _bulletsInMagazine = _weaponStats.ClipSize;
     }
-    public int BulletsInMagazine => _bulletsInMagazine;
+    public int BulletsInMagazine
+    {
+        get
+        {
+            return _bulletsInMagazine;
+        }
+        set
+        {
+            _bulletsInMagazine = value;
+        }
+    }
     public void Shoot(Transform shootPoint)
     {
 
@@ -40,6 +51,11 @@ public class WeaponVar : MonoBehaviour
 
                         break;
 
+                    case WeaponType.shotgun:
+                        SoundManager.PlaySound(SoundManager.Sound.ShootPistol);
+
+                        break;
+
                     default:
                         Debug.Log("NOTHING");
                         break;
@@ -48,6 +64,7 @@ public class WeaponVar : MonoBehaviour
                 }
 
                 Instantiate(_weaponStats.Bullet, shootPoint.position, shootPoint.rotation);
+                Instantiate(_weaponStats.MuzzleEffect, shootPoint.position, shootPoint.rotation);
                 _bulletsInMagazine--;
                 ShootEvent?.Invoke();
             }
@@ -87,9 +104,20 @@ public class WeaponVar : MonoBehaviour
 
     }
 
+    public void AddBullets(int bullets)
+    {
+        BulletsInMagazine += bullets;
+    }
+
     public void DestroyCurrentWepon()
     {
-        Destroy(gameObject);
+         gameObject.SetActive(false);
+        //Destroy(gameObject);
+    }
+
+    public void SetCurrentWeapon()
+    {
+        gameObject.SetActive(true);
     }
 
     private void Update()

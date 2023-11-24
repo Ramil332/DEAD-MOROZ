@@ -40,7 +40,7 @@ public class ControlPlayer : MonoBehaviour
     }
     private void Start()
     {
-       //SoundManager.PlaySound(SoundManager.Sound.MainSound);
+        //SoundManager.PlaySound(SoundManager.Sound.MainSound);
 
         _animator = GetComponentInChildren<Animator>();
 
@@ -59,40 +59,65 @@ public class ControlPlayer : MonoBehaviour
 
             UpdateThrowing();
 
-            if (_inputManager.Shoot())
+            HandleShooting();
+
+            HandleBomb();
+
+            HandleMeleeAttack();
+
+            WeponChange();
+        }
+    }
+
+    private void WeponChange()
+    {
+        if (_inputManager.WeaponChangePressed())
+        {
+            Debug.Log(_inputManager.WeaponChange());
+            GetComponent<ActiveWeapon>().ChangeWeapon(_inputManager.WeaponChange());
+        }
+    }
+
+    private void HandleShooting()
+    {
+        if (_inputManager.Shoot())
+        {
+            if (_playerController.CurrentWeapon != null)
             {
-                if (_playerController.CurrentWeapon != null)
-                {
-                    _playerController.CurrentWeapon.Shoot();
+                _playerController.CurrentWeapon.Shoot();
 
-                    _animator.SetTrigger("Fire");
-                }
+                _animator.SetTrigger("Fire");
+            }
 
-                if (_playerController.WeaponNow != null)
-                {
-                    _playerController.WeaponNow.Shoot(_shootPoint);
-
-                }
+            if (_playerController.WeaponNow != null)
+            {
+                _playerController.WeaponNow.Shoot(_shootPoint);
 
             }
 
-            if (_inputManager.MeleeAttack())
+        }
+    }
+
+    private void HandleBomb()
+    {
+        if (_inputManager.BombThrow())
+        {
+            if (!_isReloadGranade)
             {
-                _playerController.MelleAttack();
+                _playerController.SpawnBomb();
+                _granadeThrowTime = 0;
+
+                _isReloadGranade = true;
             }
 
-            if (_inputManager.BombThrow())
-            {
-                if (!_isReloadGranade)
-                {
-                    _playerController.SpawnBomb();
-                    _granadeThrowTime = 0;
+        }
+    }
 
-                    _isReloadGranade = true;
-                }
-
-            }
-
+    private void HandleMeleeAttack()
+    {
+        if (_inputManager.MeleeAttack())
+        {
+            _playerController.MelleAttack();
         }
     }
 
@@ -109,7 +134,7 @@ public class ControlPlayer : MonoBehaviour
         {
             _isReloadGranade = false;
         }
-        _granadeImage.fillAmount = _granadeThrowTime/ _granadeThrowRate;
+        _granadeImage.fillAmount = _granadeThrowTime / _granadeThrowRate;
 
     }
 
@@ -147,7 +172,7 @@ public class ControlPlayer : MonoBehaviour
         _playerVelocity.y += _gravityValue * Time.deltaTime;
         _controller.Move(_playerVelocity * Time.deltaTime);
     }
-        
+
     private void HandleRotation()
     {
 

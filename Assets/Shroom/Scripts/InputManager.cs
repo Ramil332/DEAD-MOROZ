@@ -92,4 +92,15 @@ public class InputManager : MonoBehaviour
     {
         return _inputPlayer.Player.Pause.triggered;
     }
+
+    public int WeaponChange()
+    {
+        return (int)_inputPlayer.Player.WeaponChange.ReadValue<float>();
+    }
+
+    public bool WeaponChangePressed()
+    {
+        return _inputPlayer.Player.WeaponChange.triggered;
+    }
+
 }
