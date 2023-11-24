@@ -19,6 +19,7 @@ public class Fence : MonoBehaviour, IDamagable
     public void Damage(float damage)
     {
         _healthSystem.Damage(damage);
+        DamagePopup.Create(transform.position, (int)damage, false);
 
     }
 

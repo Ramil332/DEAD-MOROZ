@@ -20,22 +20,28 @@ public class ControlPlayer : MonoBehaviour
     [SerializeField] private float _gravityValue = -9.81f;
     [SerializeField] private float _rotationSpeed = 0.15f;
     [SerializeField] private float _granadeThrowRate = 5f;
+    [SerializeField] private float _meleeAttackRate = 5f;
     [SerializeField] private Image _granadeImage;
+    [SerializeField] private Image _bagImage;
 
     private float _granadeThrowTime;
+    private float _meleeAttackTime;
     //private Vector2 _mouseLook;
     private Vector3 _rotationTarget;
+    private Vector3 _target;
 
     private Animator _animator;
 
-    private bool _isReloadGranade;
+    private bool _isReloadGranade, _isMeleeAttack;
 
     private void Awake()
     {
         SoundManager.Initialize();
         _playerController = GetComponent<PlayerController>();
         _granadeThrowTime = _granadeThrowRate;
+        _meleeAttackTime = _meleeAttackRate;
         _granadeImage.fillAmount = _granadeThrowTime / _granadeThrowRate;
+        _bagImage.fillAmount = _meleeAttackTime / _meleeAttackRate;
 
     }
     private void Start()
@@ -66,6 +72,8 @@ public class ControlPlayer : MonoBehaviour
             HandleMeleeAttack();
 
             WeponChange();
+
+            UpdateMeleeAttack();
         }
     }
 
@@ -73,7 +81,6 @@ public class ControlPlayer : MonoBehaviour
     {
         if (_inputManager.WeaponChangePressed())
         {
-            Debug.Log(_inputManager.WeaponChange());
             GetComponent<ActiveWeapon>().ChangeWeapon(_inputManager.WeaponChange());
         }
     }
@@ -82,16 +89,16 @@ public class ControlPlayer : MonoBehaviour
     {
         if (_inputManager.Shoot())
         {
-            if (_playerController.CurrentWeapon != null)
-            {
-                _playerController.CurrentWeapon.Shoot();
+            //if (_playerController.CurrentWeapon != null)
+            //{
+            //    _playerController.CurrentWeapon.Shoot();
 
-                _animator.SetTrigger("Fire");
-            }
+            //    _animator.SetTrigger("Fire");
+            //}
 
             if (_playerController.WeaponNow != null)
             {
-                _playerController.WeaponNow.Shoot(_shootPoint);
+                _playerController.WeaponNow.Shoot(_shootPoint, _target);
 
             }
 
@@ -117,7 +124,15 @@ public class ControlPlayer : MonoBehaviour
     {
         if (_inputManager.MeleeAttack())
         {
-            _playerController.MelleAttack();
+            if (!_isMeleeAttack)
+            {
+                _playerController.MelleAttack();
+                _meleeAttackTime = 0;
+
+                _isMeleeAttack = true;
+            }
+
+
         }
     }
 
@@ -135,6 +150,17 @@ public class ControlPlayer : MonoBehaviour
             _isReloadGranade = false;
         }
         _granadeImage.fillAmount = _granadeThrowTime / _granadeThrowRate;
+
+    }
+    private void UpdateMeleeAttack()
+    {
+        _meleeAttackTime += Time.deltaTime;
+
+        if (_meleeAttackRate <= _meleeAttackTime)
+        {
+            _isMeleeAttack = false;
+        }
+        _bagImage.fillAmount = _meleeAttackTime / _meleeAttackRate;
 
     }
 
@@ -181,8 +207,8 @@ public class ControlPlayer : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             _rotationTarget = hit.point;
+            _target = hit.point;
         }
-
         var lookPos = _rotationTarget - transform.position;
         lookPos.y = 0;
 

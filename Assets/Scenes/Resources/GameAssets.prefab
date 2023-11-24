@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd16175746b4de47819828e428f672b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PfDamagePopup: {fileID: 5197109601317973583, guid: 78d5aac89d249a844b2019a16c690982,
+    type: 3}
+  PfDamageParticles: {fileID: 3647063400794016518, guid: 873c5897469b3814fa06785eea8ab99f,
+    type: 3}
   SoundAudioClipArray:
   - Sound: 0
     AudioClip: {fileID: 8300000, guid: e23cbf0005b22c445b90e543c69d883d, type: 3}
@@ -172,7 +176,7 @@ MonoBehaviour:
     DestroyTimer: 1
     Loop: 0
   - Sound: 19
-    AudioClip: {fileID: 8300000, guid: b2d5cd7e0778dbf4aabfed626fb889af, type: 3}
+    AudioClip: {fileID: 8300000, guid: 199f7d93517294a4db7c85c866202d82, type: 3}
     Volume: 1
     Pitch: 0
     Priority: 0
@@ -194,6 +198,13 @@ MonoBehaviour:
     Loop: 0
   - Sound: 23
     AudioClip: {fileID: 8300000, guid: d2f2a76dca893514080298c29c35bcf4, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 24
+    AudioClip: {fileID: 8300000, guid: dd6b6547a90cebb4e98b7c39c548ad97, type: 3}
     Volume: 1
     Pitch: 0
     Priority: 0

@@ -9,13 +9,6 @@ public class DamageSystem : MonoBehaviour
     [SerializeField] [Range(0, 200)] private float _power = 20f;
     [SerializeField] [Range(0, 100)] private float _radius = 1f;
     [SerializeField] [Range(0, 100)] private float _upForce = 1f;
-    private Enemy _enemy;
-
-    private void Awake()
-    {
-        _enemy = GetComponent<Enemy>();
-
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -33,14 +26,14 @@ public class DamageSystem : MonoBehaviour
             }
         }
 
-        if (other.gameObject.GetComponent<Enemy>() || other.gameObject.GetComponent<DestroerObject>())
-        {
-            Rigidbody rb = other.GetComponent<Rigidbody>();
-            if (rb != null)
-                rb.AddExplosionForce(_power, explositionPosition, _radius, _upForce, ForceMode.Impulse);
-            if (other.gameObject.GetComponent<DestroerObject>())
-                other.gameObject.GetComponent<DestroerObject>().ObjectDestroy();
-        }
+        //if (other.gameObject.GetComponent<Enemy>() || other.gameObject.GetComponent<DestroerObject>())
+        //{
+        //    Rigidbody rb = other.GetComponent<Rigidbody>();
+        //    if (rb != null)
+        //        rb.AddExplosionForce(_power, explositionPosition, _radius, _upForce, ForceMode.Impulse);
+        //    if (other.gameObject.GetComponent<DestroerObject>())
+        //        other.gameObject.GetComponent<DestroerObject>().ObjectDestroy();
+        //}
     }
 
 }

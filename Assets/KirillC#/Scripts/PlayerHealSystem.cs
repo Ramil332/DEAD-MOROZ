@@ -21,7 +21,7 @@ public class PlayerHealSystem : MonoBehaviour
             if (heal != null)
             {
                 SoundManager.PlaySound(SoundManager.Sound.IceCream);
-
+                DamagePopup.Create(transform.position, (int)_healAmount, true);
                 heal.Heal(_healAmount);
                 Destroy(gameObject);
             }

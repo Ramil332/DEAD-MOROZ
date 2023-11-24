@@ -77,10 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914c3b4081ffbb74d96760fce714bda3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponTypeC: 2
+  WeaponTypeC: 1
   _weaponStats: {fileID: 11400000, guid: 256fbe6d20711ee44962511c3f722529, type: 2}
-  _pfbullet: {fileID: 2169275413232506545, guid: 13ebec9f9a41e3d49a3514b2d3c15035,
-    type: 3}
   ShootEvent:
     m_PersistentCalls:
       m_Calls:
@@ -96,6 +94,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  BulletsTotalAmount: 0
 --- !u!1001 &6840366247784921588
 PrefabInstance:
   m_ObjectHideFlags: 0

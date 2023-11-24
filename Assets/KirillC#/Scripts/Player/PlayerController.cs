@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _shotGunPanel;
     [SerializeField] private GameObject _miniGunPanel;
     [SerializeField] private TMP_Text _miniGunBulletsText;
+    [SerializeField] private TMP_Text _miniGunTotalAmountBulletsText;
     [SerializeField] private TMP_Text _shotGunBulletsText;
+    [SerializeField] private TMP_Text _shotGunTotalAmountBulletsText;
     [SerializeField] private float _bombForce = 20f;
     [SerializeField] private Transform _bombPosition;
     private Weapon _curentWeapon;
@@ -88,6 +90,7 @@ public class PlayerController : MonoBehaviour
                     _shotGunPanel.SetActive(false);
 
                     _miniGunBulletsText.SetText(_weaponVar.BulletsInMagazine.ToString());
+                    _miniGunTotalAmountBulletsText.SetText(_weaponVar.BulletsTotalAmount.ToString());
                     break;
 
                 case WeaponVar.WeaponType.shotgun:
@@ -96,6 +99,7 @@ public class PlayerController : MonoBehaviour
                     _miniGunPanel.SetActive(false);
 
                     _shotGunBulletsText.SetText(_weaponVar.BulletsInMagazine.ToString());
+                    _shotGunTotalAmountBulletsText.SetText(_weaponVar.BulletsTotalAmount.ToString());
                     break;
             }
 

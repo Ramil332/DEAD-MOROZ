@@ -125,9 +125,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d4d62b1adf151a04780cd9e5e5d52c75, type: 2}
-  - {fileID: 2100000, guid: 0c60dceb9463dd244bd2feb2ec6904ab, type: 2}
-  - {fileID: 2100000, guid: 9f8b6fc687092cc4887b1846f1008c5d, type: 2}
+  - {fileID: 2100000, guid: b028b389046e1e34e97279a42a35d2a7, type: 2}
+  - {fileID: 2100000, guid: b028b389046e1e34e97279a42a35d2a7, type: 2}
+  - {fileID: 2100000, guid: b028b389046e1e34e97279a42a35d2a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -210,7 +210,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0c60dceb9463dd244bd2feb2ec6904ab, type: 2}
+  - {fileID: 2100000, guid: b028b389046e1e34e97279a42a35d2a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 2893926691010850795}
   - component: {fileID: 1378615460888526449}
   - component: {fileID: 6036004469616796103}
+  - component: {fileID: 6055171850062587496}
   m_Layer: 0
   m_Name: MiniGunTrigger
   m_TagString: Untagged
@@ -260,8 +261,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.31, y: 53.28, z: 9.189}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7736142710613193154}
   m_Father: {fileID: 0}
@@ -285,8 +286,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 2.968956}
-  m_Center: {x: 0, y: 0, z: -0.19182444}
+  m_Size: {x: 0.38519558, y: 0.43440127, z: 0.98900366}
+  m_Center: {x: -0.0010624727, y: -0.022943458, z: -0.078312}
 --- !u!114 &6036004469616796103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +303,27 @@ MonoBehaviour:
   _weaponVar: {fileID: 8039931058382910020, guid: 3c4122acda5c00f49a20fdf48d97123f,
     type: 3}
   _bulletsAdd: 50
+--- !u!95 &6055171850062587496
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8117637985253312824}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ed8cca55631abb347acd8f00b49b34d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8434125111596902158
 GameObject:
   m_ObjectHideFlags: 0

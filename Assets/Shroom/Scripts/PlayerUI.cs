@@ -62,7 +62,7 @@ public class PlayerUI : MonoBehaviour
          _santaPanel.SetActive(true);
 
         //_soundPanel.SetActive(false);
-        Cursor.visible = false;
+        //Cursor.visible = false;
 
         _isPause = false;
 
@@ -105,7 +105,7 @@ public class PlayerUI : MonoBehaviour
         _crystalAndSantaPanel.SetActive(false);
         _weaponPanel.SetActive(false);
         _santaPanel.SetActive(false);
-        Cursor.visible = true;
+       // Cursor.visible = true;
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_restartButton);
@@ -144,7 +144,7 @@ public class PlayerUI : MonoBehaviour
         _crystalAndSantaPanel.SetActive(false);
         _weaponPanel.SetActive(false);
         _santaPanel.SetActive(false);
-        Cursor.visible = true;
+        //Cursor.visible = true;
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_restartButton);

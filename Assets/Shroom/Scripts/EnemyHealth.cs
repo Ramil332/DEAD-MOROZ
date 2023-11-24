@@ -7,9 +7,10 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 {
     private HealthSystem _healthSystem;
 
-    [SerializeField] private GameObject _healIceCream;
+    [SerializeField] private Transform[] _drop;
     [SerializeField] [Range(0, 100)] private float _maxHealth;
     [SerializeField] [Range(0, 10000)] private float _explosionForce = 1000f;
+    [SerializeField] [Range(0, 100)] private float _dropChance = 20f;
 
     [Header("Ёффекты при смерти")]
     [SerializeField] private Transform _vxfExplosionDie;
@@ -35,7 +36,16 @@ public class EnemyHealth : MonoBehaviour, IDamagable
         //  direction = position;
         _healthSystem.Damage(damage);
         // healthBar.SetHealthBarPercentage(healthSystem.GetHealth() / healthMax);
+        DamagePopup.Create(transform.position, (int)damage, false);
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            Damage(1000);
+        }
     }
 
     private void HealthSystem_OnDead(object sender, EventArgs e)
@@ -48,7 +58,7 @@ public class EnemyHealth : MonoBehaviour, IDamagable
     {
         // Debug.Log(name + "CurrentHealth " + _healthSystem.GetHealth());
         SoundManager.PlaySound(SoundManager.Sound.EnemyHit);
-
+        Instantiate(GameAssets.I.PfDamageParticles, transform.position, Quaternion.identity);
     }
     //private void HealthSystem_OnHealed(object sender, EventArgs e)
     //{
@@ -57,10 +67,17 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 
     private void Die()
     {
-        int healSpawn = UnityEngine.Random.Range(0, 10);
 
-        if (healSpawn == 9)
-            Instantiate(_healIceCream, transform.position, Quaternion.identity);
+        bool IsSpawne = UnityEngine.Random.Range(0, 100) < _dropChance;
+
+        if (IsSpawne)
+        {
+            if (_drop != null)
+            {
+                int dropSpawn = UnityEngine.Random.Range(0, _drop.Length);
+                Instantiate(_drop[dropSpawn], transform.position, Quaternion.identity);
+            }
+        }
 
       //  SoundManager.PlaySound(SoundManager.Sound.EnemyDie);
         _died = true;

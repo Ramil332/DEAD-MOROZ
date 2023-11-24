@@ -133,16 +133,19 @@ public class EnemyMovement : MonoBehaviour
     {
         if (_isAttacking)
         {
-            _enemyAnim.SetTrigger("Attack");
 
             if (_santa == true)
             {
-                // StartCoroutine(IcePick());
-                Instantiate(_pfIcePick, _positionIcePick.position, _positionIcePick.rotation);
-                SoundManager.PlaySound(SoundManager.Sound.SantaAttack);
+                 StartCoroutine(IcePick());
+                _enemyAnim.SetTrigger("Attack");
+
             }
             else
+            {
+                _enemyAnim.SetTrigger("Attack");
+
                 SoundManager.PlaySound(SoundManager.Sound.EnemyAttack);
+            }
 
             transform.LookAt(_playerPos);
 
@@ -153,11 +156,15 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-  //private IEnumerator IcePick()
-  //  {
-  //      _positionIcePick.SetActive(true);
-  //      yield return new WaitForSeconds(3f);
-  //      _positionIcePick.SetActive(false);
-  //  }
- 
+    private IEnumerator IcePick()
+    {
+        //_positionIcePick.SetActive(true);
+
+        yield return new WaitForSeconds(.5f);
+        //  _positionIcePick.SetActive(false);
+        Instantiate(_pfIcePick, _positionIcePick.position, _positionIcePick.rotation);
+        SoundManager.PlaySound(SoundManager.Sound.SantaAttack);
+
+    }
+
 }

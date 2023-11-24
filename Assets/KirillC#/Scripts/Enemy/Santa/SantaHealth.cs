@@ -8,8 +8,8 @@ public class SantaHealth : MonoBehaviour, IDamagable
 {
     private HealthSystem _healthSystem;
 
-    [SerializeField][Range(0, 1000)] private float _maxHealth;
-    [SerializeField][Range(0, 10000)] private float _explosionForce = 1000f;
+    [SerializeField] [Range(0, 1000)] private float _maxHealth;
+    [SerializeField] [Range(0, 10000)] private float _explosionForce = 1000f;
     private Image _hpBar;
     /*[Header("Ёффекты при смерти")]
     [SerializeField] private Transform _vxfExplosionDie;
@@ -51,12 +51,12 @@ public class SantaHealth : MonoBehaviour, IDamagable
     private void HealthSystem_OnDead(object sender, EventArgs e)
     {
         Die();
-       // Debug.Log(name + "Dead");
+        // Debug.Log(name + "Dead");
 
     }
     private void HealthSystem_OnDamaged(object sender, EventArgs e)
     {
-       // Debug.Log(name + "CurrentHealth " + _healthSystem.GetHealth());
+        // Debug.Log(name + "CurrentHealth " + _healthSystem.GetHealth());
     }
     //private void HealthSystem_OnHealed(object sender, EventArgs e)
     //{
@@ -69,23 +69,38 @@ public class SantaHealth : MonoBehaviour, IDamagable
         _healthSystem.OnDead -= HealthSystem_OnDead;
         _healthSystem.OnDamaged -= HealthSystem_OnDamaged;
 
-      //  SoundManager.PlaySound(SoundManager.Sound.SantaDie, transform.position);
-        _santaAnimator.SetTrigger("Die");
-        this.GetComponent<EnemyMovement>().enabled = false;
-        this.GetComponent<SantaBossController>().enabled = false;
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 1000f);
 
-        PlayerUI playerUI = GameObject.Find("Player").GetComponent<PlayerUI>();
-        playerUI.WinGame();
-        /*Instantiate(_vxfExplosionDie, _spawnVFXPoint.position, Quaternion.identity);
-        Transform SnowmanParts = Instantiate(_pfSnowmanParts, _spawnVFXPoint.position, transform.rotation);
-
-        foreach (Transform child in SnowmanParts)
+        foreach (Collider collider in colliders)
         {
-            if (child.TryGetComponent<Rigidbody>(out Rigidbody childRigidbody))
+            if (collider.CompareTag("Enemy"))
             {
-                childRigidbody.AddExplosionForce(_explosionForce, transform.position, 5f);
+                IDamagable damagable = collider.GetComponent<IDamagable>();
+                if (damagable != null)
+                {
+                    damagable.Damage(1000);
+                }
             }
-        }*/
 
+
+            //  SoundManager.PlaySound(SoundManager.Sound.SantaDie, transform.position);
+            _santaAnimator.SetTrigger("Die");
+            this.GetComponent<EnemyMovement>().enabled = false;
+            this.GetComponent<SantaBossController>().enabled = false;
+
+            PlayerUI playerUI = GameObject.Find("Player").GetComponent<PlayerUI>();
+            playerUI.WinGame();
+            /*Instantiate(_vxfExplosionDie, _spawnVFXPoint.position, Quaternion.identity);
+            Transform SnowmanParts = Instantiate(_pfSnowmanParts, _spawnVFXPoint.position, transform.rotation);
+
+            foreach (Transform child in SnowmanParts)
+            {
+                if (child.TryGetComponent<Rigidbody>(out Rigidbody childRigidbody))
+                {
+                    childRigidbody.AddExplosionForce(_explosionForce, transform.position, 5f);
+                }
+            }*/
+
+        }
     }
 }

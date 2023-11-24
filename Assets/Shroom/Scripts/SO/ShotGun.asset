@@ -16,7 +16,7 @@ MonoBehaviour:
   <Bullet>k__BackingField: {fileID: -3024621056375816419, guid: 13ebec9f9a41e3d49a3514b2d3c15035,
     type: 3}
   <ClipSize>k__BackingField: 8
-  <FireRate>k__BackingField: 1
-  <ReloadTime>k__BackingField: 1
+  <FireRate>k__BackingField: 2
+  <ReloadTime>k__BackingField: 0.3
   <MuzzleEffect>k__BackingField: {fileID: 1173742057909735429, guid: 3f6bf5c66061b324c9760e47cd8263f4,
     type: 3}

@@ -15,6 +15,8 @@ public class GameAssets : MonoBehaviour
         }
     }
 
+    public Transform PfDamagePopup;
+    public Transform PfDamageParticles;
 
     public SoundAudioClip[] SoundAudioClipArray;
 

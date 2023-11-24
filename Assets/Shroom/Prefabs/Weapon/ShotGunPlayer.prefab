@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914c3b4081ffbb74d96760fce714bda3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponTypeC: 1
+  WeaponTypeC: 0
   _weaponStats: {fileID: 11400000, guid: 7bf8cc54a2a7af849848abb916a960fc, type: 2}
   ShootEvent:
     m_PersistentCalls:
@@ -393,3 +393,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  BulletsTotalAmount: 0

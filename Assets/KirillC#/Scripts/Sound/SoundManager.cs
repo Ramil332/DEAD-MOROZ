@@ -33,6 +33,7 @@ public static class SoundManager
         GatesSound,
         PlayerDamaged,
         IceCream,
+        WeaponReaload,
 
     }
 
