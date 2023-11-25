@@ -5,8 +5,8 @@ public class DamagePopup : MonoBehaviour
 {
     public static DamagePopup Create(Vector3 position, int damageAmount, bool isHeal)
     {
-        Transform danagePopupTransform = Instantiate(GameAssets.I.PfDamagePopup, position, Quaternion.identity);
-        DamagePopup damagePopup = danagePopupTransform.GetComponent<DamagePopup>();
+        Transform damagePopupTransform = Instantiate(GameAssets.I.PfDamagePopup, position, Quaternion.identity);
+        DamagePopup damagePopup = damagePopupTransform.GetComponentInChildren<DamagePopup>();
         damagePopup.Setup(damageAmount, isHeal);
 
         return damagePopup;
@@ -51,16 +51,16 @@ public class DamagePopup : MonoBehaviour
 
         transform.position += _moveVector * Time.deltaTime;
         _moveVector -= _moveVector * 3f * Time.deltaTime;
-
+        transform.RotateAround(transform.position, Vector3.up, 200 * Time.deltaTime);
         if (_disappearTimer > DISAPPEAR_TIMER_MAX * 0.5f)
         {
             float increaseScaleAmount = 3.5f;
-            transform.localScale += Vector3.forward * increaseScaleAmount * Time.deltaTime;
+            transform.localScale += Vector3.one * increaseScaleAmount * Time.deltaTime;
         }
         else
         {
             float decreaseScaleAmount = 3.5f;
-            transform.localScale -= Vector3.forward * decreaseScaleAmount * Time.deltaTime;
+            transform.localScale -= Vector3.one * decreaseScaleAmount * Time.deltaTime;
         }
 
         _disappearTimer -= Time.deltaTime;

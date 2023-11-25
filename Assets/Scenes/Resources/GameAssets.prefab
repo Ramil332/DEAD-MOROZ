@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd16175746b4de47819828e428f672b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PfDamagePopup: {fileID: 5197109601317973583, guid: 78d5aac89d249a844b2019a16c690982,
+  PfDamagePopup: {fileID: 725303406746800016, guid: 89f8680fb550b16408bfe2e65f067763,
     type: 3}
   PfDamageParticles: {fileID: 3647063400794016518, guid: 873c5897469b3814fa06785eea8ab99f,
     type: 3}
