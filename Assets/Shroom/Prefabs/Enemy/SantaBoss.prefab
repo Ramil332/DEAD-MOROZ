@@ -397,7 +397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 2
   _attackDistance: 8
-  _rotSpeed: 0.15
+  _rotSpeed: 1
   _attackRate: 0.1
   _positionIcePick: {fileID: 1354146277693523475}
   _pfIcePick: {fileID: 8904655630875022255, guid: b28538ad21bd3bf45a4115ca295ea7e6,
@@ -911,7 +911,7 @@ Transform:
   m_GameObject: {fileID: 3688929584790338846}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.237, z: 2.54}
+  m_LocalPosition: {x: 0, y: 0.032, z: 2.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

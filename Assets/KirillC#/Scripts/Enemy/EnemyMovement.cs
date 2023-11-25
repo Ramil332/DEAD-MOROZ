@@ -40,7 +40,7 @@ public class EnemyMovement : MonoBehaviour
     protected float _deley = 0.5f;
     protected float _currentDeley = 0f;
 
-    [SerializeField]private bool _santa = false;
+    [SerializeField] private bool _santa = false;
 
     private void Awake()
     {
@@ -66,7 +66,7 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         _currentDeley += Time.deltaTime;
-        
+
         //if (GetComponent<EnemyHealth>().Died != true)
         //{       
 
@@ -106,7 +106,7 @@ public class EnemyMovement : MonoBehaviour
             _enemyAnim.SetBool("Movement", true);
             _agent.SetDestination(_playerTarget.position);
 
-            if(_santa == true)
+            if (_santa == true)
                 SoundManager.PlaySound(SoundManager.Sound.SantaMove);
             else
                 SoundManager.PlaySound(SoundManager.Sound.EnemyMove);
@@ -127,8 +127,8 @@ public class EnemyMovement : MonoBehaviour
 
         }
     }
-    
 
+    public bool IsAttacking => _isAttacking;
     protected void Attack()
     {
         if (_isAttacking)
@@ -136,8 +136,9 @@ public class EnemyMovement : MonoBehaviour
 
             if (_santa == true)
             {
-                 StartCoroutine(IcePick());
+                // StartCoroutine(IcePick());
                 _enemyAnim.SetTrigger("Attack");
+                SoundManager.PlaySound(SoundManager.Sound.SantaAttack);
 
             }
             else
@@ -156,15 +157,25 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    private IEnumerator IcePick()
+    //private IEnumerator IcePick()
+    //{
+    //    //_positionIcePick.SetActive(true);
+
+    //    yield return new WaitForSeconds(.5f);
+    //    //  _positionIcePick.SetActive(false);
+    //    Instantiate(_pfIcePick, _positionIcePick.position, _positionIcePick.rotation);
+    //    SoundManager.PlaySound(SoundManager.Sound.SantaAttack);
+
+    //}
+
+    private void IcePickAttack()
     {
         //_positionIcePick.SetActive(true);
 
-        yield return new WaitForSeconds(.5f);
         //  _positionIcePick.SetActive(false);
-        Instantiate(_pfIcePick, _positionIcePick.position, _positionIcePick.rotation);
-        SoundManager.PlaySound(SoundManager.Sound.SantaAttack);
 
+        Instantiate(_pfIcePick, _positionIcePick.position, _positionIcePick.rotation);
+        SoundManager.PlaySound(SoundManager.Sound.SantaIcePick);
     }
 
 }

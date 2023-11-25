@@ -40,6 +40,15 @@ public class WeaponVar : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        if (!_isReloading && _isShooting && BulletsTotalAmount > 0 && BulletsInMagazine < 1)
+        {
+            StartCoroutine(Reload());
+        }
+
+    }
+
     public int BulletsInMagazine
     {
         get
@@ -53,7 +62,6 @@ public class WeaponVar : MonoBehaviour
     }
     public void Shoot(Transform shootPoint, Vector3 target)
     {
-
         if (_isShooting && !_isReloading)
         {
             if (BulletsInMagazine > 0)
@@ -138,6 +146,7 @@ public class WeaponVar : MonoBehaviour
 
     public void DestroyCurrentWepon()
     {
+        StopCoroutine(Reload());
         gameObject.SetActive(false);
         //Destroy(gameObject);
     }
@@ -145,11 +154,19 @@ public class WeaponVar : MonoBehaviour
     public void SetCurrentWeapon()
     {
         gameObject.SetActive(true);
+        if (!_isReloading && _isShooting && BulletsTotalAmount > 0 && BulletsInMagazine < 1)
+        {
+            StartCoroutine(Reload());
+        }
     }
 
     private void Update()
     {
         UpdateShooting(Time.time);
+        if (!_isReloading && _isShooting && BulletsTotalAmount > 0 && BulletsInMagazine < 1)
+        {
+            StartCoroutine(Reload());
+        }
 
     }
 }

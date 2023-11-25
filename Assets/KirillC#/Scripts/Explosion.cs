@@ -36,7 +36,7 @@ public class Explosion : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(explositionPosition, _radius);
         foreach (Collider collider in colliders)
         {
-            if (collider.CompareTag("Enemy"))
+            if (collider.CompareTag("Enemy") || collider.CompareTag("Crystal"))
             {
                 IDamagable damagable = collider.GetComponent<IDamagable>();
                 if (damagable != null)
@@ -53,7 +53,7 @@ public class Explosion : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Enemy"))
+        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Crystal"))
         {
             Detonate();
             DestroyGranade(0f);

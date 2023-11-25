@@ -38,11 +38,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _MeltValue: 0
-    - _Power: 5
+    - _MeltValue: 0.748
+    - _Power: 0.76
+    - _PowerFresnel: 0.803
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    - _clip: -0.79
+    - _grow: 0.266
+    - _scale: 0.684
+    m_Colors:
+    - _Vector3: {r: 0, g: -1.41, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8091914826240398715
 MonoBehaviour:

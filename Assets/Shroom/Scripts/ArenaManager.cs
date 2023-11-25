@@ -61,6 +61,8 @@ public class ArenaManager : MonoBehaviour
     [SerializeField] private GameObject _hpPanel;
     [SerializeField] private GameObject _killSantaPanel;
     [SerializeField] private GameObject _crystallPanel;
+    [SerializeField] private GameObject _snowGirl;
+    [SerializeField] private GameObject _prison;
 
     private void OnEnable()
     {
@@ -95,6 +97,7 @@ public class ArenaManager : MonoBehaviour
         ArenaType.OnFourthArena -= FourthArenaOpen;
         ArenaType.OnFifthArena -= FifthArenaOpen;
         ArenaType.OnSantaArena -= SantaArenaOpen;
+        SantaHealth.OnSantaDied -= OnSantaDied;
 
     }
 
@@ -127,6 +130,7 @@ public class ArenaManager : MonoBehaviour
         _arenaGateFour.SetActive(true);
         _arenaGateFive[0].SetActive(true);
         _arenaGateFive[1].SetActive(true);
+        SoundManager.PlaySound(SoundManager.Sound.IceGates);
 
         CristalController.OnCrystalDestroyed += FirstArenaClose;
 
@@ -210,6 +214,7 @@ public class ArenaManager : MonoBehaviour
         StartCoroutine(CheckEnemy(_arenaGateFive[0]));
         StartCoroutine(CheckEnemy(_arenaGateFive[1]));
         _arenaGateOne.SetActive(true);
+        SoundManager.PlaySound(SoundManager.Sound.IceGates);
 
         CrystalCount();
 
@@ -238,16 +243,24 @@ public class ArenaManager : MonoBehaviour
     private void OpenGates(GameObject gates)
     {
         gates.SetActive(false);
+        SoundManager.PlaySound(SoundManager.Sound.IceGates);
     }
 
     private void SantaArenaOpen()
     {
         _hpPanel.SetActive(true);
+        _snowGirl.SetActive(true);
         Instantiate(_pfSanta, _santaPointSpawn.position, Quaternion.identity);
+        SantaHealth.OnSantaDied += OnSantaDied;
         _mainGate[0].SetActive(true);
         _mainGate[1].SetActive(true);
         _mainGateAnimator.SetBool("isGateOpen", false);
         SoundManager.PlaySound(SoundManager.Sound.GatesSound);
 
+    }
+
+    private void OnSantaDied()
+    {
+        _prison.SetActive(false);
     }
 }

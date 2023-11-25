@@ -18,7 +18,7 @@ public class SantaHealth : MonoBehaviour, IDamagable
 
     private Animator _santaAnimator;
     private bool _died = false;
-
+    public static Action OnSantaDied;
     public bool Died => _died;
 
     private void Awake()
@@ -40,6 +40,8 @@ public class SantaHealth : MonoBehaviour, IDamagable
         //  healthBar.gameObject.SetActive(true);
         //  direction = position;
         _healthSystem.Damage(damage);
+        DamagePopup.Create(transform.position, (int)damage, false);
+
         // healthBar.SetHealthBarPercentage(healthSystem.GetHealth() / healthMax);
 
     }
@@ -66,6 +68,7 @@ public class SantaHealth : MonoBehaviour, IDamagable
     private void Die()
     {
         _died = true;
+        OnSantaDied?.Invoke();
         _healthSystem.OnDead -= HealthSystem_OnDead;
         _healthSystem.OnDamaged -= HealthSystem_OnDamaged;
 
@@ -78,18 +81,12 @@ public class SantaHealth : MonoBehaviour, IDamagable
                 IDamagable damagable = collider.GetComponent<IDamagable>();
                 if (damagable != null)
                 {
-                    damagable.Damage(1000);
+                    damagable.Damage(1000f);
                 }
             }
 
 
             //  SoundManager.PlaySound(SoundManager.Sound.SantaDie, transform.position);
-            _santaAnimator.SetTrigger("Die");
-            this.GetComponent<EnemyMovement>().enabled = false;
-            this.GetComponent<SantaBossController>().enabled = false;
-
-            PlayerUI playerUI = GameObject.Find("Player").GetComponent<PlayerUI>();
-            playerUI.WinGame();
             /*Instantiate(_vxfExplosionDie, _spawnVFXPoint.position, Quaternion.identity);
             Transform SnowmanParts = Instantiate(_pfSnowmanParts, _spawnVFXPoint.position, transform.rotation);
 
@@ -102,5 +99,12 @@ public class SantaHealth : MonoBehaviour, IDamagable
             }*/
 
         }
+        _santaAnimator.SetTrigger("Die");
+        this.GetComponent<EnemyMovement>().enabled = false;
+        this.GetComponent<SantaBossController>().enabled = false;
+
+        PlayerUI playerUI = GameObject.Find("Player").GetComponent<PlayerUI>();
+        playerUI.WinGame();
+
     }
 }

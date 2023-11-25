@@ -34,6 +34,9 @@ public static class SoundManager
         PlayerDamaged,
         IceCream,
         WeaponReaload,
+        SantaIcePick,
+        SnowGirl,
+        IceGates,
 
     }
 

@@ -12,7 +12,6 @@ public class ActiveWeapon : MonoBehaviour
 
         if (playerController.WeaponNow != null)
         {
-            playerController.WeaponNow.DestroyCurrentWepon();
 
             for (int i = 0; i <= _holster.Length - 1; i++)
             {
@@ -26,6 +25,7 @@ public class ActiveWeapon : MonoBehaviour
                     {
                         if (!currentWeapon.gameObject.activeSelf)
                         {
+                            playerController.WeaponNow.DestroyCurrentWepon();
 
                             currentWeapon.gameObject.SetActive(true);
                             playerController.SetActiveWeapon(currentWeapon.gameObject.transform);

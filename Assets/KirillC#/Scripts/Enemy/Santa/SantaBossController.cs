@@ -20,6 +20,12 @@ public class SantaBossController : Enemy
     {
         _currentTimeDeleySpawnMobe += Time.deltaTime;
 
+        if (GetComponent<EnemyMovement>().IsAttacking)
+        {
+            _currentTimeDeleySpawnMobe -= 2f;
+
+            return;
+        }
         if(_currentTimeDeleySpawnMobe >= _delaySpawnMobs)
         {
             _santaAnimator.SetTrigger("SpawnMobs");
@@ -30,9 +36,12 @@ public class SantaBossController : Enemy
 
     public void SantaSpawnMobs()
     {
-        SoundManager.PlaySound(SoundManager.Sound.SantaHoHoHo);
-        int indexMob = Random.Range(0, _mobPrefabs.Length);
-        int indexPoint = Random.Range(0, _spawnPoints.Length);
-        Instantiate(_mobPrefabs[indexMob], _spawnPoints[indexPoint].position, Quaternion.identity);
+        if (!GetComponent<SantaHealth>().Died)
+        {
+            SoundManager.PlaySound(SoundManager.Sound.SantaHoHoHo);
+            int indexMob = Random.Range(0, _mobPrefabs.Length);
+            int indexPoint = Random.Range(0, _spawnPoints.Length);
+            Instantiate(_mobPrefabs[indexMob], _spawnPoints[indexPoint].position, Quaternion.identity);
+        }
     }
 }

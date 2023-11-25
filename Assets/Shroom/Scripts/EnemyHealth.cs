@@ -27,6 +27,7 @@ public class EnemyHealth : MonoBehaviour, IDamagable
         _healthSystem.OnDead += HealthSystem_OnDead;
         _healthSystem.OnDamaged += HealthSystem_OnDamaged;
         // _healthSystem.OnHealed += HealthSystem_OnHealed;
+        
 
     }
 

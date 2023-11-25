@@ -134,7 +134,7 @@ public class PlayerUI : MonoBehaviour
 
     public void WinGame()
     {
-        Invoke(nameof(WinPanel), 1f);
+        Invoke(nameof(WinPanel), 3f);
     }
 
     private void WinPanel()
