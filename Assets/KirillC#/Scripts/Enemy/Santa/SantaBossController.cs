@@ -39,9 +39,18 @@ public class SantaBossController : Enemy
         if (!GetComponent<SantaHealth>().Died)
         {
             SoundManager.PlaySound(SoundManager.Sound.SantaHoHoHo);
-            int indexMob = Random.Range(0, _mobPrefabs.Length);
-            int indexPoint = Random.Range(0, _spawnPoints.Length);
-            Instantiate(_mobPrefabs[indexMob], _spawnPoints[indexPoint].position, Quaternion.identity);
+            int indexMob1 = Random.Range(0, _mobPrefabs.Length);
+            int indexMob2 = Random.Range(0, _mobPrefabs.Length);
+            int indexMob3 = Random.Range(0, _mobPrefabs.Length);
+
+            int indexPoint1 = Random.Range(0, _spawnPoints.Length);
+            int indexPoint2 = Random.Range(0, _spawnPoints.Length);
+            int indexPoint3 = Random.Range(0, _spawnPoints.Length);
+
+            Instantiate(_mobPrefabs[indexMob1], _spawnPoints[indexPoint1].position, Quaternion.identity);
+            Instantiate(_mobPrefabs[indexMob2], _spawnPoints[indexPoint2].position, Quaternion.identity);
+            Instantiate(_mobPrefabs[indexMob3], _spawnPoints[indexPoint3].position, Quaternion.identity);
+
         }
     }
 }

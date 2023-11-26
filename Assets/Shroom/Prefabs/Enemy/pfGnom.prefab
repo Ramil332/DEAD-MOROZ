@@ -1736,14 +1736,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfb15512b4de644bbce5afef00cbdaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _drop:
+  _dropHeal:
   - {fileID: 1862968169372002378, guid: 9a97348776a1f6842890377a97fe94f0, type: 3}
-  - {fileID: 6530826973580617644}
+  _dropEnemy: []
+  _dropWeapon:
   - {fileID: 2893926691010850795, guid: def70a930adc8f648be9d1700a574c06, type: 3}
   - {fileID: 7314258977217876916, guid: 1661a7e6e54bbca4383a85d274f6108d, type: 3}
   _maxHealth: 5
   _explosionForce: 200
-  _dropChance: 30
+  _dropChanceEnemy: 10
+  _dropChanceHeal: 30
+  _dropChanceWeapon: 20
   _vxfExplosionDie: {fileID: 2300360663179508797, guid: 5e410ecfe23291b4f852b8ef5060b6f9,
     type: 3}
   _pfSnowmanParts: {fileID: 3298974095323332075, guid: 296ecbf56e9007c49832b8cf4ca8221f,
@@ -1833,9 +1836,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.41
-  m_Height: 1.73
+  m_Height: 1.5159626
   m_Direction: 1
-  m_Center: {x: 0, y: 0.68, z: 0}
+  m_Center: {x: 0, y: 0.7870188, z: 0}
 --- !u!143 &6300634015492800873
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1870,8 +1873,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8772256641217482135}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 100
+  m_Drag: 10
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}

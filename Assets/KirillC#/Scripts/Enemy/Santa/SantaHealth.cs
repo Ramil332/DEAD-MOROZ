@@ -40,7 +40,7 @@ public class SantaHealth : MonoBehaviour, IDamagable
         //  healthBar.gameObject.SetActive(true);
         //  direction = position;
         _healthSystem.Damage(damage);
-        DamagePopup.Create(transform.position, (int)damage, false);
+       // DamagePopup.Create(transform.position, (int)damage, false);
 
         // healthBar.SetHealthBarPercentage(healthSystem.GetHealth() / healthMax);
 
@@ -74,9 +74,9 @@ public class SantaHealth : MonoBehaviour, IDamagable
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, 1000f);
 
-        foreach (Collider collider in colliders)
+       /* foreach (Collider collider in colliders)
         {
-            if (collider.CompareTag("Enemy"))
+            if (collider.CompareTag("Enemy") && collider != null)
             {
                 IDamagable damagable = collider.GetComponent<IDamagable>();
                 if (damagable != null)
@@ -86,19 +86,9 @@ public class SantaHealth : MonoBehaviour, IDamagable
             }
 
 
-            //  SoundManager.PlaySound(SoundManager.Sound.SantaDie, transform.position);
-            /*Instantiate(_vxfExplosionDie, _spawnVFXPoint.position, Quaternion.identity);
-            Transform SnowmanParts = Instantiate(_pfSnowmanParts, _spawnVFXPoint.position, transform.rotation);
+           
 
-            foreach (Transform child in SnowmanParts)
-            {
-                if (child.TryGetComponent<Rigidbody>(out Rigidbody childRigidbody))
-                {
-                    childRigidbody.AddExplosionForce(_explosionForce, transform.position, 5f);
-                }
-            }*/
-
-        }
+        }*/
         _santaAnimator.SetTrigger("Die");
         this.GetComponent<EnemyMovement>().enabled = false;
         this.GetComponent<SantaBossController>().enabled = false;

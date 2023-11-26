@@ -71,11 +71,28 @@ public class WeaponVar : MonoBehaviour
 
                     case WeaponType.minigun:
                         SoundManager.PlaySound(SoundManager.Sound.ShootMinigan);
+                        Bullet bullet = Instantiate(_weaponStats.Bullet, shootPoint.position, shootPoint.rotation);
+                        bullet.SetDestination(target);
+                        Instantiate(_weaponStats.MuzzleEffect, shootPoint.position, shootPoint.rotation);
 
                         break;
 
                     case WeaponType.shotgun:
                         SoundManager.PlaySound(SoundManager.Sound.ShootPistol);
+                        for (float i = -1f; i < 2; i += 1f)
+                        {
+                            Bullet bulletShotgun = Instantiate(_weaponStats.Bullet, new Vector3(shootPoint.position.x, shootPoint.position.y, shootPoint.position.z + (i * 0.5f)),
+                            Quaternion.Euler(shootPoint.rotation.x, shootPoint.rotation.y + (i * 10f), shootPoint.rotation.z));
+
+                            bulletShotgun.SetDestination(new Vector3(target.x + (i * 1.5f), target.y, target.z + (i * 1.5f)));
+                            Debug.Log("Ûðùå Åôêïó " + bulletShotgun.gameObject.name);
+
+                            Instantiate(_weaponStats.MuzzleEffect, new Vector3(shootPoint.position.x, shootPoint.position.y, shootPoint.position.z + (i * 0.5f)),
+                            Quaternion.Euler(shootPoint.rotation.x, shootPoint.rotation.y - (i * 10f), shootPoint.rotation.z));
+
+
+                        }
+                      
 
                         break;
 
@@ -86,9 +103,9 @@ public class WeaponVar : MonoBehaviour
 
                 }
 
-                Bullet bullet = Instantiate(_weaponStats.Bullet, shootPoint.position, shootPoint.rotation);
+               /* Bullet bullet = Instantiate(_weaponStats.Bullet, shootPoint.position, shootPoint.rotation);
                 bullet.SetDestination(target);
-                Instantiate(_weaponStats.MuzzleEffect, shootPoint.position, shootPoint.rotation);
+                Instantiate(_weaponStats.MuzzleEffect, shootPoint.position, shootPoint.rotation);*/
                 BulletsInMagazine--;
                 ShootEvent?.Invoke();
             }

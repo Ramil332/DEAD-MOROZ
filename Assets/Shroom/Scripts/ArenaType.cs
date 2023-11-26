@@ -16,6 +16,7 @@ public class ArenaType : MonoBehaviour
     {
         if (other.CompareTag("ArenaOne"))
         {
+            Debug.Log("Spawn is true First");
             OnFirstArena?.Invoke();
             other.gameObject.SetActive(false);
         }

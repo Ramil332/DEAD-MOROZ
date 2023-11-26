@@ -339,8 +339,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _delaySpawnMobs: 10
   _mobPrefabs:
-  - {fileID: 6038380169875650414, guid: 1a0a0eaf35141004f9d1f60b2643d07a, type: 3}
+  - {fileID: 4806433475571438728, guid: 22ff2ec5d0e267441b662ed1a84f645b, type: 3}
   - {fileID: 897957654353756961, guid: 4c99a88caedc3fd459b5ec12b8e91c85, type: 3}
+  - {fileID: 7926806693402887868, guid: 203329e92a7eb2b47977e7f0424c4007, type: 3}
+  - {fileID: 7926806693402887868, guid: 203329e92a7eb2b47977e7f0424c4007, type: 3}
   - {fileID: 7926806693402887868, guid: 203329e92a7eb2b47977e7f0424c4007, type: 3}
   _spawnPoints:
   - {fileID: 1642803427815908538}
@@ -483,8 +485,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791151244559073161}
   serializedVersion: 4
-  m_Mass: 20
-  m_Drag: 0
+  m_Mass: 200
+  m_Drag: 10
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}

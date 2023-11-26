@@ -11,6 +11,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject _crystalAndSantaPanel;
     [SerializeField] private GameObject _weaponPanel;
     [SerializeField] private GameObject _santaPanel;
+    [SerializeField] private GameObject _helperPanel;
     //[SerializeField] private GameObject _soundPanel;
     //[SerializeField] private GameObject _nextLvlPanel;
     [SerializeField] private GameObject _restartButton;
@@ -22,16 +23,19 @@ public class PlayerUI : MonoBehaviour
 
     private void Awake()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
         _isPause = false;
 
+        _healthsPanel.SetActive(true);
         _deathPanel.SetActive(false);
         _winPanel.SetActive(false);
         _optionsPanel.SetActive(false);
-        _healthsPanel.SetActive(true);
-        _crystalAndSantaPanel.SetActive(true);
-        _weaponPanel.SetActive(true);
-        _santaPanel.SetActive(true);
+        //
+        _healthsPanel.SetActive(false);
+        _crystalAndSantaPanel.SetActive(false);
+        _weaponPanel.SetActive(false); 
+        _santaPanel.SetActive(false); 
+        //
         //_nextLvlPanel.SetActive(false);
         //_soundPanel.SetActive(false);
         _pausePanel.SetActive(false);
@@ -130,6 +134,16 @@ public class PlayerUI : MonoBehaviour
 
         //EventSystem.current.SetSelectedGameObject(null);
         //EventSystem.current.SetSelectedGameObject(_deathRestartButton);
+    }
+
+    public void HelperPanel()
+    {
+        _helperPanel.SetActive(false);
+        _healthsPanel.SetActive(true);
+        _crystalAndSantaPanel.SetActive(true);
+        _weaponPanel.SetActive(true);
+        _santaPanel.SetActive(true);
+        Time.timeScale = 1f;
     }
 
     public void WinGame()

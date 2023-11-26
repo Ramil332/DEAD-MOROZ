@@ -191,14 +191,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfb15512b4de644bbce5afef00cbdaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _drop:
-  - {fileID: 3652872091872407968}
+  _dropHeal:
   - {fileID: 1862968169372002378, guid: 9a97348776a1f6842890377a97fe94f0, type: 3}
-  - {fileID: 2893926691010850795, guid: def70a930adc8f648be9d1700a574c06, type: 3}
+  _dropEnemy:
+  - {fileID: 3652872091872407968}
+  - {fileID: 1435232971502447001, guid: abc058fd708451b428a580ab0fb7a989, type: 3}
+  - {fileID: 1010654903286497295, guid: 22ff2ec5d0e267441b662ed1a84f645b, type: 3}
+  _dropWeapon:
   - {fileID: 7314258977217876916, guid: 1661a7e6e54bbca4383a85d274f6108d, type: 3}
+  - {fileID: 2893926691010850795, guid: def70a930adc8f648be9d1700a574c06, type: 3}
   _maxHealth: 20
   _explosionForce: 200
-  _dropChance: 30
+  _dropChanceEnemy: 10
+  _dropChanceHeal: 30
+  _dropChanceWeapon: 20
   _vxfExplosionDie: {fileID: 2300360663179508797, guid: 5e410ecfe23291b4f852b8ef5060b6f9,
     type: 3}
   _pfSnowmanParts: {fileID: 1969177225567516223, guid: 964c3bd441ff09642aee84b5b7e9a9d9,
@@ -288,9 +294,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.41
-  m_Height: 2.32
+  m_Height: 1.9777718
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1.171114, z: 0}
 --- !u!143 &2990738625217760606
 CharacterController:
   m_ObjectHideFlags: 0
@@ -325,8 +331,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 897957654353756961}
   serializedVersion: 4
-  m_Mass: 10
-  m_Drag: 0
+  m_Mass: 200
+  m_Drag: 10
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -2126,8 +2132,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1338263, y: 1.691836, z: 0.2198646}
-  m_Center: {x: -0.14334388, y: 0.93053496, z: 0.64515346}
+  m_Size: {x: 1.1338263, y: 1.3016211, z: 0.21986464}
+  m_Center: {x: -0.143344, y: 1.1256377, z: 0.6451542}
 --- !u!114 &2483098159440077651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2140,4 +2146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1e44e9bb605384baa7a9d859fc5fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _armorSnow: {fileID: 897957654353756961}
   _maxHealth: 30
