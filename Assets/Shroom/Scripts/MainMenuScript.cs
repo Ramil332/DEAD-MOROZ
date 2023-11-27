@@ -10,13 +10,12 @@ public class MainMenuScript : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(2);
-        Debug.Log("3t24y");
-    }
-    public void LoreScene()
-    {
         SceneManager.LoadScene(1);
     }
+    //public void LoreScene()
+    //{
+    //    SceneManager.LoadScene(1);
+    //}
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);

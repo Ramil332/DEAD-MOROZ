@@ -78,30 +78,34 @@ public class EnemyHealth : MonoBehaviour, IDamagable
         bool IsSpawneWeapon = UnityEngine.Random.Range(0, 100) < _dropChanceWeapon;
         bool IsSpawneHeal = UnityEngine.Random.Range(0, 100) < _dropChanceHeal;
 
+        bool TotalChance = UnityEngine.Random.Range(0, 100) < 50;
+        if (TotalChance)
+        {
+            if (IsSpawneEnemy)
+            {
+                if (_dropEnemy != null)
+                {
+                    int dropSpawn = UnityEngine.Random.Range(0, _dropEnemy.Length);
+                    Instantiate(_dropEnemy[dropSpawn], diePos, Quaternion.identity);
+                }
+            }
+            else if (IsSpawneWeapon)
+            {
+                if (_dropWeapon != null)
+                {
+                    int dropSpawn = UnityEngine.Random.Range(0, _dropWeapon.Length);
+                    Instantiate(_dropWeapon[dropSpawn], diePos, Quaternion.identity);
+                }
+            }
+            else if (IsSpawneHeal)
+            {
+                if (_dropHeal != null)
+                {
+                    int dropSpawn = UnityEngine.Random.Range(0, _dropHeal.Length);
+                    Instantiate(_dropHeal[dropSpawn], diePos, Quaternion.identity);
+                }
+            }
 
-        if (IsSpawneEnemy)
-        {
-            if (_dropEnemy != null)
-            {
-                int dropSpawn = UnityEngine.Random.Range(0, _dropEnemy.Length);
-                Instantiate(_dropEnemy[dropSpawn], diePos, Quaternion.identity);
-            }
-        }
-        else if (IsSpawneWeapon)
-        {
-            if (_dropWeapon != null)
-            {
-                int dropSpawn = UnityEngine.Random.Range(0, _dropWeapon.Length);
-                Instantiate(_dropWeapon[dropSpawn], diePos, Quaternion.identity);
-            }
-        }
-        else if (IsSpawneHeal)
-        {
-            if (_dropHeal != null)
-            {
-                int dropSpawn = UnityEngine.Random.Range(0, _dropHeal.Length);
-                Instantiate(_dropHeal[dropSpawn], diePos, Quaternion.identity);
-            }
         }
 
         //  SoundManager.PlaySound(SoundManager.Sound.EnemyDie);
