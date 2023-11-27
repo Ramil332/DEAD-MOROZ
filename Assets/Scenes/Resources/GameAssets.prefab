@@ -48,6 +48,8 @@ MonoBehaviour:
     type: 3}
   PfDamageParticles: {fileID: 3647063400794016518, guid: 873c5897469b3814fa06785eea8ab99f,
     type: 3}
+  PfSpawnVFX: {fileID: 4213289653459590786, guid: 3d208f16fe4605c4a8f0661051a1f6c7,
+    type: 3}
   SoundAudioClipArray:
   - Sound: 0
     AudioClip: {fileID: 8300000, guid: e23cbf0005b22c445b90e543c69d883d, type: 3}
@@ -226,6 +228,20 @@ MonoBehaviour:
     Loop: 0
   - Sound: 27
     AudioClip: {fileID: 8300000, guid: f99c8c302db399648b9b1779366cb630, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 28
+    AudioClip: {fileID: 8300000, guid: 091fee760e7b8ca41b27fb319cfc5323, type: 3}
+    Volume: 1
+    Pitch: 0
+    Priority: 0
+    DestroyTimer: 1
+    Loop: 0
+  - Sound: 29
+    AudioClip: {fileID: 8300000, guid: 447dd4c663db51348b7e42894af0e914, type: 3}
     Volume: 1
     Pitch: 0
     Priority: 0

@@ -36,7 +36,6 @@ public class ActiveWeapon : MonoBehaviour
                         else
                         {
                             currentWeapon.AddBullets(bullets);
-                            Debug.Log("f23gg");
                         }
                     }
                     else
@@ -85,6 +84,7 @@ public class ActiveWeapon : MonoBehaviour
             playerController.SetActiveWeapon(currentWeapon.gameObject.transform);
         }
     }
+
 }
 
 

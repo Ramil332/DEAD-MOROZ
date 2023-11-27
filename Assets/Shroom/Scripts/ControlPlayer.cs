@@ -32,7 +32,7 @@ public class ControlPlayer : MonoBehaviour
 
     private Animator _animator;
 
-    private bool _isReloadGranade, _isMeleeAttack;
+    private bool _isReloadGranade, _isMeleeAttack, _isBagSound, _isGranadeSound;
 
     private void Awake()
     {
@@ -74,6 +74,8 @@ public class ControlPlayer : MonoBehaviour
             WeponChange();
 
             UpdateMeleeAttack();
+
+            HandleReload();
         }
     }
 
@@ -115,6 +117,8 @@ public class ControlPlayer : MonoBehaviour
                 _granadeThrowTime = 0;
 
                 _isReloadGranade = true;
+                _isGranadeSound = true;
+
             }
 
         }
@@ -124,14 +128,27 @@ public class ControlPlayer : MonoBehaviour
     {
         if (_inputManager.MeleeAttack())
         {
-            if (!_isMeleeAttack)
+            if (_isMeleeAttack)
             {
                 _playerController.MelleAttack();
                 _meleeAttackTime = 0;
 
-                _isMeleeAttack = true;
+                _isMeleeAttack = false;
+                _isBagSound = true;
             }
 
+
+        }
+    }
+
+    private void HandleReload()
+    {
+        if (_inputManager.WeaponReaload())
+        {
+            if (_playerController.WeaponNow != null)
+            {
+                _playerController.WeaponNow.ReloadWeapon();
+            }
 
         }
     }
@@ -148,6 +165,11 @@ public class ControlPlayer : MonoBehaviour
         if (_granadeThrowRate <= _granadeThrowTime)
         {
             _isReloadGranade = false;
+            if (_isGranadeSound)
+            {
+                SoundManager.PlaySound(SoundManager.Sound.GranadeReload);
+                _isGranadeSound = false;
+            }
         }
         _granadeImage.fillAmount = _granadeThrowTime / _granadeThrowRate;
 
@@ -158,7 +180,13 @@ public class ControlPlayer : MonoBehaviour
 
         if (_meleeAttackRate <= _meleeAttackTime)
         {
-            _isMeleeAttack = false;
+            _isMeleeAttack = true;
+            if (_isBagSound)
+            {
+                SoundManager.PlaySound(SoundManager.Sound.BagReload);
+                _isBagSound = false;
+            }
+
         }
         _bagImage.fillAmount = _meleeAttackTime / _meleeAttackRate;
 

@@ -42,7 +42,7 @@ public class WeaponVar : MonoBehaviour
 
     private void OnEnable()
     {
-        if (!_isReloading && _isShooting && BulletsTotalAmount > 0 && BulletsInMagazine < 1)
+        if (!_isReloading && BulletsTotalAmount > 0 && BulletsInMagazine < 1)
         {
             StartCoroutine(Reload());
         }
@@ -79,16 +79,18 @@ public class WeaponVar : MonoBehaviour
 
                     case WeaponType.shotgun:
                         SoundManager.PlaySound(SoundManager.Sound.ShootPistol);
-                        for (float i = -1f; i < 2; i += 1f)
+                        Instantiate(_weaponStats.MuzzleEffect, shootPoint.position, shootPoint.rotation);
+
+                        for (int i = -2; i < 3; i ++)
                         {
-                            Bullet bulletShotgun = Instantiate(_weaponStats.Bullet, new Vector3(shootPoint.position.x, shootPoint.position.y, shootPoint.position.z + (i * 0.5f)),
-                            Quaternion.Euler(shootPoint.rotation.x, shootPoint.rotation.y + (i * 10f), shootPoint.rotation.z));
+                            Bullet bulletShotgun = Instantiate(_weaponStats.Bullet, new Vector3(shootPoint.position.x, shootPoint.position.y + (i * 0.1f), shootPoint.position.z + (i * 0.1f)),
+                            shootPoint.rotation);
 
-                            bulletShotgun.SetDestination(new Vector3(target.x + (i * 1.5f), target.y, target.z + (i * 1.5f)));
-                            Debug.Log("Ûðùå Åôêïó " + bulletShotgun.gameObject.name);
+                           // bulletShotgun.SetDestination(new Vector3(target.x + (i * 1.5f), target.y + (i * 1.5f), target.z + (i * 1.5f)));
+                            bulletShotgun.SetDestination(new Vector3(target.x + Random.Range(-i,i), target.y + Random.Range(-i, i), target.z + Random.Range(-i, i)));
 
-                            Instantiate(_weaponStats.MuzzleEffect, new Vector3(shootPoint.position.x, shootPoint.position.y, shootPoint.position.z + (i * 0.5f)),
-                            Quaternion.Euler(shootPoint.rotation.x, shootPoint.rotation.y - (i * 10f), shootPoint.rotation.z));
+                            //Instantiate(_weaponStats.MuzzleEffect, new Vector3(shootPoint.position.x, shootPoint.position.y, shootPoint.position.z + (i * 0.5f)),
+                            //Quaternion.Euler(shootPoint.rotation.x, shootPoint.rotation.y - (i * 10f), shootPoint.rotation.z));
 
 
                         }
@@ -124,21 +126,43 @@ public class WeaponVar : MonoBehaviour
         SoundManager.PlaySound(SoundManager.Sound.WeaponReaload);
         yield return new WaitForSeconds(_weaponStats.ReloadTime);
 
-        if (BulletsTotalAmount > _weaponStats.ClipSize)
+        int missBullets = _weaponStats.ClipSize - BulletsInMagazine;
+
+        if (missBullets > 0)
         {
-            BulletsInMagazine = _weaponStats.ClipSize;
-            BulletsTotalAmount -= _weaponStats.ClipSize;
+            if (BulletsTotalAmount >= _weaponStats.ClipSize)
+            {
+                BulletsInMagazine += missBullets;
+                BulletsTotalAmount -= missBullets;
+
+            }
+            else
+            {
+                if (BulletsTotalAmount >= missBullets)
+                {
+                    BulletsInMagazine += missBullets;
+                    BulletsTotalAmount -= missBullets;
+                }
+                else
+                {
+                    BulletsInMagazine += BulletsTotalAmount;
+                    BulletsTotalAmount = 0;
+                }
+            }
 
         }
-        else
-        {
-            BulletsInMagazine = BulletsTotalAmount;
-            BulletsTotalAmount = 0;
-        }
+
 
         _isReloading = false;
     }
 
+    public void ReloadWeapon()
+    {
+        if (BulletsTotalAmount > 0 && BulletsInMagazine < _weaponStats.ClipSize)
+        {
+            StartCoroutine(Reload());
+        }
+    }
     private void UpdateShooting(float deltaTime)
     {
 
@@ -164,6 +188,7 @@ public class WeaponVar : MonoBehaviour
     public void DestroyCurrentWepon()
     {
         StopCoroutine(Reload());
+        _isReloading = false;
         gameObject.SetActive(false);
         //Destroy(gameObject);
     }
@@ -171,7 +196,8 @@ public class WeaponVar : MonoBehaviour
     public void SetCurrentWeapon()
     {
         gameObject.SetActive(true);
-        if (!_isReloading && _isShooting && BulletsTotalAmount > 0 && BulletsInMagazine < 1)
+
+        if (!_isReloading && BulletsTotalAmount > 0 && BulletsInMagazine < 1)
         {
             StartCoroutine(Reload());
         }

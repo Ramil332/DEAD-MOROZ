@@ -1133,8 +1133,6 @@ MonoBehaviour:
   _dropHeal:
   - {fileID: 1862968169372002378, guid: 9a97348776a1f6842890377a97fe94f0, type: 3}
   _dropEnemy:
-  - {fileID: 3652872091872407968, guid: 4c99a88caedc3fd459b5ec12b8e91c85, type: 3}
-  - {fileID: 1435232971502447001, guid: abc058fd708451b428a580ab0fb7a989, type: 3}
   - {fileID: 1010654903286497295}
   _dropWeapon:
   - {fileID: 7314258977217876916, guid: 1661a7e6e54bbca4383a85d274f6108d, type: 3}

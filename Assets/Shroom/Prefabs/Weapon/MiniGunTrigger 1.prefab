@@ -302,7 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponVar: {fileID: 8039931058382910020, guid: 3c4122acda5c00f49a20fdf48d97123f,
     type: 3}
-  _bulletsAdd: 50
+  _bulletsAdd: 25
 --- !u!95 &6055171850062587496
 Animator:
   serializedVersion: 5

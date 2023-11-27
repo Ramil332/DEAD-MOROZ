@@ -48,8 +48,14 @@ public class SantaBossController : Enemy
             int indexPoint3 = Random.Range(0, _spawnPoints.Length);
 
             Instantiate(_mobPrefabs[indexMob1], _spawnPoints[indexPoint1].position, Quaternion.identity);
+            Instantiate(GameAssets.I.PfSpawnVFX, _spawnPoints[indexPoint1].position, Quaternion.identity);
+
             Instantiate(_mobPrefabs[indexMob2], _spawnPoints[indexPoint2].position, Quaternion.identity);
+            Instantiate(GameAssets.I.PfSpawnVFX, _spawnPoints[indexPoint2].position, Quaternion.identity);
+
             Instantiate(_mobPrefabs[indexMob3], _spawnPoints[indexPoint3].position, Quaternion.identity);
+            Instantiate(GameAssets.I.PfSpawnVFX, _spawnPoints[indexPoint3].position, Quaternion.identity);
+
 
         }
     }

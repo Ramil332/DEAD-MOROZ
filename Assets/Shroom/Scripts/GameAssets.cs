@@ -17,6 +17,7 @@ public class GameAssets : MonoBehaviour
 
     public Transform PfDamagePopup;
     public Transform PfDamageParticles;
+    public Transform PfSpawnVFX;
 
     public SoundAudioClip[] SoundAudioClipArray;
 

@@ -37,6 +37,8 @@ public static class SoundManager
         SantaIcePick,
         SnowGirl,
         IceGates,
+        BagReload,
+        GranadeReload,
 
     }
 

@@ -15,7 +15,6 @@ public class Spawner : MonoBehaviour
     public void Spawn(GameObject[] pfEnemy, float delayNextSpawner, int maxEnemy, GameObject vfxVortex)
     {
         StartCoroutine(EnemySpawn(pfEnemy, delayNextSpawner, maxEnemy, vfxVortex));
-        Debug.Log("Spawn is true");
 
     }
 

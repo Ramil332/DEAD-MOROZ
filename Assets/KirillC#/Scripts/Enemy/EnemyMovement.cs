@@ -114,10 +114,12 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
+            transform.LookAt(_playerPos);
 
 
             if (!_isAttacking)
             {
+
                 _enemyAnim.SetBool("Movement", false);
             }
 

@@ -58,6 +58,8 @@ public class SantaHealth : MonoBehaviour, IDamagable
     }
     private void HealthSystem_OnDamaged(object sender, EventArgs e)
     {
+        Instantiate(GameAssets.I.PfDamageParticles, transform.position, Quaternion.identity);
+
         // Debug.Log(name + "CurrentHealth " + _healthSystem.GetHealth());
     }
     //private void HealthSystem_OnHealed(object sender, EventArgs e)

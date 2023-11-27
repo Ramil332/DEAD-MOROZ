@@ -60,6 +60,6 @@ Material:
     - _dencity: 3
     - _speed: 1
     m_Colors:
-    - _Color: {r: 0.4464158, g: 1.417145, b: 1.4980394, a: 0}
+    - _Color: {r: 0.88002867, g: 1.5392969, b: 1.811321, a: 0}
     - _vortexStrength: {r: -7, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

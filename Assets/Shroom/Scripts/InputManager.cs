@@ -106,4 +106,8 @@ public class InputManager : MonoBehaviour
         return _inputPlayer.Player.WeaponChange.triggered;
     }
 
+    public bool WeaponReaload()
+    {
+        return _inputPlayer.Player.Reload.triggered;
+    }
 }
