@@ -198,7 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponVar: {fileID: 2851285061708422675, guid: cf5f18ff08ad53347bbe0660758a6a1c,
     type: 3}
-  _bulletsAdd: 6
+  _bulletsAdd: 8
 --- !u!65 &6657506265193458059
 BoxCollider:
   m_ObjectHideFlags: 0

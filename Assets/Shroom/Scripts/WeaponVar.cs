@@ -74,6 +74,8 @@ public class WeaponVar : MonoBehaviour
                         Bullet bullet = Instantiate(_weaponStats.Bullet, shootPoint.position, shootPoint.rotation);
                         bullet.SetDestination(target);
                         Instantiate(_weaponStats.MuzzleEffect, shootPoint.position, shootPoint.rotation);
+                        _isShooting = false;
+                        _attackTime = 0;
 
                         break;
 
@@ -94,7 +96,9 @@ public class WeaponVar : MonoBehaviour
 
 
                         }
-                      
+
+                        _isShooting = false;
+                        _attackTime = 0;
 
                         break;
 
@@ -179,6 +183,18 @@ public class WeaponVar : MonoBehaviour
         }
 
     }
+    private void UpdateMeleeAttack()
+    {
+        _attackTime += Time.deltaTime;
+
+        if (_weaponStats.FireRate <= _attackTime)
+        {
+            _isShooting = true;
+
+        }
+
+    }
+
 
     public void AddBullets(int bullets)
     {
@@ -205,7 +221,8 @@ public class WeaponVar : MonoBehaviour
 
     private void Update()
     {
-        UpdateShooting(Time.time);
+        UpdateMeleeAttack();
+      //  UpdateShooting(Time.time);
         if (!_isReloading && _isShooting && BulletsTotalAmount > 0 && BulletsInMagazine < 1)
         {
             StartCoroutine(Reload());

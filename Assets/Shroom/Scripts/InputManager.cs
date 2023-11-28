@@ -5,7 +5,7 @@ public class InputManager : MonoBehaviour
 {
     private  PlayerInputActions _inputPlayer;
     private static InputManager _inputInstance;
-    [SerializeField] private Texture2D _cursorTexture;
+   // [SerializeField] private Texture2D _cursorTexture;
 
     private bool _isActive = true;
     public static InputManager InputInstance
@@ -28,7 +28,7 @@ public class InputManager : MonoBehaviour
         _inputPlayer = new PlayerInputActions();
 
         //Cursor.visible = false;
-        Cursor.SetCursor(_cursorTexture, Vector2.zero, CursorMode.Auto);
+       // Cursor.SetCursor(_cursorTexture, Vector2.zero, CursorMode.Auto);
         Cursor.lockState = CursorLockMode.Confined;
     }
 
